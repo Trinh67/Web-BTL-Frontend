@@ -1,0 +1,23 @@
+.form-title{
+    background-color: rgb(255, 255, 255);
+    height: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 0.8rem;
+}
+.control-label{
+    font-weight: bold;
+}
+.label{
+    font-size:1rem;
+}
+.fa-sign-in:before {
+    content: "\f090";
+}
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+

@@ -69,6 +69,45 @@ pre {
     padding: 5px;
 }
 
+/* Comments */
+.post-comments .media {
+    padding-top: 0.8rem;
+    border-top: 1px solid #eceef2;
+}
+.post-comments .media:nth-child(1) {
+    padding-top: 0px;
+    border-top: none;
+}
+.post-comments .media .media-left {
+    padding-right: 0.8rem;
+}
+.post-comments .media .media-left .media-object {
+    width:3rem;
+    border-radius: 50%;
+}
+.post-comments .media .media-body .media-heading h4 {
+    text-transform: capitalize;
+}
+.post-comments .media .media-body .media-heading .time {
+    font-size: 0.8rem;
+    margin-right: 0.8rem;
+    color: #506485;
+}
+.post-comments .media .media-body .media-heading .reply {
+    font-size: 0.8rem;
+    color: #506485;
+}
+.post-comments .media .media-body .media-heading .reply:hover, .post-comments .media .media-body .media-heading .reply:focus {
+    color: #0b44c0;
+    text-decoration: none;
+}
+.post-comments h4{
+    font-size: 1.1rem;
+}
+.post-comments p{
+    font-size: 1rem;
+}
+
 /*Media query*/
 @media screen and (max-width:359px){
     :root{
