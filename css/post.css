@@ -1,0 +1,14 @@
+.entry-title{
+    text-align: center;
+}
+.panel-heading, .require{
+    color: red;
+}
+.form-group > label {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: 700;
+}
+.utility > label {
+    font-size: 0.9rem;
+}
