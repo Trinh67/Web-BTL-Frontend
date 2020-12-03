@@ -54,6 +54,11 @@ pre{
 }
 
 /* ======================================= */
+.title{
+    margin-top: 1rem;
+    font-size:1.4rem;
+    font-weight: bold;
+}
 .title-comm {
     color: #fff;
     font-size: 18px;
@@ -173,6 +178,18 @@ h3.title-comm:before {
 }
 .room-meta span a {
     text-decoration: none;
+}
+
+tr > th {
+    background-color: #636060;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #e9e5e5;
+}
+tr > td:hover {
+    cursor: pointer;
+    background-color: #597ffc;
 }
 /* ======================================= */
 .breadcrumb{
