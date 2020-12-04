@@ -21,14 +21,29 @@ pre{
     background-color: rgba(105, 80, 158, 0.9) !important;
     font-size: 0.9rem;
 }
+.navbar li{
+    margin-right: 0.2rem;
+}
 .navbar li a{
     color: white !important;
 }
-.navbar li:hover{
+.navbar-nav > li:hover{
     background-color:rgba(46, 29, 83, 0.9) !important;
 }
 .navbar li a:hover{
     text-decoration: none;
+}
+.navbar .dropdown .dropdown-menu li a{
+    padding-left: 0.5rem;
+}
+.navbar .dropdown .dropdown-menu li a{
+    color: #000000 !important;
+}
+.navbar .dropdown .dropdown-menu li a:hover{
+    color: rgb(10, 25, 238) !important;
+}
+.navbar .dropdown .dropdown-menu li:hover{
+    background-color: #e2dede !important;
 }
 .carousel-inner img{
     width: 100% !important;

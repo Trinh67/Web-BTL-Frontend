@@ -60,23 +60,30 @@
                 <hr/>
                 <div class="form-group row">
                     <div class="col-sm-1"></div>
+                    <label class="control-label col-sm-2" for="email">Họ tên:</label>
+                    <div class="col-sm-8">
+                        <input type="text" required class="form-control" name="txtuser" placeholder="Họ và tên">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-1"></div>
+                    <label class="control-label col-sm-2" for="email">Số căn cước công dân:</label>
+                    <div class="col-sm-8">
+                        <input type="number" required class="form-control" name="txtuser" placeholder="Số căn cước công dân">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-1"></div>
+                    <label class="control-label col-sm-2" for="email">Số điện thoại:</label>
+                    <div class="col-sm-8">
+                        <input type="tel" pattern="[0-9]{10,12}" required class="form-control" name="txtuser" placeholder="Số điện thoại">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-1"></div>
                     <label class="control-label col-sm-2" for="email">Tài khoản:</label>
                     <div class="col-sm-8">
                         <input type="text" required class="form-control" name="txtuser" placeholder="Tài khoản đăng nhập hệ thống">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-1"></div>
-                    <label class="control-label col-sm-2" for="pwd">Mật khẩu:</label>
-                    <div class="col-sm-8"> 
-                        <input type="password" required class="form-control" name="txtpass" placeholder="Nhập mật khẩu">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-1"></div>
-                    <label class="control-label col-sm-2" for="pwd">Nhập lại mật khẩu:</label>
-                    <div class="col-sm-8"> 
-                        <input type="password" required class="form-control" name="txt-repass" placeholder="Nhập lại mật khẩu">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -86,6 +93,23 @@
                         <input type="email" id="sc_email" required class="form-control" name="txtmail" placeholder="Email của bạn">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <div class="col-sm-1"></div>
+                    <label class="control-label col-sm-2" for="pwd">Mật khẩu:</label>
+                    <div class="col-sm-8"> 
+                        <input type="password" required id="password" class="form-control" minlength="6" name="pass" placeholder="Nhập mật khẩu">
+                        <i class="fa fa-eye field-icon" id="togglePassword"></i>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-1"></div>
+                    <label class="control-label col-sm-2" for="pwd">Nhập lại mật khẩu:</label>
+                    <div class="col-sm-8"> 
+                        <input type="password" required id="confirm_password" class="form-control" name="confirm_password" placeholder="Nhập lại mật khẩu">
+                        <i class="fa fa-eye field-icon" id="togglePassword2"></i>
+                    </div>
+                </div>
+                <span id='message'></span>
                 <div class="form-group row">
                     <div class="col-sm-1"></div>
                     <label class="control-label col-sm-2" for="pwd">Tên hiển thị:</label>
@@ -138,6 +162,7 @@
     </footer>
 
     <!-- script -->
+    <script src="js/form.js" type="text/javascript"></script>
     <script src="js/register.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>

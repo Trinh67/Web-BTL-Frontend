@@ -21,3 +21,12 @@
     border-color: #4cae4c;
 }
 
+.field-icon {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    right: 1.5rem;
+    top: 0.7rem;
+    color: black;
+    z-index: 1;
+}
