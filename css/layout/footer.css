@@ -1,0 +1,14 @@
+﻿footer {
+    background-color: #3f3f3f;
+    color: #d5d5d5;
+}
+
+hr.light {
+    border-bottom: 1px solid #d5d5d5;
+    width: 75%;
+}
+
+.light-100 {
+    border-bottom: 1px solid #d5d5d5;
+    width: 88%;
+}

@@ -1,0 +1,59 @@
+.panel{
+    padding-top: 1rem;
+    margin-left: 1rem;
+    float: left;
+    width: 250px;
+    height: 100vh;
+    border-right: 1px solid #a3a3a3;
+}
+.main{
+    margin-left: 280px;
+}
+
+.panel .account{
+    display: flex;
+}
+.panel .account-text{
+    padding-left: 0.8rem;
+    padding-top: 1rem;
+}
+.surplus{
+    font-size: 0.8 rem;
+    font-weight: bold;
+    margin-top: 0.8rem;
+    margin-left: 2rem;
+}
+.money{
+    color: #ff0404;
+}
+.user_avatar {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border-width: 3px;
+    border-color: #ffffff;
+    border-radius: 50%;
+}
+
+/* Menu */
+.menu{
+    width: 100%;
+}
+.menu .menu_item {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    padding-left: 20px;
+}
+    .menu .menu_item:hover {
+        background-color: #e5e5e5;
+        cursor: pointer;
+    }
+    .menu .menu_item .menu_item--icon {
+        width: 24px;
+        height: 24px;
+    }
+    .menu .menu_item .menu_item--text {
+        margin-left: 10px;
+        font-size: 0.8rem;
+    }

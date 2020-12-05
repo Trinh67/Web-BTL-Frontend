@@ -1,0 +1,136 @@
+﻿.title {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.title-comm {
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    background-color: #fff;
+    text-align: center;
+}
+
+h3.title-comm:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    border-top: 2px solid #d0d2d3;
+    z-index: 1;
+    display: block;
+}
+
+.title-comm .title-holder {
+    min-width: 350px;
+    height: 45px;
+    background-color: #003352;
+    height: auto;
+    line-height: 45px;
+    padding: 0px 20px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: inline-block;
+    min-width: 280px;
+}
+
+.title-holder:before {
+    content: "";
+    position: absolute;
+    right: -15px;
+    border-width: 0px;
+    bottom: 0px;
+    border-style: solid;
+    border-color: #003352 transparent;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 23px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-left: 15px solid #003352;
+}
+
+.title-holder:after {
+    content: "";
+    position: absolute;
+    left: -15px;
+    border-width: 0px;
+    bottom: 0px;
+    border-style: solid;
+    border-color: #003352 transparent;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 23px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-right: 15px solid #003352;
+}
+
+.wrap-img {
+    position: relative;
+    height: 240px;
+    background-size: cover;
+}
+
+.wrap-img-vertical {
+    position: relative;
+    min-height: 240px;
+}
+
+.room-item {
+    margin-bottom: 20px;
+}
+
+.room-item-vertical {
+    margin-bottom: 20px;
+}
+
+.category {
+    position: absolute;
+    width: 100%;
+    background: #003352;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+    .category a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+.room-hot .room-detail {
+    padding: 10px 10px 10px 10px;
+    background: #dbdbdb;
+    min-height: 220px;
+}
+
+.room-item-vertical .room-detail {
+    padding: 10px 10px 10px 10px;
+    background: #dbdbdb;
+    min-height: 220px;
+}
+
+.room-detail h4 a {
+    color: #008efc;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.room-meta {
+    color: #6b6a6a;
+}
+
+    .room-meta span a {
+        text-decoration: none;
+    }

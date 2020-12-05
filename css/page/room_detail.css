@@ -12,6 +12,7 @@
 .price_label {
     font-size: 1rem;
     margin-top: 2px;
+    color: #ff0000;
 }
 .pull-right{
     float: right;
@@ -68,7 +69,9 @@ pre {
     border-radius: 5px;
     padding: 5px;
 }
-
+.filter-category{
+    
+}
 /* Comments */
 .post-comments .media {
     padding-top: 0.8rem;
@@ -106,29 +109,4 @@ pre {
 }
 .post-comments p{
     font-size: 1rem;
-}
-
-/*Media query*/
-@media screen and (max-width:359px){
-    :root{
-        font-size: 16px;
-    };
-}
-
-@media screen and (min-width: 360px){
-    :root{
-        font-size: calc(16px + 2*((100vw - 360px)/(768-360)));
-    }
-}
-
-@media screen and (min-width: 768px){
-    :root{
-        font-size: calc(18px + 2*((100vw - 768px)/(1366-768)));
-    }
-}
-
-@media screen and (min-width: 1336px){
-    :root{
-        font-size: 20px;
-    }
 }

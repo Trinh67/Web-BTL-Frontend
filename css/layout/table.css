@@ -1,0 +1,24 @@
+﻿tr > th {
+    background-color: #03a742;
+    font-size: 1.2rem;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #e9e5e5;
+}
+
+tr > td:hover {
+    cursor: pointer;
+    background-color: #597ffc;
+}
+
+tr > td > a {
+    text-decoration: none;
+    color: #000000;
+}
+
+    tr > td > a:hover {
+        text-decoration: none;
+        color: #000000;
+    }

@@ -1,0 +1,129 @@
+/*CSS*/
+@import url('layout/navbar.css');
+@import url('layout/footer.css');
+@import url('layout/table.css');
+@import url('layout/form.css');
+@import url('layout/room-item.css');
+
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif, Arial, Helvetica;
+    font-size: 1rem;
+    color: #222;
+    min-width: 300px;
+}
+.btn-dangtin{
+    background: #03a742;
+    padding: 5px!important  ;
+    margin: auto;
+    border-radius: 5px;
+    border: 1px solid #ffffff
+}
+pre{
+    font-family: sans-serif, Arial, Helvetica;
+    font-size: 1rem;
+}
+
+/* ======================================= */
+.carousel-inner img{
+    width: 100% !important;
+}
+.box-search {
+    top: 20px;
+    background: #003352;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+}
+.box-search .form-group div{
+    margin-top: 1rem;
+}
+.box-search .form-group select{
+    box-sizing: border-box;
+    padding-left: 0.2rem;
+    min-width: 12rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+}
+
+/* ======================================= */
+
+/* Phân trang */
+.pagination {
+    width: 400px;
+    margin-left: 50px;
+  }
+  .pagination a {
+    display: block;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+
+  .pagination a.active {
+      background-color: #4CAF50;
+      color: white;
+  }
+
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+  }
+
+/* Table */
+.filter-price th tr td{
+    font-size: 1rem;
+}
+.filter-price tbody tr td a{
+    font-size: 0.9rem;
+}
+/* ======================================= */
+.breadcrumb{
+    margin-top: 1rem;
+}
+.breadcrumb-item a{
+    text-decoration: none;
+}
+.gap{
+    margin-top: 0.8rem;
+    border-bottom: 1px solid #d5d5d5
+}
+.introduce{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* ======================================= */
+hr{
+    width: 88%;
+}
+
+/*Media query*/
+@media screen and (max-width:359px){
+    :root{
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 360px){
+    :root{
+        font-size: calc(16px + 2*((100vw - 360px)/(768-360)));
+    }
+}
+
+@media screen and (min-width: 768px){
+    :root{
+        font-size: calc(18px + 2*((100vw - 768px)/(1366-768)));
+    }
+}
+
+@media screen and (min-width: 1336px){
+    :root{
+        font-size: 20px;
+    }
+}
