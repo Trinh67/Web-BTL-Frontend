@@ -1,22 +1,17 @@
 ﻿// Tạo <Utility>
-let showUtility = function (x) {
+let showUtility = function (x, index) {
 	// Tạo <tr> và các <td> mới
 	let r = document.createElement("span");
-	for (let i = 0; i < x.length; ++i) {
-		r.innerHTML = '<i class="fas fa-check"></i>' + x[i];
-    }
-	console.log(r);
+	r.innerHTML = '<i class="fas fa-check"></i> ' + x[index];
 	return r;
 };
 //
 // Tạo <Comment>
-let showComment = function (x) {
+let showComment = function (x, index) {
 	// Tạo <tr> và các <td> mới
 	let r = document.createElement("div");
-	for (let i = 0; i < x.length; ++i) {
-		r.innerHTML = '<div class="media"><div class="media-left" ><img class="media-object" src="../../content/images/avatar/' + x[i]['commenter']['avatar'] +'" alt=""></div><div class="media-body"><div class="media-heading"><h4>' + x[i]['commenter']['name'] + '</h4><span class="time">' + x[i]['comment']['createdAt'] + '</span><a href="#" class="reply">Reply</a><div><p>' + x[i]['comment']['content'] + '</p></div></div >';
-	}
-	console.log(r);
+	let i = index;
+	r.innerHTML = '<div class="media"><div class="media-left"><img class="media-object" src="../../content/images/avatar/' + x[i]['commenter']['avatar'] +'" alt=""></div><div class="media-body"><div class="media-heading"><h4>' + x[i]['commenter']['name'] + '</h4><span class="time">' + x[i]['comment']['createdAt'] + '</span><a href="#" class="reply">Reply</a><div><p>' + x[i]['comment']['content'] + '</p></div></div>';
 	return r;
 };
 //
@@ -30,7 +25,11 @@ fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInfor?idPost=2")
 			resp.json()
 				.then(ret => {
 					if (ret.motelInfor != null) {
-						let r = showUtility(ret.motelInfor['idUtility']);
+						var utility = JSON.parse(ret.motelInfor['idUtility']);
+						for(let i = 0; i < utility.length; i++) {
+							let r = showUtility(utility, i);
+							document.querySelector("div.utility").appendChild(r);
+						};
 						document.querySelector("li.title-page").innerHTML = ret.motelInfor['title'];
 						document.querySelector("p.entry-title").innerHTML = ret.motelInfor['title'];
 						document.querySelector("span#price-1").innerHTML = ret.motelInfor['price'] + ' VND';
@@ -40,17 +39,19 @@ fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInfor?idPost=2")
 						document.querySelector("span#area").innerHTML = ret.motelInfor['area'] + ' m <sup> 2</sup>';
 						// Utility update later
 						document.querySelector("p.description").innerHTML = ret.motelInfor['description'];
-						document.querySelector("h4.count-comment").innerHTML = ret.comments.length + ' Comments';
-						if (ret.comments.length > 0) {
-							let r = showComment(ret.comments);
+						document.querySelector("h4.count-comment").innerHTML = 'Bài viết có ' + ret.comments.length + ' bình luận';
+						for(let i = 0; i < ret.comments.length; i++) {
+							let r = showComment(ret.comments, i);
 							document.querySelector("div.post-comments").appendChild(r);
 						};
 						//Owner
 						document.querySelector("div#avatar").innerHTML = '<img src="../../content/images/avatar/'+ ret.owner['avatar'] +'" class="user_avatar" alt="Avatar" width="100" height="100">';
 						document.querySelector("strong.owner-name").innerHTML =  ret.owner['name'];
 						document.querySelector("span.owner-phone").innerHTML = 'SĐT: ' + ret.owner['phone'];
-						//initMap(ret.motelInfor['position'][0], ret.motelInfor['position'][1]);
-						initMap(21.038477813641833, 105.78266468178539);
+						//Map
+						var position = JSON.parse(ret.motelInfor['position']);
+						console.log(position[1]);
+						initMap(parseFloat(position[0]), parseFloat(position[1]));
 					} else {
 						// Có lỗi xử lý nghiệp vụ
 						document.getElementById("demo").innerHTML = "Error!";

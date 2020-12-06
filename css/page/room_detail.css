@@ -33,11 +33,11 @@ pre {
     background-color: #ffffff!important;
 }
 #km-detail {
-    border: 1px solid #003352;
+    border: 1px solid #03a742;
     margin-bottom: 10px;
 }
 #km-detail i {
-    color:#003352;
+    color:#03a742;
 }
 #km-detail span {
     margin-right: 5px;
@@ -46,15 +46,15 @@ pre {
     font-weight: bold;
     color: #fff;
     padding: 4px 10px;
-    background-color: #003352;
-    border: 1px dashed #003352;
+    background-color: #03a742;
+    border: 1px dashed #03a742;
 }
 
 /* ======================================= */
 
 .user_avatar {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     border-width: 3px;
     border-color: #ffffff;
@@ -62,24 +62,29 @@ pre {
 }
 .phone_btn{
     margin-bottom: 15px;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 .report {
     border: 2px dashed #ed1c24;
     border-radius: 5px;
     padding: 5px;
 }
-.filter-category{
-    
+.favorite-room{
+    margin-top: 1rem;
+    margin-left: 20%;
+    width: 60%;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 /* Comments */
-.post-comments .media {
+.post-comments div .media {
+    margin-top: 0.6rem;
     padding-top: 0.8rem;
-    border-top: 1px solid #eceef2;
 }
 .post-comments .media:nth-child(1) {
-    padding-top: 0px;
-    border-top: none;
+    padding-top: 0.8rem;
+    border-top: 1px solid #b9b9b9;
 }
 .post-comments .media .media-left {
     padding-right: 0.8rem;

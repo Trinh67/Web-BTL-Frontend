@@ -81,6 +81,7 @@
     <!-- Carousel -->
     <!-- jumbotron -->
     <div class="container">
+        <p id="demo"></p>
         <!-- pages-title-start -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -96,10 +97,10 @@
                 <p class="entry-title entry-prop"></p>
                 <hr>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <span class="price_area" id="price-1" style="color: red; font-size: 1.2rem"><span class="price_label">VND</span></span>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <span class="pull-right price-time" style="font-size:0.9rem"></span>
                     </div>
                 </div>
@@ -114,12 +115,7 @@
                     <!-- Tiện ích -->
                     <div id="km-detail">
                         <div class="fs-dtslt">Tiện ích Phòng Trọ</div>
-                        <div style="padding: 5px;" class="utility">
-                            <span><i class="fas fa-check"></i> Điện nước tự lo </span>
-                            <span><i class="fas fa-check"></i> Không chung chủ, phòng có nhà vs riêng </span>
-                            <span><i class="fas fa-check"></i> Gần chợ, phòng sạch sẽ, thoáng mát. </span>
-                            <span><i class="fas fa-check"></i> Wi-Fi free </span>
-                        </div>
+                        <div style="padding: 5px;" class="utility"></div>
                     </div>
                     <pre><strong>Mô tả:</strong><p class="pre description"></p>
                     </pre>
@@ -158,6 +154,7 @@
                     <!-- Left and right controls -->
                 </div>
                 <!-- END Slider Hình Ảnh -->
+                <button class="favorite-room btn btn-success"><i class="fas fa-heart"></i> Yêu thích</button>
                 <br />
             </div>
             <div class="col-md-4">
@@ -166,7 +163,7 @@
                         <div class="col-md-4 text-center" id="avatar"></div>
                         <div class="col-md-8">
                             <p style="font-weight: 500; font-size: 1rem;">Người đăng</p>
-                            <strong class="owner-name"></strong><br>
+                            <strong class="owner-name"></strong>
                         </div>
                     </div>
                 </div>
@@ -222,10 +219,10 @@
         <hr />
         <form>
             <div class="form-group">
-                <label name="comment">Your Comment</label>
+                <label name="comment">Bình luận của bạn</label>
                 <textarea name="comment" class="form-control" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="submit" class="btn btn-primary">Gửi</button>
         </form>
         <hr />
         <!-- comments -->
@@ -235,7 +232,7 @@
             </div>
             <div class="post-comments">
                 <!-- comment -->
-                <div class="media">
+                <!-- <div class="media">
                     <div class="media-left">
                         <img class="media-object" src="../../content/images/avatar/no-avatar.jpg" alt="">
                     </div>
@@ -247,7 +244,7 @@
                         </div>
                         <p>Phần "Comment" vẫn chưa xử lí được.</p>
 
-                        <!-- comment -->
+                        
                         <div class="media">
                             <div class="media-left">
                                 <img class="media-object" src="../../content/images/avatar/no-avatar.jpg" alt="">
@@ -261,9 +258,9 @@
                                 <p>Yes, mình chưa tìm ra cách xử lí phần này.</p>
                             </div>
                         </div>
-                        <!-- /comment -->
+                        
                     </div>
-                </div>
+                </div> -->
                 <!-- /comment -->
             </div>
         </div>
