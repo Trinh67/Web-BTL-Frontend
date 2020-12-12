@@ -1,3 +1,4 @@
+/* Thông tin phòng trọ */
 .entry-title{
     font-size: 1.8rem;
 }
@@ -32,6 +33,8 @@ pre {
     border-radius: 0px!important;
     background-color: #ffffff!important;
 }
+
+/* Tiện ích */
 #km-detail {
     border: 1px solid #03a742;
     margin-bottom: 10px;
@@ -50,7 +53,7 @@ pre {
     border: 1px dashed #03a742;
 }
 
-/* ======================================= */
+/* Thông tin chủ trọ*/
 
 .user_avatar {
     width: 4rem;
@@ -64,11 +67,15 @@ pre {
     margin-bottom: 15px;
     padding-top: 15px;
 }
+
+/* Báo cáo phòng trọ */
 .report {
     border: 2px dashed #ed1c24;
     border-radius: 5px;
     padding: 5px;
 }
+
+/* Yêu thích */
 .favorite-room{
     margin-top: 1rem;
     margin-left: 20%;

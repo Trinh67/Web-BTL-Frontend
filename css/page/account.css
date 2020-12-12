@@ -1,3 +1,4 @@
+/* Bảng chức năng */
 .panel{
     padding-top: 1rem;
     margin-left: 1rem;
@@ -55,5 +56,54 @@
     }
     .menu .menu_item .menu_item--text {
         margin-left: 10px;
+        margin-top: 0.2rem;
         font-size: 0.8rem;
     }
+
+/* Nạp tiền */
+.recharge-page .select-title{
+    padding-left: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.methods a .item-icon img{
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    margin-bottom: 0.2rem;
+}
+.methods .group-item{
+    display: block;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.methods a:hover{
+    color: #06d421;
+    text-decoration: none;
+}
+
+/* Support */
+.main-content, .edit-user, .recharge-page{
+    position: relative;
+}
+#support_box{
+    position: relative;
+    background-color: #3f3f3f;
+    color: #ffffff;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+#support_box .title{
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+#support_box .content{
+    width: 100%;
+    display: flex;
+}
+#support_box .content a:hover{
+    text-decoration: none;
+}

@@ -1,11 +1,4 @@
-$('#file-3').fileinput({
-    theme: 'fa',
-    language: 'vi',
-    showUpload: false,
-    allowedFileExtensions: ['jpg', 'png', 'gif']
-});
-
-
+// Map
 var map;
 var marker;
 function initialize() {
@@ -69,7 +62,7 @@ function initialize() {
             position: options.position,
             map: map,
             zoom: 19,
-            icon: "images/gps.png",
+            icon: "../../content/images/map/gps.png",
             draggable: true
         });
         /* Dragend Marker */
@@ -168,5 +161,3 @@ function initialize() {
 
 }
 // google.maps.event.addDomListener(window, 'load', initialize);
-
-    

@@ -7,14 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Add link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
 
-    <link href="../css/main.css" rel="stylesheet" />
-    <link href="../css/page/room_detail.css" rel="stylesheet" />
-    <link href="../css/page/post.css" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet"/>
+    <link href="../css/page/room_detail.css" rel="stylesheet"/>
+    <link href="../css/page/post.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -54,11 +53,12 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="#">Quản lí</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Đăng tin phòng trọ</li>
             </ol>
         </nav>
     </div>
-    <hr />
+    <hr/>
     <!-- Main -->
     <div class="container">
         <div class="row">
@@ -83,30 +83,30 @@
                             <input type="hidden" name="_token" value="">
                             <div class="form-group">
                                 <label for="usr">Tiêu đề bài đăng(*):</label>
-                                <input type="text" class="form-control" name="txttitle" placeholder="Tiêu đề">
+                                <input type="text" class="form-control" name="title" placeholder="Tiêu đề">
                             </div>
                             <div class="form-group">
                                 <label>Địa chỉ phòng trọ(*):</label> Bạn có thể nhập hoặc chọn ví trí trên bản đồ
-                                <input type="text" id="location-text-box" name="txtaddress" class="form-control"
+                                <input type="text" id="location-text-box" name="address" class="form-control"
                                     value="" />
                                 <p><i class="far fa-bell"></i> Nếu địa chỉ hiển thị bên bản đồ không đúng bạn có thể
-                                    điều chỉnh bằng cách kéo điểm màu xanh trên bản đồ tới vị trí chính xác.</p>
-                                <input type="hidden" id="txtaddress" name="txtaddress" value="" class="form-control" />
-                                <input type="hidden" id="txtlat" value="" name="txtlat" class="form-control" />
-                                <input type="hidden" id="txtlng" value="" name="txtlng" class="form-control" />
+                                    điều chỉnh bằng cách kéo vị trí địa chỉ trên bản đồ tới vị trí chính xác.</p>
+                                <input type="hidden" id="txtaddress" name="address" value="" class="form-control" />
+                                <input type="hidden" id="txtlat" value="" name="lat" class="form-control" />
+                                <input type="hidden" id="txtlng" value="" name="lng" class="form-control" />
                             </div>
                             <div id="map-canvas" style="width: auto; height: 400px;"></div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="usr">Giá phòng(VND)(*):</label>
-                                        <input type="number" name="txtprice" class="form-control" placeholder="750000">
+                                        <input type="number" name="price" class="form-control" placeholder="750000">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="usr">Diện tích(m<sup>2</sup>)(*):</label>
-                                        <input type="number" name="txtarea" class="form-control" placeholder="16">
+                                        <input type="number" name="area" class="form-control" placeholder="16">
                                     </div>
                                 </div>
                             </div>
@@ -114,8 +114,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="usr">Quận/ Huyện(*):</label>
-                                        <select class="selectpicker pull-right" data-live-search="true"
-                                            name="iddistrict">
+                                        <select class="selectpicker" data-live-search="true"
+                                            name="district">
                                             <option value="#">Cầu Giấy</option>
                                             <option value="#">Bắc Từ Liêm</option>
                                             <option value="#">Đống Đa</option>
@@ -134,8 +134,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="usr">Loại phòng(*):</label>
-                                        <select class="selectpicker pull-right" data-live-search="true"
-                                            class="form-control" name="idcategory">
+                                        <select class="selectpicker" data-live-search="true"
+                                            class="form-control" name="category">
                                             <option value="#">Phòng trọ cho thuê</option>
                                             <option value="#">Ở ghép</option>
                                             <option value="#">Nhà nguyên căn</option>
@@ -143,17 +143,17 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12 row">
-                                <div class="form-group">
-                                    <label for="usr">SĐT Liên hệ(*):</label>
-                                    <input type="text" name="txtphone" class="form-control"
-                                        placeholder="0389252913">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="usr">SĐT Liên hệ(*):</label>
+                                        <input type="text" name="phone" class="form-control" placeholder="0389252913">
+                                    </div>
                                 </div>
                             </div>
+                            
                             <label style="margin-top: 8px; font-weight: 700;">Các tiện ích có trong phòng trọ:</label>
                             <div class="form-group row">
-                                <!-- ************** Max Items Demo ************** -->
+                                <!-- ************** Utilitiy Items ************** -->
                                 <div class="utility col-md-6 col-sm-6">
                                     <input type="checkbox" id="" name="" value="1">
                                     <label for="" >Không chung chủ(*)</label><br>
@@ -188,18 +188,18 @@
                                 </div> 
                             </div>                    
                                 <label for="other-utility">Tiện ích khác:</label>
-                                <textarea class="form-control" rows="3" name="txtdescription"
+                                <textarea class="form-control" rows="3" name="other-utility"
                                 style=" resize: none;"></textarea>                                
                             
                             <div class="form-group">
-                                <label for="comment">Mô tả ngắn:</label>
-                                <textarea class="form-control" rows="5" name="txtdescription"
+                                <label for="description">Mô tả ngắn:</label>
+                                <textarea class="form-control" rows="5" name="description"
                                     style=" resize: none;"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="comment">Thêm hình ảnh(*):</label>(Giữ Ctrl để chọn ít nhất 3 ảnh)
                                 <div class="file-loading">
-                                    <input id="file-3" type="file" class="file" name="hinhanh" multiple>
+                                    <input id="file-3" type="file" class="file" name="images" multiple>
                                     <div id="selectedFiles"></div>
                                 </div>
                             </div>
@@ -258,16 +258,6 @@
             }
             
         }
-        </script>
-
-    <script type="text/javascript" src="assets/js/selectize.js"></script>
-    <script>
-        $(function () {
-            $('select').selectize(options);
-        });
-        $('#select-state').selectize({
-            maxItems: null
-        });
     </script>
     <!-- Main -->
     <hr/>
@@ -306,18 +296,14 @@
     </footer>
 
     <!-- script -->
+    <script src="../lib/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../lib/js/bootstrap.min.js" type="text/javascript"></script>
+
     <script src="../js/post.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
+    <!-- Script Map -->
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzlVX517mZWArHv4Dt3_JVG0aPmbSE5mE&callback=initialize&libraries=geometry,places"
         async defer></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/js/bootstrap-multiselect.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

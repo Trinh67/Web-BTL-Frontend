@@ -1,4 +1,5 @@
-﻿.title {
+﻿/* Thông tin phòng */
+.title {
     margin-top: 1rem;
     font-size: 1.4rem;
     font-weight: bold;
@@ -128,7 +129,7 @@ h3.title-comm:before {
 }
 
 .room-meta {
-    color: #6b6a6a;
+    color: #666666;
 }
 
     .room-meta span a {

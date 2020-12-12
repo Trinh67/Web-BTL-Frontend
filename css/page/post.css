@@ -9,6 +9,13 @@
     margin-top: 8px;
     font-weight: 700;
 }
+.form-group select{
+    box-sizing: border-box;
+    padding-left: 0.2rem;
+    min-width: 100%;
+    height: 2.3rem;
+    border-radius: 0.3rem;
+}
 .utility > label {
     font-size: 0.9rem;
 }

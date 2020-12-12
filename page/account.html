@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,20 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Add link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/account.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/page/account.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Navigation         -->
+    <!-- Navigation  -->
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <a class="navbar-branch" href="index.html">
-                <img src="./images/logo.png" height="50">
+                <img src="../content/images/page/logo.png" height="50">
             </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
@@ -47,19 +47,20 @@
 						<ul class="dropdown-menu">
 							<li><a href="account.html"><i class="fa fa-user icon"></i>Thông tin cá nhân</a></li>
                             <li><a href="dangtin.html"><i class="fas fa-edit icon"></i>Đăng tin</a></li>
-                            <li><a href="dangtin.html"><i class="fa fa-list-alt icon"></i>Quản lý tin</a></li>
+                            <li><a href="account.html"><i class="fa fa-list-alt icon"></i>Quản lý tin</a></li>
 							<li><a href="#"><i class="fa fa-sign-out icon" aria-hidden="true"></i>Thoát</a></li>
 						</ul>
                     </li>
                 </ul>
             </div>
+        </div>
     </nav>
-    <!-- Navigation         -->
-    <!-- jumbotron -->
+    <!-- Navigation   -->
+    <!-- Main -->
         <div class="panel">
             <div class="account">
                 <div class="avatar">
-                    <img src="images/no-avatar.jpg" class="user_avatar" alt="Cinque Terre" width="100" height="100">
+                    <img src="../content/images/avatar/no-avatar.jpg" class="user_avatar" alt="Cinque Terre" width="100" height="100">
                 </div>
                 <div class="account-text">
                     <strong>Xuân Trình</strong><br>
@@ -68,7 +69,7 @@
             </div>
             <p class="surplus">Số dư: <span class="money">10.000</span> đ</p>
             <div class="menu">
-                <div class="menu_item">
+                <div class="menu_item" id="post-manager">
                     <div class="menu_item--icon">
                         <i class="fa fa-list-alt icon"></i>
                     </div>
@@ -76,15 +77,15 @@
                         Quản lí bài đăng
                     </div>
                 </div>
-                <div class="menu_item">
+                <div class="menu_item" id="edit-infor">
                     <div class="menu_item--icon">
-                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-pen-square icon"></i>
                     </div>
                     <div class="menu_item--text">
                         Sửa thông tin cá nhân
                     </div>
                 </div>
-                <div class="menu_item">
+                <div class="menu_item" id = "post-new">
                     <div class="menu_item--icon">
                         <i class="fas fa-edit icon"></i>
                     </div>
@@ -92,7 +93,7 @@
                         Đăng tin
                     </div>
                 </div>
-                <div class="menu_item">
+                <div class="menu_item" id = "recharge">
                     <div class="menu_item--icon">
                         <i class="fas fa-dollar-sign"></i>
                     </div>
@@ -100,7 +101,7 @@
                         Nạp tiền
                     </div>
                 </div>
-                <div class="menu_item">
+                <div class="menu_item" id="log-out">
                     <div class="menu_item--icon">
                         <i class="fa fa-sign-out icon" aria-hidden="true"></i>
                     </div>
@@ -116,12 +117,10 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Giới thiệu</li>
+                      <li class="breadcrumb-item"><a href="#">Quản lí</a></li>
+                      <li class="breadcrumb-item active" aria-current="page" id="current-panel">Quản lí bài đăng</li>
                     </ol>
                 </nav>
-            </div>
-            <div class="main-header">
-
             </div>
             <div class="main-content">
                 <div class="table-responsive">
@@ -140,21 +139,137 @@
                         <tbody>
                              
                             <tr style="height:auto;">
-                                <td colspan="7">Bạn chưa có tin đăng nào. Bấm <a href="#">vào đây</a> để bắt đầu đăng tin</td>
+                                <td colspan="7">Bạn chưa có tin đăng nào. Bấm vào<a href="dangtin.html"> đây</a> để bắt đầu đăng tin</td>
                             </tr>
                              
                         </tbody>
                     </table>
                 </div>
             </div>
+            <div class="edit-user nodisplay">
+                <div class="edit-user-form" style="padding-left: 0px;padding-right: 0px;">
+                    <div class="form-title">Chỉnh sửa thông tin cá nhân</div>
+                    <hr />
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="control-label col-sm-2" for="email">Tên tài khoản:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" minlength="5" id="username" name="txtuser" placeholder="Tên tài khoản đăng nhập hệ thống">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="control-label col-sm-2" for="email">Số căn cước công dân:</label>
+                        <div class="col-sm-8">
+                            <input type="number" required class="form-control" disabled name="txtuser" placeholder="401289365896">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="control-label col-sm-2" for="email">Số điện thoại:</label>
+                        <div class="col-sm-8">
+                            <input type="tel" pattern="[0-9]{10,12}" required class="form-control" name="txtuser" placeholder="Số điện thoại">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="control-label col-sm-2" for="pwd">Email:</label>
+                        <div class="col-sm-8">
+                            <input type="email" id="email" required class="form-control" name="email" placeholder="Email của bạn">
+                        </div>
+                        <div class="col-sm-1"><p id="check-email"></p></div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="control-label col-sm-2" for="pwd">Mật khẩu:</label>
+                        <div class="col-sm-8">
+                            <input type="password" class="form-control" id="password" name="txtpass" minlength="6" placeholder="******">
+                            <i class="fa fa-eye field-icon" id="togglePassword"></i>(Để nguyên nếu không chỉnh sửa)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-1"></div>
+                        <label class="control-label col-sm-2" for="pwd">Nhập lại mật khẩu:</label>
+                        <div class="col-sm-8">
+                            <input type="password" required id="confirm_password" class="form-control" name="confirm_password" placeholder="******">
+                            <i class="fa fa-eye field-icon" id="togglePassword2"></i>
+                        </div>
+                        <div class="col-sm-1"><p id="check-pass"></p></div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-offset-6 col-sm-6">
+                            <button type="submit" class="btn btn-success btn-block" id="btnSubmit"><i class="fas fa-edit"></i> Cập nhập</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Màn hình nạp tiền -->
+            <div class="recharge-page nodisplay">
+                <div class="form-title">Nạp tiền vào tài khoản</div><br/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="note alert alert-success" role="alert">
+                            <p>Tặng thêm <strong>+10%</strong> cho giá trị nạp từ 50.000đ đến dưới 1.000.000đ</p>
+                            <p>Tặng thêm <strong>+20%</strong> cho giá trị nạp từ 1.000.000đ đến 2.000.000đ</p>
+                            <p>Tặng thêm <strong>+25%</strong> cho giá trị nạp trên 2.000.000đ</p>
+                        </div>
+                        <p class="select-title">Mời bạn chọn phương thức nạp tiền</p>
+                        <div class="methods row">
+                            <a href="" class="group-item col-sm-6 col-md-4"><div class="item-icon"><img src="../content/images/payment/bank-transfer.png"></div> Chuyển khoản</a>
+                            <a href="" class="group-item col-sm-6 col-md-4"><div class="item-icon"><img src="../content/images/payment/credit-card.jpg"></div> Thẻ tín dụng quốc tế</a>
+                            <a href="" class="group-item col-sm-6 col-md-4"><div class="item-icon"><img src="../content/images/payment/cash.svg" style="width:250px"></div> Tiền mặt</a>
+                            <a href="" class="group-item col-sm-6 col-md-4"><div class="item-icon"><img src="../content/images/payment/momo.png"></div> Ví điện tử MOMO</a>
+                            <a href="" class="group-item col-sm-6 col-md-4"><div class="item-icon"><img src="../content/images/payment/zalopay.png"></div> Ví điện tử ZALOPAY</a>
+                            <a href="" class="group-item col-sm-6 col-md-4"><div class="item-icon"><img src="../content/images/payment/qr-code.png"></div> Quét mã QRCode</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hỗ trợ -->
+            <br/>
+            <div id="support_box">
+                <hr/>
+                <div class="title">Hỗ trợ khách hàng</div>
+                <br/>
+                <div class="content">
+                    <div class="item col-sm-6 col-md-3">
+                        <div class="name">Hỗ trợ thanh toán</div>
+                        <a rel="nofollow" target="_blank" href="tel:0389252913">
+                            <div class="value"><i class="fas fa-phone"></i> 0389252913</div>
+                        </a>
+                    </div>
+                    <div class="item col-sm-6 col-md-3">
+                        <div class="name">Trợ giúp đăng tin</div>
+                        <a rel="nofollow" target="_blank" href="https://www.google.com/intl/vi/gmail/about/">
+                            <div class="value"><i class="far fa-envelope"></i> trinhtx.uet@gmail.com</div>
+                        </a>
+                    </div>
+                    <div class="item col-sm-6 col-md-3">
+                        <div class="name">Hỗ trợ kĩ thuật</div>
+                        <a rel="nofollow" target="_blank" href="https://www.google.com/intl/vi/gmail/about/">
+                            <div class="value"><i class="far fa-envelope"></i> truongnh.uet@gmail.com</div>
+                        </a>
+                    </div>
+                    <div class="item col-sm-6 col-md-3">
+                        <div class="name">Vấn đề khác</div>
+                        <a rel="nofollow" target="_blank" href="https://www.google.com/intl/vi/gmail/about/">
+                            <div class="value"><i class="far fa-envelope"></i> xuannv.uet@gmail.com</div>
+                        </a>
+                    </div>
+                </div>
+            </div> 
         </div>
+        
     <!-- script -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.16/js/bootstrap-multiselect.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../lib/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../lib/js/bootstrap.min.js" type="text/javascript"></script>
+    
+    <script src="../js/register.js" type="text/javascript"></script>
+    <script src="../js/page/account.js" type="text/javascript"></script>
+    <!-- script -->
+    
 </body>
 
 </html>
