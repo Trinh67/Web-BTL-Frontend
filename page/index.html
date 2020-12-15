@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="/css/main.css" rel="stylesheet">
+    <link href="../css/page/room_detail.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -38,13 +39,13 @@
                         <a class="nav-link" href="login.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a>
                     </li> -->
                     <li class="nav-item btn-dangtin">
-                        <a href="dangtin.html"><i class="fas fa-edit"></i> Đăng tin ngay</a>
+                        <a href="post_new.html"><i class="fas fa-edit"></i> Đăng tin ngay</a>
                     </li>
                     <li class="dropdown nav-item">
 						<a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Xuan Trinh</a>
 						<ul class="dropdown-menu">
 							<li><a href="account.html"><i class="fa fa-user icon"></i>Thông tin cá nhân</a></li>
-                            <li><a href="dangtin.html"><i class="fas fa-edit icon"></i>Đăng tin</a></li>
+                            <li><a href="post_new.html"><i class="fas fa-edit icon"></i>Đăng tin</a></li>
                             <li><a href="account.html"><i class="fa fa-list-alt icon"></i>Quản lý tin</a></li>
 							<li><a href="#"><i class="fa fa-sign-out icon" aria-hidden="true"></i>Thoát</a></li>
 						</ul>
@@ -86,208 +87,138 @@
     </div>
     <!-- Carousel -->
     <!-- Main -->
-    <div class="container-fluid padding">
-        <div class="box-search">
-            <form onsubmit="">
-                <div class="form-group row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <select class="selectpicker" data-live-search="true" id="selectdistrict">
-                            <option value="#">Quận/huyện</option>
-                            <option value="#">Cầu Giấy</option>
-                            <option value="#">Bắc Từ Liêm</option>
-                            <option value="#">Đống Đa</option>
-                            <option value="#">Ba Đình</option>
-                            <option value="#">Thanh Xuân</option>
-                            <option value="#">Hai Ba Trưng</option>
-                            <option value="#">Hà Đông</option>
-                            <option value="#">Tây Hồ</option>
-                            <option value="#">Nam Từ Liêm</option>
-                            <option value="#">Hoàng Mai</option>
-                            <option value="#">Hoàn Kiếm</option>
-                            <option value="#">Long Biên</option>
-                        </select>
+    <div class="index-page">
+        <div class="container-fluid padding">
+            <div class="box-search">
+                <form onsubmit="">
+                    <div class="form-group row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <select class="selectpicker" data-live-search="true" id="selectdistrict">
+                                <option value="#">Quận/huyện</option>
+                                <option value="#">Cầu Giấy</option>
+                                <option value="#">Bắc Từ Liêm</option>
+                                <option value="#">Đống Đa</option>
+                                <option value="#">Ba Đình</option>
+                                <option value="#">Thanh Xuân</option>
+                                <option value="#">Hai Ba Trưng</option>
+                                <option value="#">Hà Đông</option>
+                                <option value="#">Tây Hồ</option>
+                                <option value="#">Nam Từ Liêm</option>
+                                <option value="#">Hoàng Mai</option>
+                                <option value="#">Hoàn Kiếm</option>
+                                <option value="#">Long Biên</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <select class="selectpicker" data-live-search="true" id="selectcategory">
+                                <option value="#">Loại phòng</option>
+                                <option value="#">Phòng trọ cho thuê</option>
+                                <option value="#">Nhà nguyên căn</option>
+                                <option value="#">Chung cư mini</option>
+                                <option value="#">Chung cư nguyên căn</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <select id="multiselect">
+                                <option value="#">Tiện ích</option>
+                                <option value="#">Không chung chủ</option>
+                                <option value="#">Khép kín</option>
+                                <option value="#">Điều hòa</option>
+                                <option value="#">Nóng lạnh</option>
+                                <option value="#">Giường, tủ quần áo</option>
+                                <option value="#">Khác</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                            <select class="selectpicker" data-live-search="true" id="selectarea">
+                                <option value="#">Diện tích</option>
+                                <option value="#">5 - 15 m<sup>2</sup></option>
+                                <option value="#">15 - 25 m<sup>2</sup></option>
+                                <option value="#">25 - 35 m<sup>2</sup></option>
+                                <option value="#">> 35 m<sup>2</sup></option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-5">
+                            <select class="selectpicker" id="selectprice" data-live-search="true">
+                                <option data-tokens="khoang gia" min="1" max="10000000">Khoảng giá</option>
+                                <option data-tokens="Tu 500.000 VNĐ - 700.000 VNĐ" min="500000" max="700000">Dưới 1.000.000 VNĐ</option>
+                                <option data-tokens="Tu 1.000.000 VNĐ - 1.500.000 VNĐ" min="1000000" max="1500000">Từ
+                                    1.000.000 VNĐ - 1.500.000 VNĐ</option>
+                                <option data-tokens="Tu 1.500.000 VNĐ - 3.000.000 VNĐ" min="1500000" max="3000000">Từ
+                                    1.500.000 VNĐ - 2.000.000 VNĐ</option>
+                                <option data-tokens="Tu 1.500.000 VNĐ - 3.000.000 VNĐ" min="1500000" max="3000000">Từ
+                                    2.000.000 VNĐ - 3.000.000 VNĐ</option>    
+                                <option data-tokens="Tren 3.000.000 VNĐ" min="3000000" max="10000000">Trên 3.000.000 VNĐ
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <button type="submit" class="btn btn-success" onclick="">Tìm kiếm ngay</button>
+                        </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <select class="selectpicker" data-live-search="true" id="selectcategory">
-                            <option value="#">Loại phòng</option>
-                            <option value="#">Phòng trọ cho thuê</option>
-                            <option value="#">Nhà nguyên căn</option>
-                            <option value="#">Chung cư mini</option>
-                            <option value="#">Chung cư nguyên căn</option>
-                        </select>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <select id="multiselect">
-                            <option value="#">Tiện ích</option>
-                            <option value="#">Không chung chủ</option>
-                            <option value="#">Khép kín</option>
-                            <option value="#">Điều hòa</option>
-                            <option value="#">Nóng lạnh</option>
-                            <option value="#">Giường, tủ quần áo</option>
-                            <option value="#">Khác</option>
-                        </select>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                        <select class="selectpicker" data-live-search="true" id="selectcategory">
-                            <option value="#">Diện tích</option>
-                            <option value="#">5 - 15 m<sup>2</sup></option>
-                            <option value="#">15 - 25 m<sup>2</sup></option>
-                            <option value="#">25 - 35 m<sup>2</sup></option>
-                            <option value="#">> 35 m<sup>2</sup></option>
-                        </select>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-5">
-                        <select class="selectpicker" id="selectprice" data-live-search="true">
-                            <option data-tokens="khoang gia" min="1" max="10000000">Khoảng giá</option>
-                            <option data-tokens="Tu 500.000 VNĐ - 700.000 VNĐ" min="500000" max="700000">Dưới 1.000.000 VNĐ</option>
-                            <option data-tokens="Tu 1.000.000 VNĐ - 1.500.000 VNĐ" min="1000000" max="1500000">Từ
-                                1.000.000 VNĐ - 1.500.000 VNĐ</option>
-                            <option data-tokens="Tu 1.500.000 VNĐ - 3.000.000 VNĐ" min="1500000" max="3000000">Từ
-                                1.500.000 VNĐ - 2.000.000 VNĐ</option>
-                            <option data-tokens="Tu 1.500.000 VNĐ - 3.000.000 VNĐ" min="1500000" max="3000000">Từ
-                                2.000.000 VNĐ - 3.000.000 VNĐ</option>    
-                            <option data-tokens="Tren 3.000.000 VNĐ" min="3000000" max="10000000">Trên 3.000.000 VNĐ
-                            </option>
-                        </select>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                        <button type="submit" class="btn btn-success" onclick="">Tìm kiếm ngay</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-    <!-- List room -->
-    <div class="container">
-        <h4 class="title">Cho thuê phòng trọ, chung cư mini, nhà nguyên căn, tìm phòng trọ</h4>
-        <p style="font-size: 0.8rem;">Cho thuê phòng trọ, nhà trọ số 1 Việt Nam - Website đăng tin cho thuê phòng trọ, tìm phòng trọ nhanh, hiệu quả với hơn 70+ tin đăng và 6.000 lượt xem mỗi tháng.</p>
-        <h3 class="title-comm"><span class="title-holder">PHÒNG TRỌ MỚI NHẤT</span></h3>
-        <div class="row room-hot">
-            <p id="demo"></p>
-            <!-- room item -->
-            <div class="col-md-6 col-lg-4">
-                <div class="room-item">
-                    <div class="wrap-img" style="background: url(../../content/images/room/phongtro1.jpg) center;background-size: cover;">
-                        <div class="category">
-                            <a href="#">Phòng trọ cho thuê</a>
-                        </div>
-                    </div>
-                    <div class="room-detail">
-                        <h4><a href="room_detail.html">Cho thuê phòng trọ, ngã tư Cổ Nhuế - Trần Cung</a></h4>
-                        <div class="room-meta">
-                            <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
-                            <span class="pull-left"><i class="far fa-clock"></i>
-                                Created at: 30/10/2020
-                            </span>
-                        </div>
-                        <br/>
-                        <div class="room-info">
-                            <span><i class="far fa-stop-circle"></i> Diện tích: <b>25 m<sup>2</sup></b></span>
-                            <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>15</b></span>
-                            <div><i class="fas fa-map-marker"></i> Địa chỉ: 177/45 Cổ Nhuế, Cổ Nhuế 2, Từ Liêm, Hà Nội, Việt Nam</div>
-                            <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: 
-                                <b>2.300.000 VNĐ</b></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- room item end-->
-            <!-- room item -->
-            <div class="col-md-6 col-lg-4">
-                <div class="room-item">
-                    <div class="wrap-img" style="background: url(../../content/images/room/phongtro1.jpg) center;
-        background-size: cover;">
-                        <img src="" class="lazyload img-responsive">
-                        <div class="category">
-                            <a href="#">Phòng trọ cho thuê</a>
-                        </div>
-                    </div>
-                    <div class="room-detail">
-                        <h4><a href="room_detail.html">Cho thuê phòng trọ, ngã tư Cổ Nhuế - Trần Cung</a></h4>
-                        <div class="room-meta">
-                            <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
-                            <span class="pull-left"><i class="far fa-clock"></i>
-                                Created at: 30/10/2020
-                            </span>
-                        </div>
-                        <br/>
-                        <div class="room-info">
-                            <span><i class="far fa-stop-circle"></i> Diện tích: <b>25 m<sup>2</sup></b></span>
-                            <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>15</b></span>
-                            <div><i class="fas fa-map-marker"></i> Địa chỉ: 77/145 Cổ Nhuế, Cổ Nhuế 2, Từ Liêm, Hà Nội, Việt Nam</div>
-                            <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: 
-                                <b>2.300.000 VNĐ</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- room item end-->
-            <!-- room item -->
-            <div class="col-md-6 col-lg-4">
-                <div class="room-item">
-                    <div class="wrap-img" style="background: url(../../content/images/room/phongtro1.jpg) center;
-        background-size: cover;">
-                        <img src="" class="lazyload img-responsive">
-                        <div class="category">
-                            <a href="#">Phòng trọ cho thuê</a>
-                        </div>
-                    </div>
-                    <div class="room-detail">
-                        <h4><a href="room_detail.html">Cho thuê phòng trọ, ngã tư Cổ Nhuế - Trần Cung</a></h4>
-                        <div class="room-meta">
-                            <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
-                            <span class="pull-left"><i class="far fa-clock"></i>
-                                Created at: 30/10/2020
-                            </span>
-                        </div>
-                        <br/>
-                        <div class="room-info">
-                            <span><i class="far fa-stop-circle"></i> Diện tích: <b>25 m<sup>2</sup></b></span>
-                            <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>15</b></span>
-                            <div><i class="fas fa-map-marker"></i>Địa chỉ: 77/145 Cổ Nhuế, Cổ Nhuế 2, Từ Liêm, Hà Nội, Việt Nam</div>
-                            <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: 
-                                <b>2.300.000 VNĐ</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- room item end -->
-        </div>
-    </div>    
-    <!-- List hot room -->
-    <div class="container">
-        <h3 class="title-comm"><span class="title-holder">PHÒNG TRỌ XEM NHIỀU NHẤT</span></h3>
-        <div class="row">
-            <div class="col-md-8">
+        <!-- List room -->
+        <div class="container">
+            <h4 class="title">Cho thuê phòng trọ, chung cư mini, nhà nguyên căn, tìm phòng trọ</h4>
+            <p style="font-size: 0.9rem;">Cho thuê phòng trọ, nhà trọ số 1 Việt Nam - Website đăng tin cho thuê phòng trọ, tìm phòng trọ nhanh, hiệu quả với hơn 70+ tin đăng và 6.000 lượt xem mỗi tháng.</p>
+            <h3 class="title-comm"><span class="title-holder">PHÒNG TRỌ MỚI NHẤT</span></h3>
+            <div class="row room-news">
+                <div id="demo"></div>
                 <!-- room item -->
-                <div class="room-item-vertical">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="wrap-img-vertical" style="background: url(../../content/images/room/phongtro1.jpg) center;
-        background-size: cover;">
-                                
-                                <div class="category">
-                                    <a href="#">Chung cư mini</a>
-                                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="room-item">
+                        <div class="wrap-img" style="background: url(../../content/images/room/phongtro1.jpg) center;background-size: cover;">
+                            <div class="category detail-room">
+                                <a href="#">Phòng trọ cho thuê</a>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="room-detail">
-                                <h4><a href="#">Cho thuê phòng trọ gần trường Đại Học Công Nghệ</a></h4>
-                                <div class="room-meta">
-                                    <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
-                                    <span class="pull-left"><i class="far fa-clock"></i>
-                                        Created at: 30/10/2020
-                                    </span>
-                                </div>
-                                <br/>
-                                <div class="room-info">
-                                    <span><i class="far fa-stop-circle"></i> Diện tích: <b>21 m<sup>2</sup></b></span>
-                                    <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>20</b></span>
-                                    <div><i class="fas fa-map-marker"></i> Địa chỉ: 120 Xuân Thủy, Cầu Giấy, Hà Nội</div>
-                                    <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: <b>1.500.000</b></div>
+                        <div class="room-detail">
+                            <h4><a href="#" class="detail-room">Cho thuê phòng trọ, ngã tư Cổ Nhuế - Trần Cung</a></h4>
+                            <div class="room-meta">
+                                <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
+                                <span class="pull-left"><i class="far fa-clock"></i>
+                                    Created at: 30/10/2020
+                                </span>
+                            </div>
+                            <br/>
+                            <div class="room-info">
+                                <span><i class="far fa-stop-circle"></i> Diện tích: <b>25 m<sup>2</sup></b></span>
+                                <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>15</b></span>
+                                <div><i class="fas fa-map-marker"></i> Địa chỉ: 177/45 Cổ Nhuế, Cổ Nhuế 2, Từ Liêm, Hà Nội, Việt Nam</div>
+                                <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: 
+                                    <b>2.300.000 VNĐ</b></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- room item end-->
+                <!-- room item -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="room-item">
+                        <div class="wrap-img" style="background: url(../../content/images/room/phongtro1.jpg) center;
+            background-size: cover;">
+                            <img src="" class="lazyload img-responsive">
+                            <div class="category detail-room">
+                                <a href="#">Phòng trọ cho thuê</a>
+                            </div>
+                        </div>
+                        <div class="room-detail">
+                            <h4><a href="room_detail.html">Cho thuê phòng trọ, ngã tư Cổ Nhuế - Trần Cung</a></h4>
+                            <div class="room-meta">
+                                <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
+                                <span class="pull-left"><i class="far fa-clock"></i>
+                                    Created at: 30/10/2020
+                                </span>
+                            </div>
+                            <br/>
+                            <div class="room-info">
+                                <span><i class="far fa-stop-circle"></i> Diện tích: <b>25 m<sup>2</sup></b></span>
+                                <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>15</b></span>
+                                <div><i class="fas fa-map-marker"></i> Địa chỉ: 77/145 Cổ Nhuế, Cổ Nhuế 2, Từ Liêm, Hà Nội, Việt Nam</div>
+                                <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: 
+                                    <b>2.300.000 VNĐ</b>
                                 </div>
                             </div>
                         </div>
@@ -295,132 +226,203 @@
                 </div>
                 <!-- room item end-->
                 <!-- room item -->
-                <div class="room-item-vertical">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="wrap-img-vertical" style="background: url(../../content/images/room/phongtro1.jpg) center;
-        background-size: cover;">
-                                
-                                <div class="category">
-                                    <a href="#">Chung cư mini</a>
-                                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="room-item">
+                        <div class="wrap-img" style="background: url(../../content/images/room/phongtro1.jpg) center;
+            background-size: cover;">
+                            <img src="" class="lazyload img-responsive">
+                            <div class="category detail-room">
+                                <a href="#">Phòng trọ cho thuê</a>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="room-detail">
-                                <h4><a href="#">Cho thuê phòng trọ gần trường Đại Học Công Nghệ</a></h4>
-                                <div class="room-meta">
-                                    <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
-                                    <span class="pull-left"><i class="far fa-clock"></i>
-                                        Created at: 30/10/2020
-                                    </span>
-                                </div>
-                                <br/>
-                                <div class="room-info">
-                                    <span><i class="far fa-stop-circle"></i> Diện tích: <b>21 m<sup>2</sup></b></span>
-                                    <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>20</b></span>
-                                    <div><i class="fas fa-map-marker"></i> Địa chỉ: 120 Xuân Thủy, Cầu Giấy, Hà Nội</div>
-                                    <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: <b>1.500.000</b></div>
-                                </div>
+                        <div class="room-detail">
+                            <h4><a href="room_detail.html" class="detail-room">Cho thuê phòng trọ, ngã tư Cổ Nhuế - Trần Cung</a></h4>
+                            <div class="room-meta">
+                                <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
+                                <span class="pull-left"><i class="far fa-clock"></i>
+                                    Created at: 30/10/2020
+                                </span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- room item end-->
-                <!-- room item -->
-                <div class="room-item-vertical">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="wrap-img-vertical" style="background: url(../../content/images/room/phongtro1.jpg) center;
-        background-size: cover;">
-                                
-                                <div class="category">
-                                    <a href="#">Chung cư mini</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="room-detail">
-                                <h4><a href="#">Cho thuê phòng trọ gần trường Đại Học Công Nghệ</a></h4>
-                                <div class="room-meta">
-                                    <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
-                                    <span class="pull-left"><i class="far fa-clock"></i>
-                                        Created at: 30/10/2020
-                                    </span>
-                                </div>
-                                <br/>
-                                <div class="room-info">
-                                    <span><i class="far fa-stop-circle"></i> Diện tích: <b>21 m<sup>2</sup></b></span>
-                                    <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>20</b></span>
-                                    <div><i class="fas fa-map-marker"></i> Địa chỉ: 120 Xuân Thủy, Cầu Giấy, Hà Nội</div>
-                                    <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: <b>1.500.000</b></div>
+                            <br/>
+                            <div class="room-info">
+                                <span><i class="far fa-stop-circle"></i> Diện tích: <b>25 m<sup>2</sup></b></span>
+                                <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>15</b></span>
+                                <div><i class="fas fa-map-marker"></i>Địa chỉ: 77/145 Cổ Nhuế, Cổ Nhuế 2, Từ Liêm, Hà Nội, Việt Nam</div>
+                                <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: 
+                                    <b>2.300.000 VNĐ</b>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- room item end-->
-                <!-- room item -->
-                <div class="room-item-vertical">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="wrap-img-vertical" style="background: url(../../content/images/room/phongtro1.jpg) center;
-        background-size: cover;">
-                                <div class="category">
-                                    <a href="#">Chung cư mini</a>
+                <!-- room item end -->
+            </div>
+        </div>    
+        <!-- List hot room -->
+        <div class="container">
+            <h3 class="title-comm"><span class="title-holder">PHÒNG TRỌ XEM NHIỀU NHẤT</span></h3>
+            <div class="row">
+                <div class="col-md-8 room-hots">
+                    <!-- room item -->
+                    <div class="room-item-vertical">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="wrap-img-vertical" style="background: url(../../content/images/room/phongtro1.jpg) center;
+            background-size: cover;">
+                                    
+                                    <div class="category">
+                                        <a href="#">Chung cư mini</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="room-detail">
-                                <h4><a href="#">Cho thuê phòng trọ gần trường Đại Học Công Nghệ</a></h4>
-                                <div class="room-meta">
-                                    <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
-                                    <span class="pull-left"><i class="far fa-clock"></i>
-                                        Created at: 30/10/2020
-                                    </span>
-                                </div>
-                                <br/>
-                                <div class="room-info">
-                                    <span><i class="far fa-stop-circle"></i> Diện tích: <b>21 m<sup>2</sup></b></span>
-                                    <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>20</b></span>
-                                    <div><i class="fas fa-map-marker"></i> Địa chỉ: 120 Xuân Thủy, Cầu Giấy, Hà Nội</div>
-                                    <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: <b>1.500.000</b></div>
+                            <div class="col-md-8">
+                                <div class="room-detail">
+                                    <h4><a href="#">Cho thuê phòng trọ gần trường Đại Học Công Nghệ</a></h4>
+                                    <div class="room-meta">
+                                        <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
+                                        <span class="pull-left"><i class="far fa-clock"></i>
+                                            Created at: 30/10/2020
+                                        </span>
+                                    </div>
+                                    <br/>
+                                    <div class="room-info">
+                                        <span><i class="far fa-stop-circle"></i> Diện tích: <b>21 m<sup>2</sup></b></span>
+                                        <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>20</b></span>
+                                        <div><i class="fas fa-map-marker"></i> Địa chỉ: 120 Xuân Thủy, Cầu Giấy, Hà Nội</div>
+                                        <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: <b>1.500.000</b></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> 
-                <!-- room item end-->             
+                    <!-- room item end-->
+                    <!-- room item -->
+                    <div class="room-item-vertical">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="wrap-img-vertical" style="background: url(../../content/images/room/phongtro1.jpg) center;
+            background-size: cover;">
+                                    
+                                    <div class="category">
+                                        <a href="#">Chung cư mini</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="room-detail">
+                                    <h4><a href="#">Cho thuê phòng trọ gần trường Đại Học Công Nghệ</a></h4>
+                                    <div class="room-meta">
+                                        <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
+                                        <span class="pull-left"><i class="far fa-clock"></i>
+                                            Created at: 30/10/2020
+                                        </span>
+                                    </div>
+                                    <br/>
+                                    <div class="room-info">
+                                        <span><i class="far fa-stop-circle"></i> Diện tích: <b>21 m<sup>2</sup></b></span>
+                                        <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>20</b></span>
+                                        <div><i class="fas fa-map-marker"></i> Địa chỉ: 120 Xuân Thủy, Cầu Giấy, Hà Nội</div>
+                                        <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: <b>1.500.000</b></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- room item end-->
+                    <!-- room item -->
+                    <div class="room-item-vertical">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="wrap-img-vertical" style="background: url(../../content/images/room/phongtro1.jpg) center;
+            background-size: cover;">
+                                    
+                                    <div class="category">
+                                        <a href="#">Chung cư mini</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="room-detail">
+                                    <h4><a href="#">Cho thuê phòng trọ gần trường Đại Học Công Nghệ</a></h4>
+                                    <div class="room-meta">
+                                        <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
+                                        <span class="pull-left"><i class="far fa-clock"></i>
+                                            Created at: 30/10/2020
+                                        </span>
+                                    </div>
+                                    <br/>
+                                    <div class="room-info">
+                                        <span><i class="far fa-stop-circle"></i> Diện tích: <b>21 m<sup>2</sup></b></span>
+                                        <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>20</b></span>
+                                        <div><i class="fas fa-map-marker"></i> Địa chỉ: 120 Xuân Thủy, Cầu Giấy, Hà Nội</div>
+                                        <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: <b>1.500.000</b></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- room item end-->
+                    <!-- room item -->
+                    <div class="room-item-vertical">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="wrap-img-vertical" style="background: url(../../content/images/room/phongtro1.jpg) center;
+            background-size: cover;">
+                                    <div class="category">
+                                        <a href="#">Chung cư mini</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="room-detail">
+                                    <h4><a href="#">Cho thuê phòng trọ gần trường Đại Học Công Nghệ</a></h4>
+                                    <div class="room-meta">
+                                        <span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">Xuân Trình</a></span><br/>
+                                        <span class="pull-left"><i class="far fa-clock"></i>
+                                            Created at: 30/10/2020
+                                        </span>
+                                    </div>
+                                    <br/>
+                                    <div class="room-info">
+                                        <span><i class="far fa-stop-circle"></i> Diện tích: <b>21 m<sup>2</sup></b></span>
+                                        <span class="pull-right"><i class="fas fa-eye"></i> Lượt xem: <b>20</b></span>
+                                        <div><i class="fas fa-map-marker"></i> Địa chỉ: 120 Xuân Thủy, Cầu Giấy, Hà Nội</div>
+                                        <div style="color: #e74c3c"><i class="far fa-money-bill-alt"></i> Giá thuê: <b>1.500.000</b></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- room item end-->             
+                </div>
+                <!-- Danh mục -->
+                <div class="col-md-4">
+                    <table class="table table-bordered table-hover">
+                        <tr><th>Danh mục tìm kiếm</th></tr>
+                        <tbody>
+                            <tr><td><a href="category.html">Phòng trọ cho thuê</a></td></tr>
+                            <tr><td><a href="category.html">Chung cư mini</a></td></tr>
+                            <tr><td><a href="category.html">Chung cư nguyên căn</a></td></tr>
+                            <tr><td><a href="category.html">Nhà nguyên căn</a></td></tr>
+                        </tbody>
+                    </table>
+                    <img src="../../content/images/page/poster.JPG" style="width:100%">
+                </div>
             </div>
-            <!-- Danh mục -->
-            <div class="col-md-4">
-                <table class="table table-bordered table-hover">
-                    <tr><th>Danh mục tìm kiếm</th></tr>
-                    <tbody>
-                        <tr><td><a href="category.html">Phòng trọ cho thuê</a></td></tr>
-                        <tr><td><a href="category.html">Chung cư mini</a></td></tr>
-                        <tr><td><a href="category.html">Chung cư nguyên căn</a></td></tr>
-                        <tr><td><a href="category.html">Nhà nguyên căn</a></td></tr>
-                    </tbody>
-                </table>
-                <img src="../../content/images/page/poster.JPG" style="width:100%">
-            </div>
+            <br/>
+            <!-- Paging -->
+            <center>
+                <div class="pagination">
+                    <a href="#">&laquo;</a>
+                    <a class="active" href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">&raquo;</a>
+                </div>
+            </center>
         </div>
-        <br/>
-        <!-- Paging -->
-        <center>
-            <div class="pagination">
-                <a href="#">&laquo;</a>
-                <a class="active" href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">&raquo;</a>
-            </div>
-        </center>
     </div>
     <hr/>
-    
 
     <!-- footer -->
     <footer>
@@ -458,6 +460,8 @@
     <!-- script -->
     <script src="../lib/js/jquery.min.js" type="text/javascript"></script>
     <script src="../lib/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzlVX517mZWArHv4Dt3_JVG0aPmbSE5mE&callback=initMap"
+    async defer></script>
 
     <script src="../js/page/main.js" type="text/javascript"></script>
     <!-- script -->

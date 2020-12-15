@@ -42,7 +42,7 @@
                             nhập</a>
                     </li>
                     <li class="nav-item btn-dangtin">
-                        <a href="dangtin.html"><i class="fas fa-edit"></i> Đăng tin ngay</a>
+                        <a href="post_new.html"><i class="fas fa-edit"></i> Đăng tin ngay</a>
                     </li>
                 </ul>
             </div>
@@ -53,7 +53,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
-                <li class="breadcrumb-item"><a href="#">Quản lí</a></li>
+                <li class="breadcrumb-item"><a href="account.html">Quản lí</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Đăng tin phòng trọ</li>
             </ol>
         </nav>
@@ -203,7 +203,27 @@
                                     <div id="selectedFiles"></div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary">Đăng Tin</button>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="usr">Gói dịch vụ đăng(*):</label>
+                                        <select class="selectpicker" data-live-search="true"
+                                            class="form-control" name="service">
+                                            <option value="#">Gói ngày (2000 VND/ngày)</option>
+                                            <option value="#">Gói tuần (12.500 VND/tuần)</option>
+                                            <option value="#">Gói tháng (45.000 VND/tháng)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="usr">Số ngày/tuần/tháng tương ứng:</label>
+                                        <input type="number" name="numberTime" class="form-control" placeholder="1">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-post">Đăng Tin</button>
                         </form>
                         <!-- <div class="alert bg-danger">
                             <button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>

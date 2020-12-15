@@ -1,4 +1,16 @@
-﻿// Tạo <Utility>
+﻿// Lấy tham số trên url
+function GetURLParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+        }
+    }
+}
+
+// Tạo <Utility>
 let showUtility = function (x, index) {
 	// Tạo <tr> và các <td> mới
 	let r = document.createElement("span");
@@ -19,7 +31,7 @@ let showComment = function (x, index) {
 //
 //
 // Tải trang: Lấy danh sách sinh viên
-fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInfor?idPost=1")
+fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInforBySlug?slug=" + GetURLParameter('slug'))
 	.then(resp => {
 		if (resp.status == 200) {
 			resp.json()
@@ -32,10 +44,10 @@ fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInfor?idPost=1")
 						};
 						document.querySelector("li.title-page").innerHTML = ret.motelInfor['title'];
 						document.querySelector("p.entry-title").innerHTML = ret.motelInfor['title'];
-						document.querySelector("span#price-1").innerHTML = ret.motelInfor['price'] + ' VND';
+						document.querySelector("span#favorite").innerHTML = ret.motelInfor['likes'] + ' lượt thích';
 						document.querySelector("span.price-time").innerHTML = 'Lượt xem: ' + ret.motelInfor['views'] + ' - Ngày đăng: ' + formDate(ret.motelInfor['createdAt']);
 						document.querySelector("strong.address").innerHTML = 'Địa chỉ: ' + ret.motelInfor['address'];
-						document.querySelector("span#price-2").innerHTML = ret.motelInfor['price'] + ' VND';
+						document.querySelector("span#price-2").innerHTML = ret.motelInfor['price'].toLocaleString('it-IT') + ' VND';
 						document.querySelector("span#area").innerHTML = ret.motelInfor['area'] + ' m <sup> 2</sup>';
 						// Utility update later
 						document.querySelector("p.description").innerHTML = ret.motelInfor['description'];
@@ -99,3 +111,4 @@ function formDate(date) {
     console.log(date);
     return day + '/' + month + '/' + year;
 }
+

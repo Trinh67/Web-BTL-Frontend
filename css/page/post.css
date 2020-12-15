@@ -19,3 +19,12 @@
 .utility > label {
     font-size: 0.9rem;
 }
+/* Yêu thích */
+.btn-post{
+    margin-top: 1rem;
+    margin-left: 20%;
+    width: 60%;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}

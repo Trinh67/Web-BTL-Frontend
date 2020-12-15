@@ -1,28 +1,29 @@
 /* Bảng chức năng */
 .panel{
     padding-top: 1rem;
-    margin-left: 1rem;
+    margin-left: 0.3rem;
     float: left;
-    width: 250px;
+    width: 200px;
     height: 100vh;
-    border-right: 1px solid #a3a3a3;
 }
 .main{
-    margin-left: 280px;
+    margin-left: 230px;
+    height: 100%;
+    border-left: 1px solid #a3a3a3;
 }
 
 .panel .account{
     display: flex;
 }
 .panel .account-text{
-    padding-left: 0.8rem;
+    padding-left: 0.4rem;
     padding-top: 1rem;
 }
 .surplus{
-    font-size: 0.8 rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-top: 0.8rem;
-    margin-left: 2rem;
+    margin-left: 1.5rem;
 }
 .money{
     color: #ff0404;
@@ -44,7 +45,8 @@
     display: flex;
     height: 40px;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 8px;
+    border-top: 1px solid #c2c2c2;
 }
     .menu .menu_item:hover {
         background-color: #e5e5e5;
@@ -55,11 +57,16 @@
         height: 24px;
     }
     .menu .menu_item .menu_item--text {
-        margin-left: 10px;
+        margin-left: 8px;
         margin-top: 0.2rem;
         font-size: 0.8rem;
     }
-
+.menu .web-title{
+    text-align: center;
+    margin-top: 6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
 /* Nạp tiền */
 .recharge-page .select-title{
     padding-left: 2rem;
@@ -85,15 +92,18 @@
 /* Support */
 .main-content, .edit-user, .recharge-page{
     position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 #support_box{
     position: relative;
     background-color: #3f3f3f;
     color: #ffffff;
-    width: 100%;
+    width: calc(100% );
     bottom: 0;
     text-align: center;
     padding-bottom: 2rem;
+    margin-left: 0px;
 }
 #support_box .title{
     width: 100%;
@@ -106,4 +116,33 @@
 }
 #support_box .content a:hover{
     text-decoration: none;
+}
+
+/* Table */
+tr > th {
+    background-color: #d6d6d6;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+}
+
+tr:nth-child(even) {
+    background-color: #e9e5e5;
+}
+
+tr > td:hover {
+    cursor: pointer;
+    background-color: #e6e6e6;
+}
+
+tr > td > a {
+    text-decoration: none;
+    color: #000000;
+}
+
+    tr > td > a:hover {
+        text-decoration: none;
+        color: #000000;
+    }
+tbody tr .btn-sm{
+    background-color: #d1d1d1;
 }

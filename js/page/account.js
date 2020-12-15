@@ -5,6 +5,14 @@ $(document).ready(function () {
     $('#post-new').click(btnPostNewOnclick);
     $('#recharge').click(btnRechargeOnclick);
     $('#log-out').click(btnLogoutOnclick);
+    $('#dt-fixed-footer').dataTable({
+        "paging": false,
+        "fnInitComplete": function () {
+          var myCustomScrollbar = document.querySelector('#dt-fixed-footer_wrapper .dataTables_scrollBody');
+          var ps = new PerfectScrollbar(myCustomScrollbar);
+        },
+        "scrollY": 450,
+    });
 })
 // Quản lí bài đăng
 function btnPostOnclick() {
@@ -22,7 +30,7 @@ function btnEditOnclick() {
 }
 // Đăng tin
 function btnPostNewOnclick() {
-    window.location = 'dangtin.html';
+    window.location = 'post_new.html';
 }
 // Nạp tiền
 function btnRechargeOnclick() {
@@ -33,5 +41,5 @@ function btnRechargeOnclick() {
 }
 // ĐĂng xuất
 function btnLogoutOnclick() {
-    alert('Bạn chắc chắn muốn đăng xuất khỏi rài khoản?');
+    alert('Bạn chắc chắn muốn đăng xuất khỏi tài khoản?');
 }
