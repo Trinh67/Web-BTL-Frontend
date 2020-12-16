@@ -45,7 +45,8 @@
     display: flex;
     height: 40px;
     align-items: center;
-    padding-left: 8px;
+    padding-left: 6px;
+    padding-right: 4px;
     border-top: 1px solid #c2c2c2;
 }
     .menu .menu_item:hover {
@@ -121,17 +122,20 @@
 /* Table */
 tr > th {
     background-color: #d6d6d6;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
     color: rgb(0, 0, 0);
 }
 
 tr:nth-child(even) {
-    background-color: #e9e5e5;
+    background-color: #f0f0f0;
 }
-
+tr > td{
+    font-size: 0.8rem;
+}
 tr > td:hover {
     cursor: pointer;
-    background-color: #e6e6e6;
+    background-color: #e9e8e8;
 }
 
 tr > td > a {
@@ -145,4 +149,17 @@ tr > td > a {
     }
 tbody tr .btn-sm{
     background-color: #d1d1d1;
+}
+
+td.badge{
+    margin-top: 8px;
+}
+td.badge-primary:hover{
+    background-color: #116ce2;
+}
+td.badge-success:hover{
+    background-color: #0bcf36;
+}
+td.badge-danger:hover{
+    background-color: #f7392c;
 }

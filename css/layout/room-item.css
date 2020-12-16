@@ -1,7 +1,7 @@
 ﻿/* Thông tin phòng */
 .title {
     margin-top: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -112,7 +112,7 @@ h3.title-comm:before {
 .room-news .room-detail {
     padding: 10px 10px 10px 10px;
     background: #dbdbdb;
-    min-height: 220px;
+    min-height: 300px;
 }
 
 .room-item-vertical .room-detail {
