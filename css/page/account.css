@@ -90,6 +90,135 @@
     text-decoration: none;
 }
 
+/* Message */
+.chatWithAdmin .card{
+    height: 500px;
+    border-radius: 15px !important;
+    background-color: rgba(12, 12, 12, 0.4) !important;
+}
+.chatWithAdmin .contacts_body{
+    padding:  0.75rem 0 !important;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+.chatWithAdmin .msg_card_body{
+    overflow-y: auto;
+}
+.chatWithAdmin .card-header{
+    border-radius: 15px 15px 0 0 !important;
+    background-color: #1f7df7;
+    height: 70px !important;
+    border-bottom: 0 !important;
+}
+.chatWithAdmin .card-footer{
+    border-radius: 0 0 15px 15px !important;
+    border-top: 0 !important;
+}
+.chatWithAdmin .type_msg{
+    background-color: #e0e0e0 !important;
+    border:0 !important;
+    color:#000000 !important;
+    height: 50px !important;
+    overflow-y: auto;
+}
+    .type_msg:focus{
+        box-shadow:none !important;
+        outline:0px !important;
+}
+.chatWithAdmin .send_btn{
+    border-radius: 0 15px 15px 0 !important;
+    background-color: rgba(224, 224, 224, 0.3) !important;
+    border:0 !important;
+    color: rgb(4, 109, 247) !important;
+    font-size: 25px !important;
+    cursor: pointer;
+}
+
+.user_img{
+    height: 50px;
+    width: 50px;
+    border: 1px solid #f5f6fa;
+
+}
+.user_img_msg{
+    height: 40px;
+    width: 40px;
+    border:1px solid #f5f6fa;
+
+}
+.img_cont{
+    position: relative;
+    height: 70px;
+    width: 70px;
+}
+.img_cont_msg{
+    height: 40px;
+    width: 40px;
+}
+.user_info{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0;
+}
+.user_info span{
+    font-size: 1rem;
+    font-weight: bold;
+    color:#ffffff;
+}
+.user_info p{
+    font-size: 0.7rem;
+    color: #ffffff;
+}
+.video_cam{
+    position: absolute;
+    right: 15px;
+    top: 0.8rem;
+    color: white;
+    cursor: pointer;
+}
+.video_cam span{
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.msg_cotainer{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    border-radius: 25px;
+    background-color: #82ccdd;
+    max-width: 70%;
+    padding: 10px;
+    position: relative;
+}
+.msg_cotainer_send{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    border-radius: 25px;
+    max-width: 70%;
+    background-color: #78e08f;
+    padding: 10px;
+    position: relative;
+}
+.msg_time{
+    position: absolute;
+    left: 6px;
+    bottom: -20px;
+    color: #ffffff;
+    font-size: 12px;
+}
+.msg_time_send{
+    position: absolute;
+    right:6px;
+    bottom: -20px;
+    color: #ffffff;
+    font-size: 12px;
+}
+.msg_head{
+    position: relative;
+}
+
 /* Support */
 .main-content, .edit-user, .recharge-page{
     position: relative;

@@ -77,7 +77,7 @@
             </ol>
         </nav>
         <div class="introduce">
-            🌐 <b style="font-size: 1.2rem">EasyAccomod</b> là kênh thông tin về phòng trọ, nhà trọ hàng đầu tại Việt Nam. Website được thành lập vào tháng 12/2020 - là website đầu tiên mà nhóm tạo ra nhằm hỗ trợ cho người muốn đăng tin cho thuê phòng trọ cũng như người tìm phòng trọ một cách nhanh nhất và chính xác nhất.
+            🌐 <b style="font-size: 1.2rem">EasyAccomod</b> là kênh thông tin về phòng trọ, nhà trọ, chung cư hàng đầu tại Việt Nam. Website được thành lập vào tháng 12/2020 - là website đầu tiên mà nhóm tạo ra nhằm hỗ trợ cho người muốn đăng tin cho thuê phòng trọ cũng như người tìm phòng trọ một cách nhanh nhất và chính xác nhất.
         </div>
         <div class="tutorial">
             <h4 style="color: red; font-size: 1.3rem;">➡️ Hướng dẫn đăng tin</h4>
@@ -162,6 +162,22 @@
             </div>
         </div>
     </div>
+    <!-- Nhắn tin với Admin -->
+    <img src="../content/images/page/messenger.png" id="livechat" alt="Icon Message"/>
+    <div class="message-box">
+        <div id="fb-livechat" class="fb-livechat animated hidden-xs">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="modal-title">Gửi tin nhắn</p>
+                    <button type="button" class="close" title="Đóng" onclick="removeFacebookLiveChat();"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="fb-page" data-href="https://www.facebook.com/EasyAccomod-Giải-pháp-tìm-phòng-trọ-chung-cư-hàng-đầu-tại-Việt-Nam-104449418221461/" data-tabs="messages" data-width="300" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <hr/>
     <!-- footer -->
     <footer>
@@ -200,6 +216,7 @@
     <!-- script -->
     <script src="../lib/js/jquery.min.js" type="text/javascript"></script>
     <script src="../lib/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/message.js" type="text/javascript"></script>
 </body>
 
 </html>

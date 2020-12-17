@@ -5,7 +5,7 @@
     <title>Tìm phòng trọ</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+   
     <!-- Add link -->
     <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
@@ -151,7 +151,7 @@
                         <th>Ảnh</th>
                         <th>Tiêu đề</th>
                         <th>Giá phòng</th>
-                        <th>Ngày đăng</th>
+                        <th>Ngày gửi/duyệt</th>
                         <th>Ngày hết hạn</th>
                         <th>Gói dịch vụ</th>
                         <th>Trạng thái</th>
@@ -319,7 +319,7 @@
                         <th>Ảnh</th>
                         <th>Tiêu đề</th>
                         <th>Giá phòng</th>
-                        <th>Ngày đăng</th>
+                        <th>Ngày gửi/duyệt</th>
                         <th>Ngày hết hạn</th>
                         <th>Gói dịch vụ</th>
                         <th>Trạng thái</th>
@@ -437,6 +437,117 @@
             </div>
         </div>
 
+        <!-- Nhắn tin với Page -->
+        <img src="../content/images/page/messenger.png" id="livechat" alt="Icon Message"/>
+        <div class="message-box">
+            <div id="fb-livechat" class="fb-livechat animated hidden-xs">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="modal-title">Gửi tin nhắn</p>
+                        <button type="button" class="close" title="Đóng" onclick="removeFacebookLiveChat();"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="fb-page" data-href="https://www.facebook.com/EasyAccomod-Giải-pháp-tìm-phòng-trọ-chung-cư-hàng-đầu-tại-Việt-Nam-104449418221461/" data-tabs="messages" data-width="300" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nhắn tin với Admin -->
+        <div class="chatWithAdmin nodisplay">
+            <div class="col-md-12 chat">
+                <div class="card">
+                    <div class="card-header msg_head">
+                        <div class="d-flex bd-highlight">
+                            <div class="img_cont">
+                                <img src="../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img">
+                            </div>
+                            <div class="user_info">
+                                <span>EasyAccomod</span>
+                                <p>Quản trị Website</p>
+                            </div>
+                            <div class="video_cam">
+                                <span><i class="fas fa-phone"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body msg_card_body">
+                        <div class="d-flex justify-content-start mb-4">
+                            <div class="img_cont_msg">
+                                <img src="../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
+                            </div>
+                            <div class="msg_cotainer">
+                                Hi, how are you Trinh?
+                                <span class="msg_time">8:40 AM, Today</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mb-4">
+                            <div class="msg_cotainer_send">
+                                Hi Admin i am good, how about you?
+                                <span class="msg_time_send">8:55 AM, Today</span>
+                            </div>
+                            <div class="img_cont_msg">
+                        <img src="../content/images/avatar/johndoe.png" class="rounded-circle user_img_msg">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-start mb-4">
+                            <div class="img_cont_msg">
+                                <img src="../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
+                            </div>
+                            <div class="msg_cotainer">
+                                I am good too, thank you for your chat template
+                                <span class="msg_time">9:00 AM, Today</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mb-4">
+                            <div class="msg_cotainer_send">
+                                You are welcome!
+                                <span class="msg_time_send">9:05 AM, Today</span>
+                            </div>
+                            <div class="img_cont_msg">
+                        <img src="../content/images/avatar/johndoe.png" class="rounded-circle user_img_msg">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-start mb-4">
+                            <div class="img_cont_msg">
+                                <img src="../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
+                            </div>
+                            <div class="msg_cotainer">
+                                I am looking for your next templates
+                                <span class="msg_time">9:07 AM, Today</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mb-4">
+                            <div class="msg_cotainer_send">
+                                Ok, thank you have a good day
+                                <span class="msg_time_send">9:10 AM, Today</span>
+                            </div>
+                            <div class="img_cont_msg">
+                    <img src="../content/images/avatar/johndoe.png" class="rounded-circle user_img_msg">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-start mb-4">
+                            <div class="img_cont_msg">
+                                <img src="../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
+                            </div>
+                            <div class="msg_cotainer">
+                                Bye, see you again!
+                                <span class="msg_time">9:12 AM, Today</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="input-group">
+                            <textarea name="txtmessage" class="form-control type_msg" placeholder="Nhập tin nhắn của bạn..."></textarea>
+                            <div class="input-group-append">
+                                <span class="input-group-text send_btn"><i class="fas fa-paper-plane"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Hỗ trợ -->
         <br />
         <div id="support_box">
@@ -480,8 +591,8 @@
 
     <script src="../js/register.js" type="text/javascript"></script>
     <script src="../js/page/account.js" type="text/javascript"></script>
+    <script src="../js/message.js" type="text/javascript"></script>
     <!-- script -->
-
 </body>
 
 </html>

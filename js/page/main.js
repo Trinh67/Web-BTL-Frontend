@@ -27,11 +27,11 @@ function loadNewsRoomData() {
                                 '<div class="room-item">'+
                                     '<div class="wrap-img" style="background: url(../../content/images/room/phongtro1.jpg) center;background-size: cover;">'+
                                         '<div class="category detail-room">'+
-                                            '<a href="room_detail.html">Phòng trọ cho thuê</a>'+
+                                            '<a href="room_detail.html?slug=' + ret.motelInfor['slug'] + '">Phòng trọ cho thuê</a>'+
                                         '</div>'+
                                     '</div>'+
                                     '<div class="room-detail">'+
-                                        '<h4><a href="room_detail.html" class="detail-room">' + ret.motelInfor['title'] + '</a></h4>'+
+                                        '<h4><a href="room_detail.html?slug=' + ret.motelInfor['slug'] + '" class="detail-room">' + ret.motelInfor['title'] + '</a></h4>'+
                                         '<div class="room-meta">'+
                                             '<span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">' + ret.owner['name'] + '</a></span><br/>'+
                                             '<span class="pull-left"><i class="far fa-clock"></i>'+
@@ -87,7 +87,7 @@ function loadHotsRoomData() {
                                     '<div class="col-md-4">'+
                                         '<div class="wrap-img-vertical" style="background: url(../../content/images/room/phongtro1.jpg) center;background-size: cover;">'+
                                             '<div class="category">'+
-                                                '<a href="#">Chung cư mini</a>'+
+                                                '<a href="room_detail.html?slug=' + ret.motelInfor['slug'] + '">Chung cư mini</a>'+
                                             '</div>'+
                                         '</div>'+
                                     '</div>'+

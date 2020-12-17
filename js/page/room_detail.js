@@ -51,7 +51,7 @@ fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInforBySlug?slug=
 						document.querySelector("span#area").innerHTML = ret.motelInfor['area'] + ' m <sup> 2</sup>';
 						// Utility update later
 						document.querySelector("p.description").innerHTML = ret.motelInfor['description'];
-						document.querySelector("h4.count-comment").innerHTML = 'Bài viết có ' + ret.comments.length + ' bình luận';
+						document.querySelector("h5.count-comment").innerHTML = 'Bài viết có ' + ret.comments.length + ' bình luận';
 						for (let i = 0; i < ret.comments.length; i++) {
 							let r = showComment(ret.comments, i);
 							document.querySelector("div.post-comments").appendChild(r);

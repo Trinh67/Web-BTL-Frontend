@@ -4,7 +4,8 @@
 @import url('layout/table.css');
 @import url('layout/form.css');
 @import url('layout/room-item.css');
-
+@import url('layout/message-box.css');
+@import url('layout/rate.css');
 
 body {
     width: 100%;
@@ -13,6 +14,12 @@ body {
     font-size: 1rem;
     color: #222;
     min-width: 300px;
+}
+.container{
+    width: 100%;
+}
+.container-fluid{
+    width: 100%;
 }
 .nodisplay{
     display: none;

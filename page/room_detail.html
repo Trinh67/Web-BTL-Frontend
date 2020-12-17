@@ -218,18 +218,37 @@
             </div>
         </div>
         <hr />
-        <form>
-            <div class="form-group">
-                <label name="comment">Bình luận của bạn</label>
-                <textarea name="comment" class="form-control" rows="3"></textarea>
+        <!-- Rating -->
+        <div class="rating">
+            <p>Đánh giá: </p>
+            <div class="rate">                
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text">5 stars</label>
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text">4 stars</label>
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text">3 stars</label>
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text">2 stars</label>
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text">1 star</label>
             </div>
-            <button type="submit" class="btn btn-primary">Gửi</button>
-        </form>
+        </div>
+        <div>
+            <form>
+                <div class="form-group comment-post">
+                    <label name="comment">Bình luận của bạn</label>
+                    <textarea name="comment" class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Gửi</button>
+            </form>
+        </div>
         <hr />
+       
         <!-- comments -->
         <div class="section-row">
             <div class="section-title">
-                <h4 class="count-comment"></h4>
+                <h5 class="count-comment"></h5>
             </div>
             <div class="post-comments">
                 <!-- comment -->
