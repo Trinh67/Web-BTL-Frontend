@@ -1,4 +1,7 @@
-﻿// Lấy tham số trên url
+﻿$(document).ready(function () {
+    loadNewsRoomDetails();
+})
+// Lấy tham số trên url
 function GetURLParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
@@ -17,10 +20,18 @@ let showUtility = function (x, index) {
 	r.innerHTML = '<i class="fas fa-check"></i> ' + x[index];
 	return r;
 };
-//
+// Tạo slides ảnh phòng trọ
+let showImages = function (x, index) {
+	// Tạo component mới
+	let r = document.createElement("div");
+	r.classList.add("carousel-item");
+	if(index == 0) r.classList.add("active");
+	r.innerHTML ='<img src="http://fcbtruong-001-site1.itempurl.com/api/Image/GetImage?subDir=posts/' + x.post["idPost"] + '/' + x.images[index] + '" alt="Image 1" style="width:80%; height: 450px">';
+	return r;
+};
 // Tạo <Comment>
 let showComment = function (x, index) {
-	// Tạo <tr> và các <td> mới
+	// Tạo component mới
 	let r = document.createElement("div");
 	let i = index;
 	r.innerHTML = '<div class="media"><div class="media-left"><img class="media-object" src="../../content/images/avatar/' + x[i]['commenter']['avatar'] + '" alt=""></div><div class="media-body"><div class="media-heading"><h4>' + x[i]['commenter']['name'] + '</h4><span class="time">' + x[i]['comment']['createdAt'] + '</span><a href="#" class="reply">Reply</a><div><p>' + x[i]['comment']['content'] + '</p></div></div>';
@@ -31,7 +42,8 @@ let showComment = function (x, index) {
 //
 //
 // Tải trang: Lấy danh sách sinh viên
-fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInforBySlug?slug=" + GetURLParameter('slug'))
+async function loadNewsRoomDetails() {
+	await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInforBySlug?slug=" + GetURLParameter('slug'))
 	.then(resp => {
 		if (resp.status == 200) {
 			resp.json()
@@ -45,11 +57,17 @@ fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInforBySlug?slug=
 						document.querySelector("li.title-page").innerHTML = ret.motelInfor['title'];
 						document.querySelector("p.entry-title").innerHTML = ret.motelInfor['title'];
 						document.querySelector("span#favorite").innerHTML = ret.motelInfor['likes'] + ' lượt thích';
-						document.querySelector("span.price-time").innerHTML = 'Lượt xem: ' + ret.motelInfor['views'] + ' - Ngày đăng: ' + formDate(ret.motelInfor['createdAt']);
+						document.querySelector("span.price-time").innerHTML = 'Lượt xem: ' + ret.motelInfor['views'] + ' - Ngày đăng: ' + formDate(ret.post['createdAt']);
 						document.querySelector("strong.address").innerHTML = 'Địa chỉ: ' + ret.motelInfor['address'];
 						document.querySelector("span#price-2").innerHTML = ret.motelInfor['price'].toLocaleString('it-IT') + ' VND';
 						document.querySelector("span#area").innerHTML = ret.motelInfor['area'] + ' m <sup> 2</sup>';
-						// Utility update later
+						// Images
+						for (let i = 0; i < ret.images.length; i++) {
+							let r = showImages(ret, i);
+							console.log(r);
+							document.querySelector("div.image-slides").appendChild(r);
+						};
+						// Comments
 						document.querySelector("p.description").innerHTML = ret.motelInfor['description'];
 						document.querySelector("h5.count-comment").innerHTML = 'Bài viết có ' + ret.comments.length + ' bình luận';
 						for (let i = 0; i < ret.comments.length; i++) {
@@ -74,6 +92,7 @@ fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInforBySlug?slug=
 			document.getElementById("demo").innerHTML = "Error!";
 		}
 	});
+}
 
 // Map
 function initMap(x, y) {

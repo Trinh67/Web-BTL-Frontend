@@ -69,7 +69,11 @@
     font-weight: 700;
 }
 /* Nạp tiền */
-.recharge-page .select-title{
+.recharge-panel .alert{
+    border:2px solid #76c9a0;
+    border-radius: 8px;
+}
+.recharge-panel .select-title{
     padding-left: 2rem;
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -92,7 +96,7 @@
 
 /* Message */
 .chatWithAdmin .card{
-    height: 500px;
+    height: 550px;
     border-radius: 15px !important;
     background-color: rgba(12, 12, 12, 0.4) !important;
 }
@@ -176,10 +180,11 @@
     color: white;
     cursor: pointer;
 }
-.video_cam span{
+.video_cam span i{
     font-size: 25px;
     cursor: pointer;
     margin-right: 10px;
+    color: #ffffff;
 }
 .msg_cotainer{
     margin-top: auto;
@@ -220,7 +225,7 @@
 }
 
 /* Support */
-.main-content, .edit-user, .recharge-page{
+.main-content, .edit-user, .recharge-panel{
     position: relative;
     margin-left: 10px;
     margin-right: 10px;
@@ -291,4 +296,56 @@ td.badge-success:hover{
 }
 td.badge-danger:hover{
     background-color: #f7392c;
+}
+
+/* Thông báo */
+#notification .badge {
+    top: -15px;
+    margin-left: 15px;
+    padding: 5px 8px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+  }
+
+.notification-panel .notification-box{
+    height: 400px;
+    overflow-y: auto;
+}
+.notification-panel .message-content{
+    display: flex;
+    width: 98%;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.notification-panel .message-success{
+    border:2px solid rgb(0, 253, 84);
+    background-color: rgb(48, 253, 93);
+}
+.notification-panel .message-danger{
+    border:2px solid rgb(250, 49, 14);
+    background-color: rgb(255, 85, 43);
+}
+.notification-panel .message-warning{
+    border:2px solid rgb(255, 217, 0);
+    background-color: rgb(255, 198, 43);
+}
+.notification-panel .message-content .circle-avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.notification-panel .message-content .text-message{
+    padding-left: 15px;
+}
+.notification-panel .message-content .text-message .content{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.notification-panel .message-content .text-message .admin-time{
+    font-size: 0.8rem;
+    color: #424242;
 }

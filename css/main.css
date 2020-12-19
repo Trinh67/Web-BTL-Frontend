@@ -94,10 +94,11 @@ pre{
 }
 /* =================== Tiêu đề trang ==================== */
 .breadcrumb{
-    margin-top: 0.8rem;
+    margin-top: 0.6rem;
+    border-radius: 5px;
 }
 .breadcrumb-item{
-    height: 1.2rem;
+    padding: 2px;
 }
 .breadcrumb-item a{
     text-decoration: none;

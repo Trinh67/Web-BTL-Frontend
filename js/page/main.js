@@ -35,7 +35,7 @@ function loadNewsRoomData() {
                                         '<div class="room-meta">'+
                                             '<span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">' + ret.owner['name'] + '</a></span><br/>'+
                                             '<span class="pull-left"><i class="far fa-clock"></i>'+
-                                                ' Created at:' + formDate(ret.motelInfor['createdAt']) +
+                                                ' Created at:' + formDate(ret.post['createdAt']) +
                                             '</span>'+
                                         '</div>'+
                                         '<br/>'+
@@ -97,7 +97,7 @@ function loadHotsRoomData() {
                                             '<div class="room-meta">'+
                                                 '<span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">' + ret.owner['name'] + '</a></span><br/>'+
                                                 '<span class="pull-left"><i class="far fa-clock"></i>'+
-                                                    ' Created at: ' + formDate(ret.motelInfor['createdAt']) +
+                                                    ' Created at: ' + formDate(ret.post['createdAt']) +
                                                 '</span>'+
                                             '</div>'+
                                             '<br/>'+
