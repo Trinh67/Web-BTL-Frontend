@@ -4,37 +4,32 @@ var usernameBtn = document.getElementById("username");
 var passBtn = document.getElementById("password");
 
 submitBt.onclick = function () {
-    Login();
+    Login('http://fcbtruong-001-site1.itempurl.com/api/Login')
+    .then(data => {
+        console.log(data); // JSON data parsed by `data.json()` call
+    });
 }
 
-function Login() {
+
+async function Login(url = '') {
     var loginForm = JSON.stringify({
         'username': usernameBtn.value,
         'password': passBtn.value,
     });
 
-    fetch('http://fcbtruong-001-site1.itempurl.com/api/Login',{
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: loginForm,
-        }).then(
-            response => {
-                if(response.status != 200) {
-                    console.log("Failed");
-                    return;
-                }
-                else if(response.status == 200){
-                    loginSuccessful();
-                }
-                response.json()
-            }).then(
-                data => {
-                    console.log(data);
-                });
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: loginForm // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
 }
 
-function loginSuccessful(){
-    window.location = "index.html"
+
+function loginSuccessful() {
+    // window.location = "index.html"
 }

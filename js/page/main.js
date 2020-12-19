@@ -8,7 +8,7 @@ function loadNewsRoomData() {
     // thực hiện load dữ liệu
     // 1.Lấy dữ liệu
     $.ajax({
-        url: 'http://fcbtruong-001-site1.itempurl.com/api/Post/GetPosts?number=2',
+        url: 'http://fcbtruong-001-site1.itempurl.com/api/Post/GetPosts?number=3',
         method: 'GET',
         data: null,
         dataType: 'json',
