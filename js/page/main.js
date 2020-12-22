@@ -25,9 +25,9 @@ function loadNewsRoomData() {
             }).done(function (ret) {
                 var trHTML = '<div class="col-md-6 col-lg-4">'+
                                 '<div class="room-item">'+
-                                    '<div class="wrap-img" style="background: url(../../content/images/room/phongtro1.jpg) center;background-size: cover;">'+
+                                    '<div class="wrap-img" style="background: url(http://fcbtruong-001-site1.itempurl.com/api/Image/GetImage?subDir=posts/' + ret.post["idPost"] + '/' + ret.images[0] + ') center;background-size: cover;">'+
                                         '<div class="category detail-room">'+
-                                            '<a href="room_detail.html?slug=' + ret.motelInfor['slug'] + '">Phòng trọ cho thuê</a>'+
+                                            '<a href="room_detail.html?slug=' + ret.motelInfor['slug'] + '">' + ret.category['cateroryName'] + '</a>'+
                                         '</div>'+
                                     '</div>'+
                                     '<div class="room-detail">'+
@@ -85,9 +85,9 @@ function loadHotsRoomData() {
                 var trHTML = '<div class="room-item-vertical">'+
                                 '<div class="row">'+
                                     '<div class="col-md-4">'+
-                                        '<div class="wrap-img-vertical" style="background: url(../../content/images/room/phongtro1.jpg) center;background-size: cover;">'+
+                                        '<div class="wrap-img-vertical" style="background: url(http://fcbtruong-001-site1.itempurl.com/api/Image/GetImage?subDir=posts/' + ret.post["idPost"] + '/' + ret.images[0] + ') center;background-size: cover;">'+
                                             '<div class="category">'+
-                                                '<a href="room_detail.html?slug=' + ret.motelInfor['slug'] + '">Chung cư mini</a>'+
+                                                '<a href="room_detail.html?slug=' + ret.motelInfor['slug'] + '">' + ret.category['cateroryName'] + '</a>'+
                                             '</div>'+
                                         '</div>'+
                                     '</div>'+
