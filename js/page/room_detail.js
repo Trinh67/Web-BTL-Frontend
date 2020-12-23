@@ -2,15 +2,9 @@
     loadNewsRoomDetails();
 })
 // Lấy tham số trên url
-function GetURLParameter(sParam) {
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) {
-            return sParameterName[1];
-        }
-    }
+function GetURLParameter(url) {
+	var slug = url.split('/').pop();
+	return slug.substr(0, slug.length - 5);
 }
 
 // Tạo <Utility>
@@ -43,7 +37,7 @@ let showComment = function (x, index) {
 //
 // Tải trang: Lấy danh sách sinh viên
 async function loadNewsRoomDetails() {
-	await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInforBySlug?slug=" + GetURLParameter('slug'))
+	await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInforBySlug?slug=" + GetURLParameter(document.URL))
 	.then(resp => {
 		if (resp.status == 200) {
 			resp.json()
@@ -54,6 +48,7 @@ async function loadNewsRoomDetails() {
 							let r = showUtility(utility, i);
 							document.querySelector("div.utility").appendChild(r);
 						};
+						document.querySelector("a.category-name").href = 'category.html?idCategory=' + ret.category['idCategory'] + '&number=10'
 						document.querySelector("a.category-name").innerHTML = ret.category['cateroryName'];
 						document.querySelector("li.title-page").innerHTML = ret.motelInfor['title'];
 						document.querySelector("p.entry-title").innerHTML = ret.motelInfor['title'];
@@ -82,7 +77,7 @@ async function loadNewsRoomDetails() {
 						//Map
 						var position = JSON.parse(ret.motelInfor['position']);
 						console.log(position[1]);
-						initMap(parseFloat(position[0]), parseFloat(position[1]));
+						initMap(parseFloat(position['x']), parseFloat(position['y']));
 					} else {
 						// Có lỗi xử lý nghiệp vụ
 						document.getElementById("demo").innerHTML = "Error!";
@@ -118,7 +113,7 @@ function initMap(x, y) {
 
 		});
 	} else {
-		document.getElementById("map-detail").innerHTML = '<img src="../../content/images/map/default-map.png">';
+		document.getElementById("map-detail").innerHTML = '<img src="../content/images/map/default-map.png">';
 	}
 }
 

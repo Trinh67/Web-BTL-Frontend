@@ -1,8 +1,7 @@
-RewriteEngine on
-RewriteCond %{THE_REQUEST} \.html [NC]
-RewriteRule ^(.*)\.html$ /$1 [R=302,L]
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [L]
+RewriteRule ^(index).html$ $1.html
+RewriteRule ^detail-room/([a-zA-Z0-9_-]+).html$ room_detail.html?slug=$1

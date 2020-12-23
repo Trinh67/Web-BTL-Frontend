@@ -8,6 +8,7 @@
 
     <!-- Add link -->
     <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -79,11 +80,11 @@
                                 <span class="text-semibold">Done!</span>
                             </div> -->
 
-                    
+                        <div id="form-post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="">
                             <div class="form-group">
                                 <label for="usr">Tiêu đề bài đăng(*):</label>
-                                <input type="text" class="form-control" name="title" placeholder="Tiêu đề">
+                                <input type="text" required class="form-control" name="title" placeholder="Tiêu đề">
                             </div>
                             <div class="form-group">
                                 <label>Địa chỉ phòng trọ(*):</label> Bạn có thể nhập hoặc chọn ví trí trên bản đồ
@@ -91,22 +92,22 @@
                                     value="" />
                                 <p><i class="far fa-bell"></i> Nếu địa chỉ hiển thị bên bản đồ không đúng bạn có thể
                                     điều chỉnh bằng cách kéo vị trí địa chỉ trên bản đồ tới vị trí chính xác.</p>
-                                <input type="hidden" id="txtaddress" name="address" value="" class="form-control" />
-                                <input type="hidden" id="txtlat" value="" name="lat" class="form-control" />
-                                <input type="hidden" id="txtlng" value="" name="lng" class="form-control" />
+                                <input type="hidden" id="txtaddress" name="address" required value="Đại học Công Nghệ" class="form-control" />
+                                <input type="hidden" id="txtlat" value="21.03846780006348" name="lat" class="form-control" />
+                                <input type="hidden" id="txtlng" value="105.7827075972844" name="lng" class="form-control" />
                             </div>
                             <div id="map-canvas" style="width: auto; height: 400px;"></div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="usr">Giá phòng(VND)(*):</label>
-                                        <input type="number" name="price" class="form-control" placeholder="750000">
+                                        <input type="number" name="price" class="form-control" value="750000" placeholder="750000">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="usr">Diện tích(m<sup>2</sup>)(*):</label>
-                                        <input type="number" name="area" class="form-control" placeholder="16">
+                                        <input type="number" name="area" class="form-control" value="15" placeholder="15">
                                     </div>
                                 </div>
                             </div>
@@ -114,20 +115,16 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="usr">Quận/ Huyện(*):</label>
-                                        <select class="selectpicker" data-live-search="true"
+                                        <select class="selectpicker" data-live-search="true" class="form-control"
                                             name="district">
-                                            <option value="#">Cầu Giấy</option>
-                                            <option value="#">Bắc Từ Liêm</option>
-                                            <option value="#">Đống Đa</option>
-                                            <option value="#">Ba Đình</option>
-                                            <option value="#">Thanh Xuân</option>
-                                            <option value="#">Hai Ba Trưng</option>
-                                            <option value="#">Hà Đông</option>
-                                            <option value="#">Tây Hồ</option>
-                                            <option value="#">Nam Từ Liêm</option>
-                                            <option value="#">Hoàng Mai</option>
-                                            <option value="#">Hoàn Kiếm</option>
-                                            <option value="#">Long Biên</option>
+                                            <option value="1" selected="selected">Cầu Giấy</option>
+                                            <option value="2">Bắc Từ Liêm</option>
+                                            <option value="3">Đống Đa</option>
+                                            <option value="4">Nam Từ Liêm</option>
+                                            <option value="5">Thanh Xuân</option>
+                                            <option value="6">Hai Bà Trưng</option>
+                                            <option value="7">Hoàn Kiếm</option>
+                                            <option value="8">Tây Hồ</option>
                                         </select>
                                     </div>
                                 </div>
@@ -136,10 +133,10 @@
                                         <label for="usr">Loại phòng(*):</label>
                                         <select class="selectpicker" data-live-search="true"
                                             class="form-control" name="category">
-                                            <option value="#">Phòng trọ cho thuê</option>
-                                            <option value="#">Ở ghép</option>
-                                            <option value="#">Nhà nguyên căn</option>
-                                            <option value="#">Chung cư</option>
+                                            <option value="1" selected="selected">Phòng trọ cho thuê</option>
+                                            <option value="2">Chung cuw mini</option>
+                                            <option value="3">Nhà nguyên căn</option>
+                                            <option value="4">Chung cư nguyên căn</option>
                                         </select>
                                     </div>
                                 </div>
@@ -155,35 +152,35 @@
                             <div class="form-group row">
                                 <!-- ************** Utilitiy Items ************** -->
                                 <div class="utility col-md-6 col-sm-6">
-                                    <input type="checkbox" id="" name="" value="1">
+                                    <input type="checkbox" id="" name="general-owner" value="0">
                                     <label for="" >Không chung chủ(*)</label><br>
                                 </div>
                                 <div class="utility col-md-6 col-sm-6">
-                                    <input type="checkbox" id="" name="" value="1">
+                                    <input type="checkbox" id="" name="bathroom" value="1">
                                     <label for="" > Phòng tắm kép kín</label><br>
                                 </div>
                                 <div class="utility col-md-4 col-sm-6">
-                                    <input type="checkbox" id="" name="" value="1">
+                                    <input type="checkbox" id="" name="" value="2">
                                     <label for="" > Nóng lạnh</label><br>
                                 </div>
                                 <div class="utility col-md-4 col-sm-6">
-                                    <input type="checkbox" id="" name="" value="1">
+                                    <input type="checkbox" id="" name="" value="3">
                                     <label for="" > Ban công</label><br>
                                 </div>
                                 <div class="utility col-md-4 col-sm-6">
-                                    <input type="checkbox" id="" name="" value="1">
+                                    <input type="checkbox" id="" name="" value="4">
                                     <label for="" > Điều hòa</label><br>
                                 </div>
                                 <div class="utility col-md-4 col-sm-6">
-                                    <input type="checkbox" id="" name="" value="1">
+                                    <input type="checkbox" id="" name="" value="5">
                                     <label for="" > Giờ giấc tự do</label><br>
                                 </div>
                                 <div class="utility col-md-4 col-sm-6">
-                                    <input type="checkbox" id="" name="" value="1">
+                                    <input type="checkbox" id="" name="" value="6">
                                     <label for="" > Vệ sinh riêng</label><br>
                                 </div>           
                                 <div class="utility col-md-4 col-sm-6">
-                                    <input type="checkbox" id="" name="" value="1">
+                                    <input type="checkbox" id="" name="" value="7">
                                     <label for="" > Wifi miễn phí</label><br>
                                 </div> 
                             </div>                    
@@ -204,26 +201,28 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-8 col-lg-6">
                                     <div class="form-group">
-                                        <label for="usr">Gói dịch vụ đăng(*):</label>
+                                        <label for="service-packages">Gói dịch vụ đăng(*):</label>
                                         <select class="selectpicker" data-live-search="true"
-                                            class="form-control" name="service">
-                                            <option value="#">Gói ngày (2000 VND/ngày)</option>
-                                            <option value="#">Gói tuần (12.500 VND/tuần)</option>
-                                            <option value="#">Gói tháng (45.000 VND/tháng)</option>
+                                            class="form-control" name="service-packages">
+                                            <option value="1" selected="selected">Gói tuần (15.000 VND/tuần)</option>
+                                            <option value="2">Gói tháng (50.000 VND/tháng)</option>
+                                            <option value="3">Gói quý (120.000 VND/quý)</option>
+                                            <option value="4">Gói năm (400.000 VND/năm)</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-8 col-lg-6">
                                     <div class="form-group">
-                                        <label for="usr">Số ngày/tuần/tháng tương ứng:</label>
-                                        <input type="number" name="numberTime" class="form-control" placeholder="1">
+                                        <label for="service-time">Số tuần/tháng/quý/năm t.ứng:</label>
+                                        <input type="number" name="serviceTime" class="form-control" value="1" placeholder="1">
                                     </div>
                                 </div>
                             </div>
                             
-                            <button class="btn btn-primary btn-post" id="postSubmitBtnId">Đăng Tin</button>
+                            <button id="postSubmitBtnId" class="btn btn-primary btn-post">Đăng Tin</button>
+                        </div>
                         <!-- <div class="alert bg-danger">
                             <button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
                             <span class="text-semibold">Error!</span>  Tài khoản của bạn đang bị khóa đăng tin.
@@ -326,9 +325,10 @@
     </footer>
 
     <!-- script -->
+    
     <script src="../lib/js/jquery.min.js" type="text/javascript"></script>
     <script src="../lib/js/bootstrap.min.js" type="text/javascript"></script>
-
+    
     <script src="../js/post.js"></script>
     <script src="../js/post_sender.js"></script>
     <!-- Script Map -->

@@ -62,7 +62,7 @@ function initialize() {
             position: options.position,
             map: map,
             zoom: 19,
-            icon: "../../content/images/map/gps.png",
+            icon: "../content/images/map/gps.png",
             draggable: true
         });
         /* Dragend Marker */
