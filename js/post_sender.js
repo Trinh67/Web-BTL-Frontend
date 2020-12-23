@@ -12,20 +12,26 @@ submitSendPostBt.onclick = function () {
 
 
 async function SendPost(url = '', token) {
+    var infor =  {
+        title: "Cho thue nha tro gan DHQG",
+        address: "Ngo 10, Pham Van Dong, Cau Giay",
+        lat: 30.12,
+        lng: 40,
+        price: 4000000,
+        area: 40,
+        district: 2,
+        category: 1,
+        phone: "0983838237",
+        description: "Cho thue gia dan, tien nghi"
+    }
+    //console.log(JSON.stringify)
     var postForm = new FormData();
-    postForm.append('postStr', {
-        "title": "Cho thue nha tro gan DHQG",
-        "address": "Ngo 10, Pham Van Dong, Cau Giay",
-        "lat": 30.12,
-        "lng": 40,
-        "price": 4000000,
-        "area": 40,
-        "district": 2,
-        "category": 1,
-        "phone": "0983838237",
-        "description": "Cho thue gia dan, tien nghi"
-    });
+    postForm.append('postStr', JSON.stringify(infor));
 
+    // Display the key/value pairs
+for(var pair of postForm.entries()) {
+    console.log(pair[1]);
+ }
 
     // Default options are marked with *
     const response = await fetch(url, {
