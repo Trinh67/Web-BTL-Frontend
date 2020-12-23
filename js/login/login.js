@@ -26,10 +26,18 @@ async function Login(url = '') {
         },
         body: loginForm // body data type must match "Content-Type" header
     });
+
+    if(response.status == 200){
+        console.log("Login successful");
+        this.loginSuccessful();
+    }
+    else {
+        console.log("Failed");
+    };
     return response.json(); // parses JSON response into native JavaScript objects
 }
 
 
 function loginSuccessful() {
-    // window.location = "index.html"
+     window.location = "index.html"
 }
