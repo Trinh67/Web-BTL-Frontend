@@ -31,3 +31,13 @@
     z-index: 1;
 }
 
+#register-owner, #register-user {
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: rgb(39, 122, 247);
+}
+#register-owner:hover, #register-user:hover{
+    cursor: pointer;
+    color: rgb(3, 50, 204);
+}

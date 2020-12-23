@@ -3,5 +3,4 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 
-RewriteRule ^(index).html$ $1.html
 RewriteRule ^detail-room/([a-zA-Z0-9_-]+).html$ room_detail.html?slug=$1

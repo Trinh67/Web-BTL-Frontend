@@ -59,6 +59,26 @@ function comparePassword() {
     return false;
   }
   
+document.getElementById("password").onblur = function(){ comparePassword(); };
 document.getElementById("confirm_password").onblur = function(){ comparePassword(); };
 
 if(checkEmail === false || checkPassword === false) document.getElementById("btnSubmit").disabled = true;
+
+// Chuyển trang đăng kí
+$('#register-owner').click(btnRegisterOwnerOnclick);
+$('#register-user').click(btnRegisterUserOnclick);
+
+function btnRegisterOwnerOnclick(){
+  console.log("Hi");
+  $('.register-owner-form').show();
+  $('#register-user').show();
+  $('.register-user-form').hide();
+  $('#register-owner').hide();
+}
+
+function btnRegisterUserOnclick(){
+  $('.register-user-form').show();
+  $('#register-owner').show();
+  $('.register-owner-form').hide();
+  $('#register-user').hide();
+}
