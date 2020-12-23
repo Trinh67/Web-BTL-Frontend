@@ -1,6 +1,6 @@
 var submitSendPostBt = document.getElementById('postSubmitBtnId');
-var token = {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOlsidHJ1b25nOTExMmsiLCJvd25lciJdLCJuYW1laWQiOiIzNCIsImVtYWlsIjoidGhoQGdtYWlsLmNvbSIsImp0aSI6ImUzZmEzM2NkLWJjZTUtNDY0NC04MWQyLTFhNzM4ZmNiMzEyMyIsImV4cCI6MTYwODcxODIwMSwiaXNzIjoiaHV5dHJ1b25nLmNvbSIsImF1ZCI6Imh1eXRydW9uZy5jb20ifQ.KTZiQPn-BUojrG4wQM-mAFDaAxCax1ok1-9wvzc49LM"
+var token ={
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOlsidHJ1b25nOTExMmsiLCJvd25lciJdLCJuYW1laWQiOiIzNCIsImVtYWlsIjoidGhoQGdtYWlsLmNvbSIsImp0aSI6IjIyNjM2MTkwLWVlZTktNDU0My1hMjg5LTY4NjFhOWZlMjk3ZCIsImV4cCI6MTYwODcyNDYzMywiaXNzIjoiaHV5dHJ1b25nLmNvbSIsImF1ZCI6Imh1eXRydW9uZy5jb20ifQ.X7Nn1p_Jc3sEKE-8wPRZdIEkCx_dojDT_RPmHpYU8wk"
 }
 submitSendPostBt.onclick = function () {
     console.log("aaa");
@@ -22,12 +22,17 @@ async function SendPost(url = '', token) {
         district: 2,
         category: 1,
         phone: "0983838237",
-        description: "Cho thue gia dan, tien nghi"
+        description: "Cho thue gia dan, tien nghi",
+        utilities: [],
     }
     //console.log(JSON.stringify)
     var postForm = new FormData();
     postForm.append('postStr', JSON.stringify(infor));
 
+    var files = document.getElementById("file-3").files;
+    console.log(files[0].path);
+
+    postForm.append('files', files[0]);
     // Display the key/value pairs
 for(var pair of postForm.entries()) {
     console.log(pair[1]);
