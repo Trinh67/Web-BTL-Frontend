@@ -1,5 +1,6 @@
 var checkEmail = false;
 var checkPassword = false;
+
 // Check email
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -74,6 +75,7 @@ function btnRegisterOwnerOnclick(){
   $('#register-user').show();
   $('.register-user-form').hide();
   $('#register-owner').hide();
+  $(".register-owner-form input").prop('required',true);
 }
 
 function btnRegisterUserOnclick(){
@@ -81,4 +83,5 @@ function btnRegisterUserOnclick(){
   $('#register-owner').show();
   $('.register-owner-form').hide();
   $('#register-user').hide();
+  $(".register-owner-form input").prop('required',false);
 }
