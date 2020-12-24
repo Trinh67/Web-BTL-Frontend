@@ -27,11 +27,11 @@ function loadNewsRoomData() {
                                 '<div class="room-item">'+
                                     '<div class="wrap-img" style="background: url(http://fcbtruong-001-site1.itempurl.com/api/Image/GetImage?subDir=posts/' + ret.post["idPost"] + '/' + ret.images[0] + ') center;background-size: cover;">'+
                                         '<div class="category detail-room">'+
-                                            '<a href="detail-room/' + ret.motelInfor['slug'] + '.html">' + ret.category['cateroryName'] + '</a>'+
+                                            '<a href="chi-tiet-phong-tro/' + ret.motelInfor['slug'] + '.html">' + ret.category['cateroryName'] + '</a>'+
                                         '</div>'+
                                     '</div>'+
                                     '<div class="room-detail">'+
-                                        '<h4><a href="detail-room/' + ret.motelInfor['slug'] + '.html" class="detail-room">' + ret.motelInfor['title'] + '</a></h4>'+
+                                        '<h4><a href="chi-tiet-phong-tro/' + ret.motelInfor['slug'] + '.html" class="detail-room">' + ret.motelInfor['title'] + '</a></h4>'+
                                         '<div class="room-meta">'+
                                             '<span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">' + ret.owner['name'] + '</a></span><br/>'+
                                             '<span class="pull-left"><i class="far fa-clock"></i>'+

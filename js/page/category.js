@@ -29,13 +29,13 @@ async function loadRoomData() {
                                             '<div class="col-md-4">'+
                                                 '<div class="wrap-img-vertical" style="background: url(http://fcbtruong-001-site1.itempurl.com/api/Image/GetImage?subDir=posts/' + ret.post["idPost"] + '/' + ret.images[0] + ') center;background-size: cover;">'+
                                                     '<div class="category">'+
-                                                        '<a href="../detail-room/' + ret.motelInfor['slug'] + '.html">' + ret.category['cateroryName'] + '</a>'+
+                                                        '<a href="../chi-tiet-phong-tro/' + ret.motelInfor['slug'] + '.html">' + ret.category['cateroryName'] + '</a>'+
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+
                                             '<div class="col-md-8">'+
                                                 '<div class="room-detail">'+
-                                                    '<h4><a href="../detail-room/' + ret.motelInfor['slug'] + '.html">' + ret.motelInfor['title'] + '</a></h4>'+
+                                                    '<h4><a href="../chi-tiet-phong-tro/' + ret.motelInfor['slug'] + '.html">' + ret.motelInfor['title'] + '</a></h4>'+
                                                     '<div class="room-meta">'+
                                                         '<span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">' + ret.owner['name'] + '</a></span><br/>'+
                                                         '<span class="pull-left"><i class="far fa-clock"></i>'+

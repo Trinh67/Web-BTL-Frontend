@@ -97,7 +97,7 @@ function initialize() {
     var infowindow = new google.maps.InfoWindow();
     marker = new google.maps.Marker({
         map: map,
-        icon: "images/gps.png",
+        icon: "../content/images/map/gps.png",
         anchorPoint: new google.maps.Point(0, -29),
         draggable: true
     });

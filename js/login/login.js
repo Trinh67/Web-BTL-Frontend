@@ -39,5 +39,5 @@ async function Login(url = '') {
 
 
 function loginSuccessful() {
-     window.location = "index.html"
+     window.location = "trang-chu.html"
 }

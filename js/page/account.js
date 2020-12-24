@@ -36,7 +36,7 @@ function btnEditOnclick() {
 }
 // Đăng tin
 function btnPostNewOnclick() {
-    window.location = 'post_new.html';
+    window.location = 'dang-tin-moi.html';
 }
 // Nạp tiền
 function btnRechargeOnclick() {

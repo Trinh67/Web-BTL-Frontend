@@ -3,7 +3,7 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 
-RewriteRule ^trang-chu.html$ index.html
-RewriteRule ^detail-room/([a-zA-Z0-9_-]+).html$ room_detail.html?slug=$1
-RewriteRule ^danh-muc/([a-zA-Z0-9_-]+).html$ category.html?slug=$1&number=10
+RewriteRule ^(index).html$ trang-chu.html
+RewriteRule ^chi-tiet-phong-tro/([a-zA-Z0-9_-]+).html$ room_detail.html?slug=$1
+RewriteRule ^danh-muc/([a-zA-Z0-9_-]+).html$ danh-muc.html?slug=$1&number=10
 

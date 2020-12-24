@@ -48,7 +48,7 @@ async function loadNewsRoomDetails() {
 							let r = showUtility(utility, i);
 							document.querySelector("div.utility").appendChild(r);
 						};
-						document.querySelector("a.category-name").href = 'category.html?idCategory=' + ret.category['idCategory'] + '&number=10'
+						document.querySelector("a.category-name").href = '../danh-muc/' + ret.category['slug'] + '.html';
 						document.querySelector("a.category-name").innerHTML = ret.category['cateroryName'];
 						document.querySelector("li.title-page").innerHTML = ret.motelInfor['title'];
 						document.querySelector("p.entry-title").innerHTML = ret.motelInfor['title'];
