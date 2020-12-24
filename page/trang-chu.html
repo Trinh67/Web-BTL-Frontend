@@ -89,11 +89,14 @@
     <div class="trang-chu-page">
         <div class="container-fluid padding">
             <div class="box-search">
-                <form onsubmit="">
+                <form action='tim-kiem-phong-tro' method="get">
                     <div class="form-group row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 nodisplay">
+                            <input type="text" class="form-control" name="number" value="8">
+                        </div>
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                            <select class="selectpicker" data-live-search="true" id="selectdistrict">
-                                <option value="">Quận/huyện</option>
+                            <select class="selectpicker" data-live-search="true" id="selectdistrict" name="idDistrict">
+                                <option value="0">Quận/huyện</option>
                                 <option value="1">Cầu Giấy</option>
                                 <option value="2">Bắc Từ Liêm</option>
                                 <option value="3">Đống Đa</option>
@@ -105,8 +108,8 @@
                             </select>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                            <select class="selectpicker" data-live-search="true" id="selectcategory">
-                                <option value="">Loại phòng</option>
+                            <select class="selectpicker" data-live-search="true" id="selectcategory" name="idCategory">
+                                <option value="0">Loại phòng</option>
                                 <option value="1">Phòng trọ cho thuê</option>
                                 <option value="2">Chung cư mini</option>
                                 <option value="3">Nhà nguyên căn</option>
@@ -114,8 +117,8 @@
                             </select>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                            <select id="multiselect">
-                                <option value="">Tiện ích</option>
+                            <select id="multiselect" name="idUtility">
+                                <option value="0">Tiện ích</option>
                                 <option value="8">Không chung chủ</option>
                                 <option value="1">Khép kín</option>
                                 <option value="2">Nóng lạnh</option>
@@ -124,34 +127,30 @@
                                 <option value="5">Giờ giấc tự do</option>
                                 <option value="6">Vệ sinh riêng</option>
                                 <option value="7">Wifi miễn phí</option>
-                                <option value="">Khác</option>
+                                <option value="0">Khác</option>
                             </select>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                            <select class="selectpicker" data-live-search="true" id="selectarea">
-                                <option value="">Diện tích</option>
-                                <option value="1">5 - 15 m<sup>2</sup></option>
+                            <select class="selectpicker" data-live-search="true" id="selectarea" name="idArea">
+                                <option value="0">Diện tích</option>
+                                <option value="1">< 15 m<sup>2</sup></option>
                                 <option value="2">15 - 25 m<sup>2</sup></option>
                                 <option value="3">25 - 35 m<sup>2</sup></option>
                                 <option value="4">> 35 m<sup>2</sup></option>
                             </select>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-5">
-                            <select class="selectpicker" id="selectprice" data-live-search="true">
-                                <option data-tokens="khoang gia" min="0" max="100000000">Khoảng giá</option>
-                                <option data-tokens="Tu 0 VNĐ - 700.000 VNĐ" min="0" max="1000000">Dưới 1.000.000 VNĐ</option>
-                                <option data-tokens="Tu 1.000.000 VNĐ - 1.700.000 VNĐ" min="1000000" max="1700000">Từ
-                                    1.000.000 VNĐ - 1.700.000 VNĐ</option>
-                                <option data-tokens="Tu 1.700.000 VNĐ - 2.500.000 VNĐ" min="1700000" max="2500000">Từ
-                                    1.700.000 VNĐ - 2.500.000 VNĐ</option>
-                                <option data-tokens="Tu 2.500.000 VNĐ - 3.500.000 VNĐ" min="2500000" max="3500000">Từ
-                                    2.500.000 VNĐ - 3.500.000 VNĐ</option>    
-                                <option data-tokens="Tren 3.500.000 VNĐ" min="3000000" max="100000000">Trên 3.000.000 VNĐ
-                                </option>
+                            <select class="selectpicker" id="selectprice" data-live-search="true" name="idPrice">
+                                <option value="0">Khoảng giá</option>
+                                <option value="1">Dưới 1.000.000 VNĐ</option>
+                                <option value="2">Từ 1.000.000 VNĐ - 1.700.000 VNĐ</option>
+                                <option value="3">Từ 1.700.000 VNĐ - 2.500.000 VNĐ</option>
+                                <option value="4">Từ 2.500.000 VNĐ - 3.500.000 VNĐ</option>    
+                                <option value="5">Trên 3.000.000 VNĐ</option>
                             </select>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                            <a href="search.html?number=3&minPrice=000000&maxPrice=2000000000&minArea=0&maxArea=1000000&idUtility=7&idDistrict=1&idCategory=3" class="btn btn-success" id="search">Tìm kiếm ngay</a>
+                            <button type="submit" class="btn btn-success" id="search">Tìm kiếm ngay</button>
                         </div>
                     </div>
                 </form>

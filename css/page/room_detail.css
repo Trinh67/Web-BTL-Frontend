@@ -5,9 +5,6 @@
 #map-detail{
     height: 400px;
 }
-.fa-street-view{
-    margin-left: 10px;
-}
 .price_area {
     color: #ec1e28;
     font-size: 1.2rem;
@@ -17,6 +14,12 @@
     font-size: 1rem;
     margin-top: 2px;
     color: #ff0000;
+}
+.fa-street-view, .fa-users{
+    margin-left: 5px;
+}
+#isGeneral{
+    margin-left: 10px;
 }
 .pull-right{
     float: right;

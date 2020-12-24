@@ -9,9 +9,11 @@ function GetURLParameter(url) {
 
 // Tạo <Utility>
 let showUtility = function (x, index) {
+	let uti = ["", "Khép kín", "Nóng lạnh", "Ban công", "Điều hòa", "Giờ giấc tự do", "Vệ sinh riêng", "Wifi miễn phí", "Không chung chủ"];
 	// Tạo <tr> và các <td> mới
+	if(x[index] == 8) document.getElementById('isGeneral').innerHTML = uti[x[index]]; 
 	let r = document.createElement("span");
-	r.innerHTML = '<i class="fas fa-check"></i> ' + x[index];
+	r.innerHTML = '<i class="fas fa-check"></i> ' + uti[x[index]];
 	return r;
 };
 // Tạo slides ảnh phòng trọ

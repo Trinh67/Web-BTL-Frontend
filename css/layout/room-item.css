@@ -1,4 +1,4 @@
-﻿/* Thông tin phòng */
+﻿/* Tiêu đề mục */
 .title {
     margin-top: 1rem;
     font-size: 1.5rem;
@@ -36,7 +36,7 @@ h3.title-comm:before {
     line-height: 45px;
     padding: 0px 20px;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     text-align: center;
     display: inline-block;
     min-width: 280px;
@@ -73,6 +73,8 @@ h3.title-comm:before {
     border-bottom: 22px solid transparent;
     border-right: 15px solid #003352;
 }
+
+/* Thông tin phòng */
 
 .wrap-img {
     position: relative;
