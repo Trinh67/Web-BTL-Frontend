@@ -1,17 +1,22 @@
 var submitSendPostBt = document.getElementById('postSubmitBtnId');
 
 // Kiểm tra dữ liệu đầy đủ chưa
-document.getElementById("postSubmitBtnId").disabled = true;
-$("input").blur(function(){
-  document.getElementById("postSubmitBtnId").disabled = false;
+function check(){
+  // Kiểm tra dữ liệu đã được điền đủ chưa
   for(let i = 0; i < $('.required').length; i++) {
-    if($('.required')[i].value == false)  {document.getElementById("postSubmitBtnId").disabled = true;break;}
+    if($('.required')[i].value == false) {alert('Bạn phải điền đủ thông tin bắt buộc'); return false;}
   }
-})
+  // Kiểm tra đã đủ 3 ảnh chưa
+  var fileInput = document.getElementById("file-3").files;
+  if(fileInput.length < 3) {alert('Bạn phải chọn ít nhất 3 ảnh phòng trọ'); return false;}; 
+  return true;
+}
+
 
 // Thực hiện truy vấn
 submitSendPostBt.onclick = function () {
-  // Lấy danh sách tiện ích
+  if(check() == true){
+    // Lấy danh sách tiện ích
   var array = [];
   $("input:checkbox[name=utility-item]:checked").each(function() { 
       array.push($(this).val()); 
@@ -55,13 +60,15 @@ submitSendPostBt.onclick = function () {
     body: formdata,
     redirect: 'follow'
   };
-
   fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/PostUp", requestOptions)
     .then(response => {response.text();SuccessMessage();})
     .then(result =>
       console.log(result)
     )
     .catch(error => {console.log('error', error);WarningMessage()});
+  
+  }
+  else {alert('Lỗi bài đăng')};
 }
 
 // Thông báo đăng bài thành công
@@ -76,5 +83,9 @@ function WarningMessage() {
   $('#alertSuccess').hide();
 }
 
+//Load lại trang khi đăng thành công
+$('#successNotifition').click(function(){
+  location.reload();
+})
 
 
