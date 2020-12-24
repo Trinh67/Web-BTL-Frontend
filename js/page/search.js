@@ -3,22 +3,29 @@ $(document).ready(function () {
 })
 
 // Lấy tham số trên url
-function GetURLParameter(url) {
-	var slug = url.split('/').pop();
-	return slug.substr(0, slug.length - 5);
+function GetURLParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+        }
+    }
 }
 
 // Cập nhập DOM
 async function loadRoomData() {
     // thực hiện load dữ liệu
     // 1.Lấy dữ liệu
-    await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostWithCategory?slug=" + GetURLParameter(document.URL) + "&number=10")
+    await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPosts?idCategory=" + GetURLParameter('idCategory') + "&number=" + GetURLParameter('number') + "&idDistrict=" + GetURLParameter('idDistrict') + "&idUtility=" + GetURLParameter('idUtility') + "&minPrice=" + GetURLParameter('minPrice') + "&maxPrice=" + GetURLParameter('maxPrice') + "&minArea=" + GetURLParameter('minArea') + "&maxArea=" + GetURLParameter('maxArea'))
     .then(resp => {
 		if (resp.status == 200) {
 			resp.json()
 				.then(response => {
-                    $('.category-list-room').empty();
+                    $('.search-list-room').empty();
                     for (var i = 0; i < response.length; i++) {
+                        console.log("Hi");
                         fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInfor?idPost=" + response[i])
                         .then(res => {
                             if (res.status == 200) {
@@ -29,13 +36,13 @@ async function loadRoomData() {
                                             '<div class="col-md-4">'+
                                                 '<div class="wrap-img-vertical" style="background: url(http://fcbtruong-001-site1.itempurl.com/api/Image/GetImage?subDir=posts/' + ret.post["idPost"] + '/' + ret.images[0] + ') center;background-size: cover;">'+
                                                     '<div class="category">'+
-                                                        '<a href="../detail-room/' + ret.motelInfor['slug'] + '.html">' + ret.category['cateroryName'] + '</a>'+
+                                                        '<a href="detail-room/' + ret.motelInfor['slug'] + '.html">' + ret.category['cateroryName'] + '</a>'+
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+
                                             '<div class="col-md-8">'+
                                                 '<div class="room-detail">'+
-                                                    '<h4><a href="../detail-room/' + ret.motelInfor['slug'] + '.html">' + ret.motelInfor['title'] + '</a></h4>'+
+                                                    '<h4><a href="detail-room/' + ret.motelInfor['slug'] + '.html">' + ret.motelInfor['title'] + '</a></h4>'+
                                                     '<div class="room-meta">'+
                                                         '<span><i class="fas fa-user-circle"></i> Người đăng: <a href="/">' + ret.owner['name'] + '</a></span><br/>'+
                                                         '<span class="pull-left"><i class="far fa-clock"></i>'+
@@ -53,9 +60,7 @@ async function loadRoomData() {
                                             '</div>'+
                                         '</div>'+
                                     '</div>';
-                                    $('.title-holder').html(ret.category['cateroryName']);
-                                    $('#current-page').html(ret.category['cateroryName']);
-                                    $('.category-list-room').append(trHTML);
+                                    $('.search-list-room').append(trHTML);
                                 })
                             }
                     })
