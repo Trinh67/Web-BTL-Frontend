@@ -6,12 +6,16 @@ function check(){
   for(let i = 0; i < $('.required').length; i++) {
     if($('.required')[i].value == false) {alert('Bạn phải điền đủ thông tin bắt buộc'); return false;}
   }
+  // Kiểm tra số điện thoại
+  const paragraph = document.getElementById('phoneNumber').value;
+  const regex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
+  const found = paragraph.match(regex);
+  if(found === null) {alert('Số điện thoại đang trống hoặc không đúng '); return false;}; 
   // Kiểm tra đã đủ 3 ảnh chưa
   var fileInput = document.getElementById("file-3").files;
   if(fileInput.length < 3) {alert('Bạn phải chọn ít nhất 3 ảnh phòng trọ'); return false;}; 
   return true;
 }
-
 
 // Thực hiện truy vấn
 submitSendPostBt.onclick = function () {
