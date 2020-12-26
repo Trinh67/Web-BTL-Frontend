@@ -4,6 +4,7 @@ var usernameBtn = document.getElementById("username");
 var passBtn = document.getElementById("password");
 
 submitBt.onclick = function () {
+    console.log('Click submit');
     Login('http://fcbtruong-001-site1.itempurl.com/api/Login')
         .then(data => {
             window.localStorage.setItem("token", data.token);
