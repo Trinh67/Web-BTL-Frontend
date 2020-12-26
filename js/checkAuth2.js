@@ -18,5 +18,5 @@ function userExists(){
 // Đăng xuất
 function logout(){
     window.localStorage.removeItem('token');
-    window.location = 'trang-chu.html';
+    window.location = '../trang-chu.html';
 }

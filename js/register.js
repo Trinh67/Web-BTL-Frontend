@@ -70,7 +70,6 @@ $('#register-owner').click(btnRegisterOwnerOnclick);
 $('#register-user').click(btnRegisterUserOnclick);
 
 function btnRegisterOwnerOnclick(){
-  console.log("Hi");
   $('.register-owner-form').show();
   $('#register-user').show();
   $('.register-user-form').hide();

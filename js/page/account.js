@@ -183,7 +183,6 @@ function formDate(date) {
     day = date.getDate();
     month = date.getMonth() + 1;
     year = date.getFullYear();
-    console.log(date);
     return day + '/' + month + '/' + year;
 }
 

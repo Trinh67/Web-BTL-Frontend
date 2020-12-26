@@ -5,7 +5,6 @@ $(document).ready(function () {
 // Kiểm tra user
 function checkUser(){
     var token = window.localStorage.getItem("token");
-    console.log(token);
     if(token != null) return true;
     else return false;
 }

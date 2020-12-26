@@ -23,7 +23,7 @@ submitSendPostBt.onclick = function () {
     // Lấy danh sách tiện ích
   var array = [];
   $("input:checkbox[name=utility-item]:checked").each(function() { 
-      array.push($(this).val()); 
+      array.push(parseInt($(this).val())); 
   }); 
 
   // Tạo mẫu dữ liệu
@@ -45,7 +45,7 @@ submitSendPostBt.onclick = function () {
   }
   // Tạo Headers
   var myHeaders = new Headers();
-  myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOlsidHJ1b25nOTExMmsiLCJvd25lciJdLCJuYW1laWQiOiIzNCIsImVtYWlsIjoidGhoQGdtYWlsLmNvbSIsImp0aSI6ImVlZGRmMWZlLTBjYTktNGU4Mi04ZTZmLWFiMmJiOWQxNWE4ZCIsImV4cCI6MTYwODc1MzgwNSwiaXNzIjoiaHV5dHJ1b25nLmNvbSIsImF1ZCI6Imh1eXRydW9uZy5jb20ifQ.q42LBx3q_FWf3LGD1MO2YvAGr2WkDA2ye-VIZXaWo7k");
+  myHeaders.append("Authorization", "Bearer " + window.localStorage.getItem("token"));
   var fileInput = document.getElementById("file-3").files;
 
   var formdata = new FormData();
@@ -65,11 +65,8 @@ submitSendPostBt.onclick = function () {
     redirect: 'follow'
   };
   fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/PostUp", requestOptions)
-    .then(response => {response.text();SuccessMessage();})
-    .then(result =>
-      console.log(result)
-    )
-    .catch(error => {console.log('error', error);WarningMessage()});
+    .then(response => {response.text();SuccessMessage();alert('Đăng bài thàng công! Bài đăng đang chờ duyệt!')})
+    .catch(error => {console.log('error', error);WarningMessage();alert('Đăng bài thất bại!');});
   
   }
   else {alert('Lỗi bài đăng')};

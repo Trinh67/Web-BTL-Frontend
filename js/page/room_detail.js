@@ -115,7 +115,7 @@ function initMap(x, y) {
 
 		});
 	} else {
-		document.getElementById("map-detail").innerHTML = '<img src="content/images/map/default-map.png">';
+		document.getElementById("map-detail").innerHTML = '<img src="../content/images/map/default-map.png">';
 	}
 }
 
@@ -125,7 +125,6 @@ function formDate(date) {
     day = date.getDate();
     month = date.getMonth() + 1;
     year = date.getFullYear();
-    console.log(date);
     return day + '/' + month + '/' + year;
 }
 
