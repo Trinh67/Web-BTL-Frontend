@@ -1,3 +1,20 @@
+$(document).ready(function () {
+    if(!checkUser()) userNotExists();
+    $('#logout-button').click(logout);
+})
+// Kiểm tra user
+function checkUser(){
+    var token = window.localStorage.getItem("token");
+    console.log(token);
+    if(token != null) return true;
+    else return false;
+}
+// Cập nhập dữ liệu khi tồn tại user
+function userNotExists(){
+    alert("Bạn phải đăng nhập mới có thể đăng bài!")
+    window.location = "dang-nhap.html";
+}
+
 // Map
 var map;
 var marker;
@@ -62,7 +79,7 @@ function initialize() {
             position: options.position,
             map: map,
             zoom: 19,
-            icon: "../content/images/map/gps.png",
+            icon: "content/images/map/gps.png",
             draggable: true
         });
         /* Dragend Marker */
@@ -97,7 +114,7 @@ function initialize() {
     var infowindow = new google.maps.InfoWindow();
     marker = new google.maps.Marker({
         map: map,
-        icon: "../content/images/map/gps.png",
+        icon: "content/images/map/gps.png",
         anchorPoint: new google.maps.Point(0, -29),
         draggable: true
     });

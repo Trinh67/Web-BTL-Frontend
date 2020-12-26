@@ -30,7 +30,7 @@ let showComment = function (x, index) {
 	// Tạo component mới
 	let r = document.createElement("div");
 	let i = index;
-	r.innerHTML = '<div class="media"><div class="media-left"><img class="media-object" src="../../content/images/avatar/' + x[i]['commenter']['avatar'] + '" alt=""></div><div class="media-body"><div class="media-heading"><h4>' + x[i]['commenter']['name'] + '</h4><span class="time">' + x[i]['comment']['createdAt'] + '</span><a href="#" class="reply">Reply</a><div><p>' + x[i]['comment']['content'] + '</p></div></div>';
+	r.innerHTML = '<div class="media"><div class="media-left"><img class="media-object" src="../content/images/avatar/' + x[i]['commenter']['avatar'] + '" alt=""></div><div class="media-body"><div class="media-heading"><h4>' + x[i]['commenter']['name'] + '</h4><span class="time">' + x[i]['comment']['createdAt'] + '</span><a href="#" class="reply">Reply</a><div><p>' + x[i]['comment']['content'] + '</p></div></div>';
 	return r;
 };
 //
@@ -73,7 +73,7 @@ async function loadNewsRoomDetails() {
 							document.querySelector("div.post-comments").appendChild(r);
 						};
 						//Owner
-						document.querySelector("div#avatar").innerHTML = '<img src="../../content/images/avatar/' + ret.owner['avatar'] + '" class="user_avatar" alt="Avatar" width="100" height="100">';
+						document.querySelector("div#avatar").innerHTML = '<img src="../content/images/avatar/' + ret.owner['avatar'] + '" class="user_avatar" alt="Avatar" width="100" height="100">';
 						document.querySelector("strong.owner-name").innerHTML = ret.owner['name'];
 						document.querySelector("span.owner-phone").innerHTML = 'SĐT: ' + ret.owner['phone'];
 						//Map
@@ -106,7 +106,7 @@ function initMap(x, y) {
 			position: latlng,
 			map: map,
 			title: 'Phòng',
-			icon: "../../content/images/map/gps.png",
+			icon: "../content/images/map/gps.png",
 			content: 'Phòng trọ'
 		});
 		google.maps.event.addListener(map, 'mousemove', function (e) {
@@ -115,7 +115,7 @@ function initMap(x, y) {
 
 		});
 	} else {
-		document.getElementById("map-detail").innerHTML = '<img src="../content/images/map/default-map.png">';
+		document.getElementById("map-detail").innerHTML = '<img src="content/images/map/default-map.png">';
 	}
 }
 

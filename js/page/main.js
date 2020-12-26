@@ -2,7 +2,6 @@
     loadNewsRoomData();
     loadHotsRoomData();
 })
-
 // Tải dữ liệu phòng trọ mới nhất
 function loadNewsRoomData() {
     // thực hiện load dữ liệu
@@ -130,6 +129,5 @@ function formDate(date) {
     day = date.getDate();
     month = date.getMonth() + 1;
     year = date.getFullYear();
-    console.log(date);
     return day + '/' + month + '/' + year;
 }

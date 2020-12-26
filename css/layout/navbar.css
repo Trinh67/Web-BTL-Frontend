@@ -11,8 +11,8 @@
             color: white !important;
         }
 
-.navbar-nav > li:hover {
-    background-color: rgba(46, 29, 83, 0.9) !important;
+.navbar-nav > li > a:hover {
+    color: rgb(230, 230, 230) !important;
 }
 
 .navbar li a:hover {
