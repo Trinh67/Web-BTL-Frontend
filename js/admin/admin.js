@@ -1,11 +1,13 @@
 $(document).ready(function () {
     loadOwnerRoomData();
+    $('#statistic').click(btnStatisticOnClick);
     $('#post-manager').click(btnPostOnclick);
     $('#edit-infor').click(btnEditOnclick);
     $('#post-new').click(btnPostNewOnclick);
-    $('#recharge').click(btnRechargeOnclick);
+    $('#report').click(btnReportOnclick);
     $('#message').click(btnMessageOnclick);
     $('#log-out').click(btnLogoutOnclick);
+    $('#home-Page').click(btnHomePageOnclick);
     $('#notification').click(btnNotificationOnclick);
     $('#dt-fixed-footer').dataTable({
         "paging": false,
@@ -16,11 +18,22 @@ $(document).ready(function () {
         "scrollY": 450,
     });
 })
+// Thống kê
+function btnStatisticOnClick() {
+    $('.statistic-content').show();
+    $('.main-content').hide();
+    $('.edit-user').hide();
+    $('.report-content').hide();
+    $('.chatWithAdmin').hide();
+    $('.notification-panel').hide();
+    $('#current-panel').html('Quản lí bài đăng');
+}
 // Quản lí bài đăng
 function btnPostOnclick() {
     $('.main-content').show();
+    $('.statistic-content').hide();
     $('.edit-user').hide();
-    $('.recharge-panel').hide();
+    $('.report-content').hide();
     $('.chatWithAdmin').hide();
     $('.notification-panel').hide();
     $('#current-panel').html('Quản lí bài đăng');
@@ -28,29 +41,32 @@ function btnPostOnclick() {
 // Cập nhập tài khoản
 function btnEditOnclick() {
     $('.edit-user').show();
+    $('.statistic-content').hide();
     $('.main-content').hide();
-    $('.recharge-panel').hide();
+    $('.report-content').hide();
     $('.chatWithAdmin').hide();
     $('.notification-panel').hide();
     $('#current-panel').html('Cập nhập tài khoản');
 }
 // Đăng tin
 function btnPostNewOnclick() {
-    window.location = 'dang-tin-moi.html';
+    window.location = '../dang-tin-moi.html';
 }
 // Nạp tiền
-function btnRechargeOnclick() {
-    $('.recharge-panel').show();
+function btnReportOnclick() {
+    $('.report-content').show();
+    $('.statistic-content').hide();
     $('.edit-user').hide();
     $('.main-content').hide();
     $('.notification-panel').hide();
     $('.chatWithAdmin').hide();
-    $('#current-panel').html('Nạp tiền');
+    $('#current-panel').html('Báo cáo bài đăng');
 }
 // Nhắn tin
 function btnMessageOnclick() {
     $('.chatWithAdmin').show();
-    $('.recharge-panel').hide();
+    $('.statistic-content').hide();
+    $('.report-content').hide();
     $('.edit-user').hide();
     $('.main-content').hide();
     $('.notification-panel').hide();
@@ -59,11 +75,16 @@ function btnMessageOnclick() {
 // Thông báo
 function btnNotificationOnclick() {
     $('.notification-panel').show();
+    $('.statistic-content').hide();
     $('.chatWithAdmin').hide();
-    $('.recharge-panel').hide();
+    $('.report-content').hide();
     $('.edit-user').hide();
     $('.main-content').hide();
     $('#current-panel').html('Thông báo');
+}
+// Đăng tin
+function btnHomePageOnclick() {
+    window.location = '../trang-chu.html';
 }
 
 // ĐĂng xuất
