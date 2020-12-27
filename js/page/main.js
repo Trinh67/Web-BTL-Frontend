@@ -1,6 +1,9 @@
 ﻿$(document).ready(function () {
     loadNewsRoomData();
-    loadHotsRoomData();
+    loadHotsRoomData(1);
+    $('#index-1').click(function(){loadHotsRoomData(1); $('#index-1').addClass('active'); $('#index-2, #index-3').removeClass('active'); return false;});
+    $('#index-2').click(function(){loadHotsRoomData(2); $('#index-2').addClass('active'); $('#index-1, #index-3').removeClass('active'); return false;});
+    $('#index-3').click(function(){loadHotsRoomData(3); $('#index-3').addClass('active'); $('#index-1, #index-2').removeClass('active'); return false;});
 })
 // Tải dữ liệu phòng trọ mới nhất
 function loadNewsRoomData() {
@@ -62,11 +65,12 @@ function loadNewsRoomData() {
 }
 
 // Tải dữ liệu phòng có nhiều lượt xem nhất
-function loadHotsRoomData() {
+function loadHotsRoomData(index) {
     // thực hiện load dữ liệu
+    console.log(index);
     // 1.Lấy dữ liệu
     $.ajax({
-        url: 'http://fcbtruong-001-site1.itempurl.com/api/Post/GetPosts?number=50',
+        url: 'http://fcbtruong-001-site1.itempurl.com/api/Post/GetPosts?startPoin=' + 6*(index-1) + 1 + '&number=6',
         method: 'GET',
         data: null,
         dataType: 'json',

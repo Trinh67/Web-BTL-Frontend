@@ -13,7 +13,7 @@ function userExists(){
     console.log("Tồn tại");
     $('#userExists').show();
     $('#loginButton').hide();
-    // $('#userNameExists').html = 
+    
 }
 // Đăng xuất
 function logout(){

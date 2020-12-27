@@ -1,6 +1,13 @@
 ﻿$(document).ready(function () {
-    loadNewsRoomDetails();
+	loadNewsRoomDetails();
+	$('#review-send-button').click(checkReview);
 })
+
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer " + window.localStorage.getItem("token"));
+myHeaders.append("Content-Type", "application/json");
+
+var idPost;
 // Lấy tham số trên url
 function GetURLParameter(url) {
 	var slug = url.split('/').pop();
@@ -45,6 +52,7 @@ async function loadNewsRoomDetails() {
 			resp.json()
 				.then(ret => {
 					if (ret.motelInfor != null) {
+						idPost = ret.post['idPost'];
 						var utility = JSON.parse(ret.motelInfor['idUtility']);
 						for (let i = 0; i < utility.length; i++) {
 							let r = showUtility(utility, i);
@@ -62,7 +70,6 @@ async function loadNewsRoomDetails() {
 						// Images
 						for (let i = 0; i < ret.images.length; i++) {
 							let r = showImages(ret, i);
-							console.log(r);
 							document.querySelector("div.image-slides").appendChild(r);
 						};
 						// Comments
@@ -78,7 +85,6 @@ async function loadNewsRoomDetails() {
 						document.querySelector("span.owner-phone").innerHTML = 'SĐT: ' + ret.owner['phone'];
 						//Map
 						var position = JSON.parse(ret.motelInfor['position']);
-						console.log(position[1]);
 						initMap(parseFloat(position['x']), parseFloat(position['y']));
 					} else {
 						// Có lỗi xử lý nghiệp vụ
@@ -126,5 +132,45 @@ function formDate(date) {
     month = date.getMonth() + 1;
     year = date.getFullYear();
     return day + '/' + month + '/' + year;
+}
+
+
+// Kiểm tra dữ liệu review
+var rate, requestOptions;
+function checkValue(){
+    if($("#review-content").val() == "") {alert('Bạn chưa nhập bình luận!'); return false;}
+    // Kiểm tra dữ liệu đã được điền đủ chưa
+    for(let i = 0; i < $('input[name=rate]').length; i++) {
+        if($('input[name=rate][value=' + (i+1) + ']').prop("checked")) {rate = i+1;return true;}
+    }
+    alert('Bạn chưa đánh giá!'); 
+    return false;
+}
+
+function postReview(){
+	// Lấy dữ liệu
+	var raw = JSON.stringify({"idPost": idPost,"content":$("#review-content").val(),"rate":rate});
+	requestOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body: raw,
+		redirect: 'follow'
+	  };
+	  PostToServer();
+}
+async function PostToServer(){
+	await fetch("http://fcbtruong-001-site1.itempurl.com/api/ReviewPost/PostReview", requestOptions)
+	.then(resp => {
+	  if (resp.status == 200) alert('Bình luận đã được gửi thành công!')}
+	  )
+	.catch(error => console.log('error', error));
+}
+function checkReview(){
+    if(!checkUser()) alert('Bạn phải đăng nhập mới có thể bình luận!')
+    else {
+        if(checkValue()){
+			postReview();
+        }
+    }
 }
 

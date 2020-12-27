@@ -1,5 +1,8 @@
 $(document).ready(function () {
-    loadRoomData();
+    loadRoomData(1);
+    $('#index-1').click(function(){loadRoomData(1); $('#index-1').addClass('active'); $('#index-2, #index-3').removeClass('active'); return false;});
+    $('#index-2').click(function(){loadRoomData(2); $('#index-2').addClass('active'); $('#index-1, #index-3').removeClass('active'); return false;});
+    $('#index-3').click(function(){loadRoomData(3); $('#index-3').addClass('active'); $('#index-1, #index-2').removeClass('active'); return false;});
 })
 
 // Lấy tham số trên url
@@ -71,7 +74,7 @@ function getRangeValue(){
 
 
 // Cập nhập DOM
-async function loadRoomData() {
+async function loadRoomData(index) {
     // thực hiện load dữ liệu
     // 1.Lấy dữ liệu
     getRangeValue();
@@ -84,7 +87,13 @@ async function loadRoomData() {
 				.then(response => {
                     $('.search-list-room').empty();
                     if(response.length > 0){
-                        for (var i = 0; i < response.length; i++) {
+                        if(6*index > response.length) {
+                            var notification = '<div class="alert bg-warning">' +
+                            '<button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>' +
+                            '<span class="textMessage">Không còn bài đăng!</span></div>' ;
+                            $('.search-list-room').append(notification);
+                        }
+                        for (var i = 6*(index-1)+1; i <= 6*index; i++) {
                             fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInfor?idPost=" + response[i])
                             .then(res => {
                                 if (res.status == 200) {

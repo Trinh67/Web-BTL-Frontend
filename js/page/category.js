@@ -1,5 +1,8 @@
 $(document).ready(function () {
-    loadRoomData();
+    loadRoomData(1);
+    $('#index-1').click(function(){loadRoomData(1); $('#index-1').addClass('active'); $('#index-2, #index-3').removeClass('active'); return false;});
+    $('#index-2').click(function(){loadRoomData(2); $('#index-2').addClass('active'); $('#index-1, #index-3').removeClass('active'); return false;});
+    $('#index-3').click(function(){loadRoomData(3); $('#index-3').addClass('active'); $('#index-1, #index-2').removeClass('active'); return false;});
 })
 
 // Lấy tham số trên url
@@ -9,16 +12,22 @@ function GetURLParameter(url) {
 }
 
 // Cập nhập DOM
-async function loadRoomData() {
+async function loadRoomData(index) {
     // thực hiện load dữ liệu
     // 1.Lấy dữ liệu
-    await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostWithCategory?slug=" + GetURLParameter(document.URL) + "&number=10")
+    await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostWithCategory?slug=" + GetURLParameter(document.URL) + "&number=40")
     .then(resp => {
 		if (resp.status == 200) {
 			resp.json()
 				.then(response => {
                     $('.category-list-room').empty();
-                    for (var i = 0; i < response.length; i++) {
+                    if(4*index > response.length) {
+                        var notification = '<div class="alert bg-warning">' +
+                        '<button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>' +
+                        '<span class="textMessage">Không còn bài đăng!</span></div>' ;
+                        $('.category-list-room').append(notification);
+                    }
+                    for (var i = 4*(index-1)+1; i <= 4*index; i++) {
                         fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInfor?idPost=" + response[i])
                         .then(res => {
                             if (res.status == 200) {
@@ -58,7 +67,7 @@ async function loadRoomData() {
                                     $('.category-list-room').append(trHTML);
                                 })
                             }
-                    })
+                    }) 
                     }
                 })
             }
