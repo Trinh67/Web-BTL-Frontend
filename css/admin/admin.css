@@ -1,410 +1,47 @@
-/* Bảng chức năng */
-.panel{
-    padding-top: 1rem;
-    margin-left: 0.3rem;
-    float: left;
-    width: 200px;
-    height: 100vh;
-}
-.main{
-    margin-left: 230px;
-    height: 100%;
-    border-left: 1px solid #a3a3a3;
-}
-
-.panel .account{
-    display: flex;
-}
-.panel .account-text{
-    padding-left: 0.4rem;
-    padding-top: 1rem;
-}
-.surplus{
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: 0.8rem;
-    margin-left: 1.5rem;
-}
-.money{
-    color: #ff0404;
-}
-.user_avatar {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    border-width: 3px;
-    border-color: #ffffff;
-    border-radius: 50%;
-}
-
-/* Menu */
-.menu{
-    width: 100%;
-}
-.menu .menu_item {
-    display: flex;
-    height: 40px;
-    align-items: center;
-    padding-left: 6px;
-    padding-right: 4px;
-    border-top: 1px solid #c2c2c2;
-}
-    .menu .menu_item:hover {
-        background-color: #e5e5e5;
-        cursor: pointer;
-    }
-    .menu .menu_item .menu_item--icon {
-        width: 24px;
-        height: 24px;
-    }
-    .menu .menu_item .menu_item--text {
-        margin-left: 8px;
-        margin-top: 0.2rem;
-        font-size: 0.8rem;
-    }
-.menu .web-title{
-    text-align: center;
-    margin-top: 6rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-/* Nạp tiền */
-.recharge-panel .alert{
-    border:2px solid #76c9a0;
-    border-radius: 8px;
-}
-.recharge-panel .select-title{
-    padding-left: 2rem;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-.methods a .item-icon img{
-    width: 150px;
-    height: 150px;
-    border-radius: 15px;
-    margin-bottom: 0.2rem;
-}
-.methods .group-item{
-    display: block;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-.methods a:hover{
-    color: #06d421;
-    text-decoration: none;
-}
-
-/* Message */
-.chatWithAdmin .card{
-    height: 550px;
-    border-radius: 15px !important;
-    background-color: rgba(12, 12, 12, 0.4) !important;
-}
-.chatWithAdmin .contacts_body{
-    padding:  0.75rem 0 !important;
-    overflow-y: auto;
-    white-space: nowrap;
-}
-.chatWithAdmin .msg_card_body{
-    overflow-y: auto;
-}
-.chatWithAdmin .card-header{
-    border-radius: 15px 15px 0 0 !important;
-    background-color: #1f7df7;
-    height: 70px !important;
-    border-bottom: 0 !important;
-}
-.chatWithAdmin .card-footer{
-    border-radius: 0 0 15px 15px !important;
-    border-top: 0 !important;
-}
-.chatWithAdmin .type_msg{
-    background-color: #e0e0e0 !important;
-    border:0 !important;
-    color:#000000 !important;
-    height: 50px !important;
-    overflow-y: auto;
-}
-    .type_msg:focus{
-        box-shadow:none !important;
-        outline:0px !important;
-}
-.chatWithAdmin .send_btn{
-    border-radius: 0 15px 15px 0 !important;
-    background-color: rgba(224, 224, 224, 0.3) !important;
-    border:0 !important;
-    color: rgb(4, 109, 247) !important;
-    font-size: 25px !important;
-    cursor: pointer;
-}
-
-.user_img{
-    height: 50px;
-    width: 50px;
-    border: 1px solid #f5f6fa;
-
-}
-.user_img_msg{
-    height: 40px;
-    width: 40px;
-    border:1px solid #f5f6fa;
-
-}
-.img_cont{
-    position: relative;
-    height: 70px;
-    width: 70px;
-}
-.img_cont_msg{
-    height: 40px;
-    width: 40px;
-}
-.user_info{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 0;
-}
-.user_info span{
-    font-size: 1rem;
-    font-weight: bold;
-    color:#ffffff;
-}
-.user_info p{
-    font-size: 0.7rem;
-    color: #ffffff;
-}
-.video_cam{
-    position: absolute;
-    right: 15px;
-    top: 0.8rem;
-    color: white;
-    cursor: pointer;
-}
-.video_cam span i{
-    font-size: 25px;
-    cursor: pointer;
-    margin-right: 10px;
-    color: #ffffff;
-}
-.msg_cotainer{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 10px;
-    border-radius: 25px;
-    background-color: #82ccdd;
-    max-width: 70%;
-    padding: 10px;
-    position: relative;
-}
-.msg_cotainer_send{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 10px;
-    border-radius: 25px;
-    max-width: 70%;
-    background-color: #78e08f;
-    padding: 10px;
-    position: relative;
-}
-.msg_time{
-    position: absolute;
-    left: 6px;
-    bottom: -20px;
-    color: #ffffff;
-    font-size: 12px;
-}
-.msg_time_send{
-    position: absolute;
-    right:6px;
-    bottom: -20px;
-    color: #ffffff;
-    font-size: 12px;
-}
-.msg_head{
-    position: relative;
-}
-
-/* Support */
-.main-content, .edit-user, .recharge-panel{
-    position: relative;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-#support_box{
-    position: relative;
-    background-color: #3f3f3f;
-    color: #ffffff;
-    width: calc(100% );
-    bottom: 0;
-    text-align: center;
-    padding-bottom: 2rem;
-    margin-left: 0px;
-}
-#support_box .title{
-    width: 100%;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-#support_box .content{
-    width: 100%;
-    display: flex;
-}
-#support_box .content a:hover{
-    text-decoration: none;
-}
-
-/* Table */
-tr > th {
-    background-color: #d6d6d6;
-    font-size: 0.8rem;
-    text-align: center;
-    color: rgb(0, 0, 0);
-}
-
-tr:nth-child(even) {
-    background-color: #f0f0f0;
-}
-tr > td{
-    font-size: 0.8rem;
-}
-tr > td:hover {
-    cursor: pointer;
-    background-color: #e9e8e8;
-}
-
-tr > td > a {
-    text-decoration: none;
-    color: #000000;
-}
-
-    tr > td > a:hover {
-        text-decoration: none;
-        color: #000000;
-    }
-tbody tr .btn-sm{
-    background-color: #d1d1d1;
-}
-
-td.badge{
-    margin-top: 8px;
-}
-td.badge-primary:hover{
-    background-color: #116ce2;
-}
-td.badge-success:hover{
-    background-color: #0bcf36;
-}
-td.badge-danger:hover{
-    background-color: #f7392c;
-}
-
-/* Thông báo */
-#notification .badge {
-    top: -15px;
-    margin-left: 15px;
-    padding: 5px 8px;
-    border-radius: 50%;
-    background-color: red;
-    color: white;
-  }
-
-.notification-panel .notification-box{
-    height: 400px;
-    overflow-y: auto;
-}
-.notification-panel .message-content{
-    display: flex;
-    width: 98%;
-    border-radius: 15px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-.notification-panel .message-success{
-    border:2px solid rgb(0, 253, 84);
-    background-color: rgb(48, 253, 93);
-}
-.notification-panel .message-danger{
-    border:2px solid rgb(250, 49, 14);
-    background-color: rgb(255, 85, 43);
-}
-.notification-panel .message-warning{
-    border:2px solid rgb(255, 217, 0);
-    background-color: rgb(255, 198, 43);
-}
-.notification-panel .message-content .circle-avatar{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-.notification-panel .message-content .text-message{
-    padding-left: 15px;
-}
-.notification-panel .message-content .text-message .content{
-    font-size: 1rem;
-    font-weight: 500;
-}
-.notification-panel .message-content .text-message .admin-time{
-    font-size: 0.8rem;
-    color: #424242;
-}
-
-/* Toggle còn phòng/ hết phòng */
-.onoffswitch {
-    margin-top: 10px;
-    position: relative; width: 120px;
-}
-.onoffswitch-checkbox {
-    display: none;
-}
-.onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 20px;
-}
-.onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 14px; color: white;
-    font-weight: bold;
-    box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-    content: "Còn phòng!";
-    padding-left: 5px;
-    background-color: green; color: #FFFFFF;
-}
-.onoffswitch-inner:after {
-    content: "Hết phòng!";
-    padding-right: 10px;
-    background-color: red; color: #FFFFFF;
-    text-align: right;
-}
-.onoffswitch-switch {
-    display: block; width: 30px;
-    background: #FFFFFF;
-    position: absolute; top: 0; bottom: 0;
-    right: 90px;
-    border: 2px solid #999999; border-radius: 15px;
-    transition: all 0.3s ease-in 0s; 
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
-}
-
 /* Thống kê */
 .statistic-content .statistic{
     margin-bottom: 10px;
 }
 .statistic-content .statistic-item{
-    border:2px solid #ccc;
+    border:1px solid #ccc;
+    font-size: 0.8rem;
+    min-height: 120px;
     padding: 8px;
-    margin-left: 10px;
+    margin-left: 5px;
+    color: #fff;
     background-color:rgb(163, 175, 164);
+}
+.bg-green{
+    background-color:rgb(23, 196, 37)!important;
+}
+.bg-blue{
+    background-color: rgb(49, 103, 252)!important;
+}
+.bg-orange{
+    background-color: #df9903!important;
+}
+.bg-teal {
+    background-color: #26A69A!important;
+    border-color: #26A69A!important;
+}
+
+/* Báo cáo */
+.report-content{
+    margin: 10px;
+}
+
+/* Bảng thống kê */
+table tbody tr td.title{
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+table tbody tr td .dropdown button{
+    
+}
+
+/* Chân trang  */
+.utility-website{
+    margin-top: 6px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }

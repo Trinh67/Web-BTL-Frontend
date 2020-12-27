@@ -286,7 +286,7 @@ tbody tr .btn-sm{
 }
 
 td.badge{
-    margin-top: 8px;
+    margin-top: 10px;
 }
 td.badge-primary:hover{
     background-color: #116ce2;
@@ -322,16 +322,16 @@ td.badge-danger:hover{
     margin-right: 5px;
 }
 .notification-panel .message-success{
-    border:2px solid rgb(0, 253, 84);
-    background-color: rgb(48, 253, 93);
+    border:2px solid rgb(0, 253, 34);
+    background-color: rgb(161, 255, 181);
 }
 .notification-panel .message-danger{
     border:2px solid rgb(250, 49, 14);
-    background-color: rgb(255, 85, 43);
+    background-color: rgb(255, 158, 133);
 }
 .notification-panel .message-warning{
-    border:2px solid rgb(255, 217, 0);
-    background-color: rgb(255, 198, 43);
+    border:2px solid rgb(255, 196, 0);
+    background-color: rgb(255, 226, 145);
 }
 .notification-panel .message-content .circle-avatar{
     width: 60px;
