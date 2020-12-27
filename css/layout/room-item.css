@@ -84,6 +84,7 @@ h3.title-comm:before {
 }
 
 .wrap-img-vertical {
+    
     position: relative;
     min-height: 240px;
 }
@@ -119,7 +120,7 @@ h3.title-comm:before {
 .room-news .room-detail {
     padding: 10px 10px 10px 10px;
     background: #dbdbdb;
-    min-height: 335px;
+    min-height: 300px;
 }
 
 .room-item-vertical .room-detail {

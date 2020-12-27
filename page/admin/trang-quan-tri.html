@@ -7,15 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
     <!-- Add link -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../lib/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="../lib/js/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../../lib/js/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-    <link href="../css/main.css" rel="stylesheet">
-    <link href="../css/page/account.css" rel="stylesheet">
-    <link href="../css/admin/admin.css" rel="stylesheet">
+    <link href="../../css/main.css" rel="stylesheet">
+    <link href="../../css/admin/admin.css" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +22,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <a class="navbar-branch" href="trang-quan-tri.html">
-                <img src="../content/images/page/logo.png" height="50">
+                <img src="../../content/images/page/logo.png" height="50">
             </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
@@ -34,7 +32,7 @@
                     <li class="dropdown nav-item">
                         <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Xuan Trinh</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" id="logout-button"><i class="fa fa-sign-out icon" aria-hidden="true"></i>Thoát</a></li>
+                            <li><a href="#"><i class="fa fa-sign-out icon" aria-hidden="true"></i>Thoát</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -46,7 +44,7 @@
     <div class="panel">
         <div class="account">
             <div class="avatar">
-                <img src="../content/images/avatar/tsubasa.jpg" class="user_avatar" alt="Cinque Terre" width="100"
+                <img src="../../content/images/avatar/tsubasa.jpg" class="user_avatar" alt="Cinque Terre" width="100"
                     height="100">
             </div>
             <div class="account-text">
@@ -80,14 +78,14 @@
                     Báo cáo bài đăng
                 </div>
             </div>
-            <!-- <div class="menu_item" id="edit-infor">
+            <div class="menu_item" id="edit-infor">
                 <div class="menu_item--icon">
                     <i class="fas fa-pen-square icon"></i>
                 </div>
                 <div class="menu_item--text">
                     Sửa thông tin cá nhân
                 </div>
-            </div> -->
+            </div>
             <!-- <div class="menu_item" id="post-new">
                 <div class="menu_item--icon">
                     <i class="fas fa-edit icon"></i>
@@ -139,7 +137,7 @@
             <!-- pages-title-start -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="trang-quan-tri.html">Trang quản trị</a></li>
+                    <li class="breadcrumb-item"><a href="trang-chu.html">Trang quản trị</a></li>
                     <li class="breadcrumb-item active" aria-current="page" id="current-panel">Thống kê</li>
                 </ol>
             </nav>
@@ -147,7 +145,7 @@
         <!-- Thống kê -->
         <div class="statistic-content container-fluid padding">
             <!-- Page header -->
-            <div class="form-title col-md-12">Thống kê - Website EasyAccomod</div>
+            <div class="form-title"><span class="text-semibold">Thống kê</span> - Website EasyAccomod</div>
             <hr/>
             <!-- /page header -->
             <div class="content">
@@ -155,211 +153,128 @@
                 <div class="row">
                     <div class="statistic col-md-4">
                         <!-- Members online -->
-                        <div class="statistic-item bg-green">
-                                <h4 class="no-margin">15</h4>Thành viên hoạt động
-                                <div class="text-size-small"> 2 chờ duyệt</div>
+                        <div class="statistic-item bg-teal">
+                                <h3 class="no-margin">8</h3>Thành viên hoạt động
+                                <div class="text-muted text-size-small"> 2 bị khóa</div>
                         </div>
                         <!-- /Members online -->
                     </div>
         
                     <div class="statistic col-md-4">
                         <!-- Motelroom -->
-                        <div class="statistic-item bg-blue">
-                                <h4 class="no-margin">36</h4>Phòng đã duyệt
-                                <div class="text-size-small">trên 40 phòng đã gửi</div>
+                        <div class="statistic-item bg-pink">
+                                <h3 class="no-margin">36</h3>Phòng trọ đã duyệt
+                                <div class="text-muted text-size-small">trên tổng số 40 phòng trọ đã đăng</div>
                         </div>
                         <!-- /Motelroom -->
                     </div>
         
                     <div class="statistic col-md-4">
                         <!-- Today's report -->
-                        <div class="statistic-item bg-teal">
-                           <h4 class="no-margin">1564</h4>Lượt truy cập
-                            <div class="text-size-small">Website</div>
+                        <div class="statistic-item bg-blue">
+                           <h3 class="no-margin">6</h3>Báo cáo
+                            <div class="text-muted text-size-small">từ người dùng</div>
                         </div>
                         <!-- /Today's report -->
                     </div>
                 </div>
                 <!-- /quick stats boxes -->
             </div>
-            <hr/>
-            <div class="form-title col-md-12">Thống kê trong tháng này</div>
-            <br/>
-            <table class="table table-bordered table-hover table-striped">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Tiêu chí đánh giá</th>
-                    <th scope="col">Kết quả đánh giá</th>
-                    <th scope="col">Giá trị</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="title">Bài đăng xem nhiều nhất</td>
-                    <td><span class="badge badge-pill badge-warning">Phòng trọ cho thuê</span>Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công (#32)</td>
-                    <td>10 (lượt)</td>
-                  </tr>
-                  <tr>
-                    <td class="title">Bài đăng yêu thích nhiều nhất</td>
-                    <td><span class="badge badge-pill badge-warning">Phòng trọ cho thuê</span>Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công (#32)</td>
-                    <td>8 (lượt)</td>
-                  </tr>
-                  <tr>
-                    <td class="title">Thời gian có số bài viết đăng nhiều nhất</td>
-                    <td>15/12/2020</td>
-                    <td>6 bài</td>
-                  </tr>
-                  <tr>
-                    <td class="title">Loại phòng có lượt tìm nhiều nhất</td>
-                    <td>Phòng cho thuê</td>
-                    <td>46 lượt</td>
-                  </tr>
-                  <tr>
-                    <td class="title">Địa điểm (phường/quận) có lượt tìm nhiều nhất</td>
-                    <td>Cầu Giấy</td>
-                    <td>15 lượt</td>
-                  </tr>
-                  <tr>
-                    <td class="title">Mức giá phòng user tìm kiếm nhiều nhất</td>
-                    <td>1.700.000 VND - 2.500.000 VND</td>
-                    <td>20 lượt</td>
-                  </tr>
-                  <tr>
-                    <td class="title">Khoảng thời gian có nhiều người truy cập/tìm kiếm nhiều nhất</td>
-                    <td>6/12/2020</td>
-                    <td>29 lượt</td>
-                  </tr>
-                </tbody>
-              </table>
         </div>
         <!-- Quản lí bài đăng -->
         <div class="main-content nodisplay">
             <div class="form-title">Quản lí bài đăng</div>
-            <table id="post-table" class="table table-striped table-bordered" style="width:100%">
+            <table id="dt-fixed-footer" class="table table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Mã tin</th>
+                        <th>Ảnh</th>
                         <th>Tiêu đề</th>
                         <th>Giá phòng</th>
                         <th>Ngày gửi/duyệt</th>
                         <th>Ngày hết hạn</th>
-                        <th>Người tạo</th>
+                        <th>Gói dịch vụ</th>
                         <th>Trạng thái</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="list-owner-post">
                     <tr>
                         <td>#45656</td>
+                        <td>
+                            <a href="room_detail.html?slug=cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau"
+                                target="_blank"><img src="../../content/images/room/phongtro1.jpg" width="100px"
+                                    height="80px"></a>
+                        </td>
                         <td><span class="badge badge-pill badge-warning">Phòng trọ</span>
                             <a class="" target="_blank"
-                                href="../chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
+                                href="room_detail.html?slug=cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau"
                                 style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
+                            <div><a href="#" class="btn btn-sm btn-add-day text-success"><i data-feather="plus"></i>+
+                                    Thêm ngày</a>
+                                <a href="#" class="btn btn-sm btn-edit-post"><i class="fas fa-edit icon"></i> Sửa</a>
+                            </div>
                         </td>
                         <td>3.000.000 đ/ tháng</td>
                         <td>2020/12/25</td>
                         <td>2020/12/28</td>
-                        <td>Xuân Trình</td>
-                        <td><span class="badge badge-pill badge-primary" style="padding: 10px; font-size: 0.8rem">Chờ phê duyệt</span></td> 
-                        <td>
-                            <div class="dropdown dropleft float-right">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                  Action
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
-                                    <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
-                                    <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
-                                </div>
-                              </div>
-                        </td>
+                        <td>Gói tuần</td>
+                        <td class="badge badge-primary">Chờ phê duyệt</td>
                     </tr>
                     <tr>
                         <td>#45656</td>
-                        <td><span class="badge badge-pill badge-warning">Phòng trọ</span>
-                            <a class="" target="_blank"
-                                href="../chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
-                                style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
-                        </td>
-                        <td>3.000.000 đ/ tháng</td>
-                        <td>2020/12/25</td>
-                        <td>2020/12/28</td>
-                        <td>Xuân Trình</td>
-                        <td><span class="badge badge-pill badge-warning" style="padding: 10px; font-size: 0.8rem">Từ chối phê duyệt</span></td> 
                         <td>
-                            <div class="dropdown dropleft float-right">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                  Action
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
-                                    <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
-                                    <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
-                                </div>
-                              </div>
+                            <a href="room_detail.html?slug=cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau"
+                                target="_blank"><img src="../../content/images/room/phongtro1.jpg" width="100px"
+                                    height="80px"></a>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>#45656</td>
                         <td><span class="badge badge-pill badge-warning">Phòng trọ</span>
                             <a class="" target="_blank"
-                                href="../chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
+                                href="room_detail.html?slug=cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau"
                                 style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
+                            <div><a href="#" class="btn btn-sm btn-add-day text-success"><i data-feather="plus"></i>+
+                                    Thêm ngày</a>
+                                <a href="#" class="btn btn-sm btn-edit-post"><i class="fas fa-edit icon"></i> Sửa</a>
+                            </div>
                         </td>
                         <td>3.000.000 đ/ tháng</td>
                         <td>2020/12/25</td>
                         <td>2020/12/28</td>
                         <td>Gói tháng</td>
-                        <td><span class="badge badge-pill badge-success" style="padding: 10px; font-size: 0.8rem">Đang hoạt động</span></td>
-                        <td>
-                            <div class="dropdown dropleft float-right">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                  Action
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
-                                    <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
-                                    <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
-                                </div>
-                              </div>
-                        </td>
+                        <td class="badge badge-success">Đang hoạt động</td>
                     </tr>
                     <tr>
                         <td>#45656</td>
+                        <td>
+                            <a href="room_detail.html?slug=cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau"
+                                target="_blank"><img src="../../content/images/room/phongtro1.jpg" width="100px"
+                                    height="80px"></a>
+                        </td>
                         <td><span class="badge badge-pill badge-warning">Phòng trọ</span>
                             <a class="" target="_blank"
-                                href="../chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
+                                href="room_detail.html?slug=cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau"
                                 style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
+                            <div><a href="#" class="btn btn-sm btn-add-day text-success"><i data-feather="plus"></i>+
+                                    Thêm ngày</a>
+                                <a href="#" class="btn btn-sm btn-edit-post"><i class="fas fa-edit icon"></i> Sửa</a>
+                            </div>
                         </td>
                         <td>3.000.000 đ/ tháng</td>
                         <td>2020/12/06</td>
                         <td>2020/12/08</td>
                         <td>Gói ngày</td>
-                        <td><span class="badge badge-pill badge-danger center" style="padding: 10px; font-size: 0.8rem">Hết hạn</span></td>
-                        <td>
-                            <div class="dropdown dropleft float-right">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                  Action
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
-                                    <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
-                                    <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
-                                </div>
-                              </div>
-                        </td>
+                        <td class="badge badge-danger">Hết hạn</td>
                     </tr> 
                 </tbody>
                 <tfoot>
                     <tr>
                         <th>Mã tin</th>
+                        <th>Ảnh</th>
                         <th>Tiêu đề</th>
                         <th>Giá phòng</th>
                         <th>Ngày gửi/duyệt</th>
                         <th>Ngày hết hạn</th>
-                        <th>Người tạo</th>
+                        <th>Gói dịch vụ</th>
                         <th>Trạng thái</th>
-                        <th>Action</th>
                     </tr>
                 </tfoot>
             </table>
@@ -438,56 +353,58 @@
         <div class="report-content nodisplay">
             <div class="form-title">Báo cáo bài đăng</div><br />
             <div class="row">
-                <div class="col-md-12">   
-                    <table id="report-table" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr class="bg-blue">
-                                <th>ID bài</th>
-                                <th>Bài đăng</th>
-                                <th>Trạng thái</th>
-                                <th>Nội dung</th>
-                                <th>ID Người tạo</th>
-                                <th class="text-center">Thời gian</th>
-                            </tr>
-                        </thead>
-                        <tbody id="list-report">
-                                <tr>
-                                    <td>#15</td>
-                                    <td><a href="#" target="_blank">Phòng trọ cho thue gan DHCN-DHQGHN</a></td>
-                                    <td>
-                                            <!-- <span class="badge badge-pill badge-success">Đã cho thuê</span> -->
-                                            <span class="badge badge-pill badge-danger">Sai nội dung</span>
-                                    </td>
-                                    <td>Phòng hẹp hơn như trong bài đăng</td>
-                                    <td>#35</td>
-                                    <td class="text-center">12/12/2000</td>
-                                </tr>
-                                <tr>
-                                    <td>#16</td>
-                                    <td><a href="#" target="_blank">Phòng trọ cho thue gan DHCN</a></td>
-                                    <td>
-                                            <span class="badge badge-pill badge-success">Đã cho thuê</span>
-                                            <!-- <span class="badge badge-pill badge-danger">Sai nội dung</span> -->
-                                    </td>
-                                    <td>Đến nơi thì phòng đã được cho thuê</td>
-                                    <td>#29</td>
-                                    <td class="text-center">12/12/2000</td>
-                                </tr>
-                        </tbody>
-                    </table>
+                <div class="col-md-12">
+                    <div class="">
+                            <div class="">
+                                <h5 class="">Danh sách báo cáo từ người dùng <span class="badge badge-primary">2</span></h5>
+                            </div>    
+                            <table class="table datatable-show-all table-bordered">
+                                <thead>
+                                    <tr class="bg-blue">
+                                        <th>ID</th>
+                                        <th>Bài đăng</th>
+                                        <th>Trạng thái</th>
+                                        <th class="text-center">Thời gian</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>#15</td>
+                                            <td><a href="#" target="_blank">Phòng trọ cho thue gan DHCN-DHQGHN</a></td>
+                                            <td>
+                                                    <!-- <span class="badge badge-pill badge-success">Đã cho thuê</span> -->
+                                                    <span class="badge badge-pill badge-danger">Sai nội dung</span>
+                                            </td>
+                                            <td class="text-center">
+                                                1 tháng trước <span class="badge badge-primary">12/12/2000</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#15</td>
+                                            <td><a href="#" target="_blank">Phòng trọ cho thue gan DHCN</a></td>
+                                            <td>
+                                                    <span class="badge badge-pill badge-success">Đã cho thuê</span>
+                                                    <!-- <span class="badge badge-pill badge-danger">Sai nội dung</span> -->
+                                            </td>
+                                            <td class="text-center">
+                                                1 tháng trước <span class="badge badge-primary">12/12/2000</span>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
                 </div>
             </div>
         </div>
 
         <!-- Nhắn tin với Admin -->
         <div class="chatWithAdmin nodisplay">
-            <div class="form-title">Tin nhắn</div><br />
             <div class="col-md-12 chat">
                 <div class="card">
                     <div class="card-header msg_head">
                         <div class="d-flex bd-highlight">
                             <div class="img_cont">
-                                <img src="../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img">
+                                <img src="../../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img">
                             </div>
                             <div class="user_info">
                                 <span>EasyAccomod</span>
@@ -501,64 +418,64 @@
                     <div class="card-body msg_card_body">
                         <div class="d-flex justify-content-start mb-4">
                             <div class="img_cont_msg">
-                                <img src="../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
+                                <img src="../../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
                             </div>
                             <div class="msg_cotainer">
-                                Xin chào! Bạn khỏe không Trinh?
+                                Hi, how are you Trinh?
                                 <span class="msg_time">8:40 AM, Today</span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mb-4">
                             <div class="msg_cotainer_send">
-                                Chào Admin tôi khỏe, còn bạn?
+                                Hi Admin i am good, how about you?
                                 <span class="msg_time_send">8:55 AM, Today</span>
                             </div>
                             <div class="img_cont_msg">
-                        <img src="../content/images/avatar/johndoe.png" class="rounded-circle user_img_msg">
+                        <img src="../../content/images/avatar/johndoe.png" class="rounded-circle user_img_msg">
                             </div>
                         </div>
                         <div class="d-flex justify-content-start mb-4">
                             <div class="img_cont_msg">
-                                <img src="../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
+                                <img src="../../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
                             </div>
                             <div class="msg_cotainer">
-                                Tôi cũng khỏe, cảm ơn bạn đã tin dùng Website
+                                I am good too, thank you for your chat template
                                 <span class="msg_time">9:00 AM, Today</span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mb-4">
                             <div class="msg_cotainer_send">
-                                Website quá tốt và hữu ích!
+                                You are welcome!
                                 <span class="msg_time_send">9:05 AM, Today</span>
                             </div>
                             <div class="img_cont_msg">
-                        <img src="../content/images/avatar/johndoe.png" class="rounded-circle user_img_msg">
+                        <img src="../../content/images/avatar/johndoe.png" class="rounded-circle user_img_msg">
                             </div>
                         </div>
                         <div class="d-flex justify-content-start mb-4">
                             <div class="img_cont_msg">
-                                <img src="../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
+                                <img src="../../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
                             </div>
                             <div class="msg_cotainer">
-                                Tôi rất mong Website sẽ ngày càng hoàn thiện hơn
+                                I am looking for your next templates
                                 <span class="msg_time">9:07 AM, Today</span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mb-4">
                             <div class="msg_cotainer_send">
-                                Ok, cảm ơn chúc bạn một ngày tốt lành
+                                Ok, thank you have a good day
                                 <span class="msg_time_send">9:10 AM, Today</span>
                             </div>
                             <div class="img_cont_msg">
-                    <img src="../content/images/avatar/johndoe.png" class="rounded-circle user_img_msg">
+                    <img src="../../content/images/avatar/johndoe.png" class="rounded-circle user_img_msg">
                             </div>
                         </div>
                         <div class="d-flex justify-content-start mb-4">
                             <div class="img_cont_msg">
-                                <img src="../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
+                                <img src="../../content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
                             </div>
                             <div class="msg_cotainer">
-                                Tạm biệt, hen gặp lại!
+                                Bye, see you again!
                                 <span class="msg_time">9:12 AM, Today</span>
                             </div>
                         </div>
@@ -582,21 +499,21 @@
                 <!-- Messages -->
                 <div class="notification-box">
                     <div class="message-content message-success">
-                        <img class="circle-avatar" src="../content/images/avatar/tsubasa.jpg" alt="Avatar">
+                        <img class="circle-avatar" src="../../content/images/avatar/tsubasa.jpg" alt="Avatar">
                         <div class="text-message">
                             <div class="content">Hi Xuan Trinh! Bài viết "Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công" có ID #055699 đã được phê duyệt, bài đã được đăng trên Website thành công!</div>
                             <div class="small admin-time">Admin · 9:50:10 20/12/2020</div>
                         </div>
                     </div>
                     <div class="message-content message-warning">
-                        <img class="circle-avatar" src="../content/images/avatar/tsubasa.jpg" alt="Avatar">
+                        <img class="circle-avatar" src="../../content/images/avatar/tsubasa.jpg" alt="Avatar">
                         <div class="text-message">
                             <div class="content">Hi Xuan Trinh! Hiện tại bài viết "Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công" có ID #055699 sắp hết hạn. Hãy gia hạn thêm!</div>
                             <div class="small admin-time">Admin · 9:50:10 15/12/2020</div>
                         </div>
                     </div>
                     <div class="message-content message-danger">
-                        <img class="circle-avatar" src="../content/images/avatar/tsubasa.jpg" alt="Avatar">
+                        <img class="circle-avatar" src="../../content/images/avatar/tsubasa.jpg" alt="Avatar">
                         <div class="text-message">
                             <div class="content">Hi Xuan Trinh! Hiện tại bài viết "Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công" có ID #055699 đã hết hạn. Hãy gia hạn thêm!.</div>
                             <div class="small admin-time">Admin · 9:50:10 13/12/2020</div>
@@ -609,20 +526,20 @@
         <br /><hr/>
         <div id="support_box">
             <hr />
-            <img src="../content/images/page/logo.png">
+            <div class="title">EasyAccomod</div>
             <br />
             <div class="content">
                 <div class="item col-sm-6 col-md-3">
-                    <div class="utility-website">Nhanh chóng</div>
+                    <div class="name">Nhanh chóng</div>
                 </div>
                 <div class="item col-sm-6 col-md-3">
-                    <div class="utility-website">Tiện lợi</div>
+                    <div class="name">Tiện lợi</div>
                 </div>
                 <div class="item col-sm-6 col-md-3">
-                    <div class="utility-website">Giá tốt</div>
+                    <div class="name">Dễ sử dụng</div>
                 </div>
                 <div class="item col-sm-6 col-md-3">
-                    <div class="utility-website">Dễ sử dụng</div>
+                    <div class="name">Giá tốt</div>
                 </div>
             </div>
         </div>
@@ -630,14 +547,12 @@
     <!-- Main -->
     
     <!-- script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="../lib/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../lib/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../lib/js/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="../lib/js/datatables/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="../../lib/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../lib/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../lib/js/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../../lib/js/datatables/dataTables.bootstrap4.min.js" type="text/javascript"></script>
 
-    <script src="../js/checkAuth2.js" type="text/javascript"></script>
-    <script src="../js/admin/admin.js" type="text/javascript"></script>
+    <script src="../../js/admin/admin.js" type="text/javascript"></script>
 </body>
 
 </html>

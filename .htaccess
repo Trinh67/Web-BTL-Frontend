@@ -11,5 +11,4 @@
         RewriteRule ^chi-tiet-phong-tro/([a-zA-Z0-9_-]+).html$ page/room_detail.html?slug=$1
         RewriteRule ^danh-muc/([a-zA-Z0-9_-]+).html$ page/danh-muc.html?slug=$1&number=10
         RewriteRule ^tim-kiem-phong-tro?([a-zA-Z0-9_-]+)$ page/search.html
-        RewriteRule ^quan-tri-websites/([a-zA-Z0-9_-]+).html$ page/admin/$1.html
 </IfModule>

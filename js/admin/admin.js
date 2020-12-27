@@ -17,14 +17,19 @@ function btnStatisticOnClick() {
     $('.report-content').hide();
     $('.chatWithAdmin').hide();
     $('.notification-panel').hide();
-    $('#current-panel').html('Dữ liệu thống kê');
+    $('#current-panel').html('Quản lí bài đăng');
 }
 // Quản lí bài đăng
 function btnPostOnclick() {
     loadOwnerRoomData();
-    $(document).ready(function() {
-        $('#post-table').DataTable();
-    } );
+    $('#dt-fixed-footer').dataTable({
+        "paging": false,
+        "fnInitComplete": function () {
+          var myCustomScrollbar = document.querySelector('#dt-fixed-footer_wrapper .dataTables_scrollBody');
+          var ps = new PerfectScrollbar(myCustomScrollbar);
+        },
+        "scrollY": 450,
+    });
     $('.main-content').show();
     $('.statistic-content').hide();
     $('.edit-user').hide();
@@ -47,12 +52,8 @@ function btnEditOnclick() {
 function btnPostNewOnclick() {
     window.location = '../dang-tin-moi.html';
 }
-// Báo cáo
+// Nạp tiền
 function btnReportOnclick() {
-    loadReportData();
-    $(document).ready(function() {
-        $('#report-table').DataTable();
-    } );
     $('.report-content').show();
     $('.statistic-content').hide();
     $('.edit-user').hide();
@@ -91,8 +92,42 @@ function btnLogoutOnclick() {
     alert('Bạn chắc chắn muốn đăng xuất khỏi tài khoản?');
 }
 
+// Tạo bài viết
+let showPost = function (x, index) {
+	// Tạo <tr> và các <td> mới 
+	let r = document.createElement("tr");
+	r.innerHTML = '<td>#' + x[index].post['idPost'] + '</td>' +
+                    '<td>' +
+                    '<a href="chi-tiet-phong-tro/'+ x[index].motelInfor['slug'] + '.html"' +
+                    'target="_blank"><img src="http://fcbtruong-001-site1.itempurl.com/api/Image/GetImage?subDir=posts/' + x[index].post["idPost"] + '/' + x[index].images[0] + '" width="100px"' +
+                        'height="80px"></a>' +
+                    '</td>' +
+                    '<td><span class="badge badge-pill badge-warning">' + x[index].category['cateroryName'] + '</span>' +
+                    '<a class="" target="_blank"' +
+                    'href="chi-tiet-phong-tro/'+ x[index].motelInfor['slug'] + '.html"' +
+                    'style="color: #055699;">' + x[index].motelInfor['title'] + '</a>' +
+                    '<div>' +
+                    '<a href="#" class="btn btn-sm btn-add-day text-success"><i data-feather="plus"></i>+ Thêm ngày</a> ' +
+                    '<a href="#" class="btn btn-sm btn-edit-post"><i class="fas fa-edit icon"></i> Sửa</a>' +
+                    '<div class="onoffswitch">' +
+                        '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>' +
+                        '<label class="onoffswitch-label" for="myonoffswitch">' +
+                            '<span class="onoffswitch-inner"></span>' +
+                            '<span class="onoffswitch-switch"></span>' +
+                        '</label>' +
+                    '</div>' +
+                    '</div>' +
+                    '</td>' +
+                    '<td>' + x[index].motelInfor['price'].toLocaleString('it-IT') + ' đ/ tháng</td>' +
+                    '<td>' + formDate(x[index].post['createdAt']) + '</td>' +
+                    '<td>' + formDate(x[index].post['expireDate']) + '</td>' +
+                    '<td>Gói ngày</td>' +
+                    '<td class="badge badge-primary">Chờ phê duyệt</td>';
+	return r;
+};
+
 var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer " + window.localStorage.getItem("token"));
+myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOlsidHJ1b25nOTExMmsiLCJvd25lciJdLCJuYW1laWQiOiIzNCIsImVtYWlsIjoidGhoQGdtYWlsLmNvbSIsImp0aSI6IjBlNTg2YWY5LTdmYTItNDg3NC1iMzllLTNlOGNhNmMwZDYwZCIsImV4cCI6MTYwODk3MDg2NCwiaXNzIjoiaHV5dHJ1b25nLmNvbSIsImF1ZCI6Imh1eXRydW9uZy5jb20ifQ.RCTTVsLQuEFU76NFXSRd1ShsJDyPQIJw6ThxeSnhdow");
 
 var requestOptions = {
   method: 'GET',
@@ -100,109 +135,33 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-// Tải dữ liệu phòng trọ của chủ trọ
 async function loadOwnerRoomData() {
-	await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostOfUser", requestOptions)
+    await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostOfUser", requestOptions)
     .then(resp => {
-      if (resp.status == 200) {
-          resp.json()
-              .then(ret => {
-                  if (ret != null) {
+    if (resp.status == 200) {
+        resp.json()
+            .then(ret => {
+                if (ret != null) {
                     $('#list-owner-post').empty();
-                    var post = ret;
+                    var post = ret;console.log(post);
+                    
                     for (let i = 0; i < post.length; i++) {
                         let r = showPost(post, i);
                         document.querySelector("tbody#list-owner-post").appendChild(r);
                     };
-                    //document.querySelector(img.user_avatar).src = '../content/images/avatar/' + ret.owner['avatar'];
-                  } else {
-                      // Có lỗi xử lý nghiệp vụ
-                      alert('Error! Lỗi xử lí nghiệp vụ');
-                  }
-              });
-      } else {
-          // Có lỗi HTTP
-          alert('Error! Lỗi HTTP');
-      }
-  })
-    .catch(error => console.log('error', error));
+                    // document.getElementsByClassName("user_avatar").src = '../../content/images/avatar/' + post['owner']['avatar'];
+                } else {
+                    // Có lỗi xử lý nghiệp vụ
+                    alert('Error! Lỗi xử lí nghiệp vụ');
+                }
+            });
+    } else {
+        // Có lỗi HTTP
+        alert('Error! Lỗi HTTP');
+    }
+})
+  .catch(error => console.log('error', error));
 }
-
-// Tạo bài viết
-var post_status = ['<span class="badge badge-pill badge-primary" style="padding: 10px; font-size: 0.8rem">Chờ phê duyệt</span>', '<span class="badge badge-pill badge-success" style="padding: 10px; font-size: 0.8rem">Đang hoạt động</span>', '<span class="badge badge-pill badge-warning" style="padding: 10px; font-size: 0.8rem">Từ chối phê duyệt</span>', '<span class="badge badge-pill badge-danger center" style="padding: 10px; font-size: 0.8rem">Hết hạn</span>']
-let showPost = function (x, index) {
-	// Tạo <tr> và các <td> mới 
-	let r = document.createElement("tr");
-	r.innerHTML = '<td>#' + x[index].post['idPost'] + '</td>' +
-                    '<td><span class="badge badge-pill badge-warning"> ' + x[index].category['cateroryName'] + '</span>' +
-                    '<a class="" target="_blank"' +
-                    'href="../chi-tiet-phong-tro/'+ x[index].motelInfor['slug'] + '.html"' +
-                    'style="color: #055699;">' + x[index].motelInfor['title'] + '</a>' +
-                    '</td>' +
-                    '<td>' + x[index].motelInfor['price'].toLocaleString('it-IT') + ' đ/ tháng</td>' +
-                    '<td>' + formDate(x[index].post['createdAt']) + '</td>' +
-                    '<td>' + formDate(x[index].post['expireDate']) + '</td>' +
-                    '<td>' + x[index].owner['name'] + '</td>' +
-                    '<td>' + post_status[x[index]['status']] + '</td>' +
-                    '<td>' +
-                        '<div class="dropdown dropleft float-right">' +
-                            '<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">' +
-                                'Action' +
-                            '</button>' +
-                            '<div class="dropdown-menu">' +
-                                '<a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>' +
-                                '<a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>' +
-                                '<a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>' +
-                            '</div>' +
-                            '</div>' +
-                    '</td>';
-	return r;
-};
-
-// Tải dữ liệu báo cao của người dùng
-async function loadReportData(){
-    await fetch("http://fcbtruong-001-site1.itempurl.com/api/Report/GetReports", requestOptions)
-    .then(resp => {
-        if (resp.status == 200) {
-            resp.json()
-                .then(ret => {
-                    if (ret != null) {
-                      $('#list-report').empty();
-                      var post = ret;
-                      for (let i = 0; i < post.length; i++) {
-                          let r = showReport(post, i);
-                          document.querySelector("tbody#list-report").appendChild(r);
-                      };
-                      //document.querySelector(img.user_avatar).src = '../content/images/avatar/' + ret.owner['avatar'];
-                    } else {
-                        // Có lỗi xử lý nghiệp vụ
-                        alert('Error! Lỗi xử lí nghiệp vụ');
-                    }
-                });
-        } else {
-            // Có lỗi HTTP
-            alert('Error! Lỗi HTTP');
-        }
-    })
-    .catch(error => console.log('error', error));
-}
-// Tạo báo cáo
-var report_type = ["Sai nội dung", "Đã cho thuê"];
-let showReport = function (x, index) {
-	// Tạo <tr> và các <td> mới 
-	let r = document.createElement("tr");
-	r.innerHTML = '<td> #' + x[index]['idPost'] + '</td>' +
-                    '<td><span class="badge badge-pill badge-warning"> ' + x[index]['cateroryName'] + '</span>' +
-                    '<a class="" target="_blank"' +
-                    'href="../chi-tiet-phong-tro/'+ x[index].motelInfor['slug'] + '.html"' +
-                    'style="color: #055699;">' + x[index].motelInfor['title'] + '</a>' +
-                    '</td>' +
-                    '<td>' + report_type[x[index]['report_type']] + '</td>' +
-                    '<td>' + x[index]['content'] + '</td>' +
-                    '<td> #' + x[index]['idUser'] + '</td>' +
-                    '<td>' + formDate(x[index]['createdAt']) + '</td>';
-	return r;
-};
 
 // Format Date
 function formDate(date) {
