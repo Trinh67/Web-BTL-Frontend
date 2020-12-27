@@ -1,34 +1,45 @@
 $(document).ready(function () {
     loadOwnerRoomData();
     $('#post-manager').click(btnPostOnclick);
+    $('#list-favorite-post').click(btnListFavoriteOnclick);
     $('#edit-infor').click(btnEditOnclick);
     $('#post-new').click(btnPostNewOnclick);
     $('#recharge').click(btnRechargeOnclick);
     $('#message').click(btnMessageOnclick);
     $('#log-out').click(btnLogoutOnclick);
     $('#notification').click(btnNotificationOnclick);
-    $('#dt-fixed-footer').dataTable({
-        "paging": false,
-        "fnInitComplete": function () {
-          var myCustomScrollbar = document.querySelector('#dt-fixed-footer_wrapper .dataTables_scrollBody');
-          var ps = new PerfectScrollbar(myCustomScrollbar);
-        },
-        "scrollY": 450,
-    });
+    $(document).ready(function() {
+        $('#post-owner-table').DataTable();
+    } );
 })
 // Quản lí bài đăng
 function btnPostOnclick() {
     $('.main-content').show();
     $('.edit-user').hide();
+    $('.list-favorite-post').hide();
     $('.recharge-panel').hide();
     $('.chatWithAdmin').hide();
     $('.notification-panel').hide();
     $('#current-panel').html('Quản lí bài đăng');
 }
+// Bài đăng yêu thích thích
+function btnListFavoriteOnclick() {
+    $(document).ready(function() {
+        $('#report-table').DataTable();
+    } );
+    $('.list-favorite-post').show();
+    $('.main-content').hide();
+    $('.edit-user').hide();
+    $('.recharge-panel').hide();
+    $('.chatWithAdmin').hide();
+    $('.notification-panel').hide();
+    $('#current-panel').html('Phòng yêu thích');
+}
 // Cập nhập tài khoản
 function btnEditOnclick() {
     $('.edit-user').show();
     $('.main-content').hide();
+    $('.list-favorite-post').hide();
     $('.recharge-panel').hide();
     $('.chatWithAdmin').hide();
     $('.notification-panel').hide();
@@ -42,6 +53,7 @@ function btnPostNewOnclick() {
 function btnRechargeOnclick() {
     $('.recharge-panel').show();
     $('.edit-user').hide();
+    $('.list-favorite-post').hide();
     $('.main-content').hide();
     $('.notification-panel').hide();
     $('.chatWithAdmin').hide();
@@ -51,6 +63,7 @@ function btnRechargeOnclick() {
 function btnMessageOnclick() {
     $('.chatWithAdmin').show();
     $('.recharge-panel').hide();
+    $('.list-favorite-post').hide();
     $('.edit-user').hide();
     $('.main-content').hide();
     $('.notification-panel').hide();
@@ -60,6 +73,7 @@ function btnMessageOnclick() {
 function btnNotificationOnclick() {
     $('.notification-panel').show();
     $('.chatWithAdmin').hide();
+    $('.list-favorite-post').hide();
     $('.recharge-panel').hide();
     $('.edit-user').hide();
     $('.main-content').hide();
@@ -109,6 +123,7 @@ async function loadOwnerRoomData() {
 }
 
 // Tạo bài viết
+var post_status = ['<span class="badge badge-pill badge-primary" style="padding: 10px; font-size: 0.8rem">Chờ phê duyệt</span>', '<span class="badge badge-pill badge-success" style="padding: 10px; font-size: 0.8rem">Đang hoạt động</span>', '<span class="badge badge-pill badge-warning" style="padding: 10px; font-size: 0.8rem">Từ chối phê duyệt</span>', '<span class="badge badge-pill badge-danger center" style="padding: 10px; font-size: 0.8rem">Hết hạn</span>']
 let showPost = function (x, index) {
 	// Tạo <tr> và các <td> mới 
 	let r = document.createElement("tr");
@@ -138,7 +153,7 @@ let showPost = function (x, index) {
                     '<td>' + formDate(x[index].post['createdAt']) + '</td>' +
                     '<td>' + formDate(x[index].post['expireDate']) + '</td>' +
                     '<td>Gói ngày</td>' +
-                    '<td class="badge badge-primary">Chờ phê duyệt</td>';
+                    '<td>' + post_status[x[index].post['status']] + '</td>';
 	return r;
 };
 

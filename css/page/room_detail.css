@@ -81,6 +81,12 @@ pre {
     margin-top: 10px;
     padding: 5px;
 }
+.report-content{
+    width: 90%;
+    margin: 2px;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
 
 /* Yêu thích */
 .favorite-room{

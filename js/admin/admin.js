@@ -186,8 +186,9 @@ async function loadReportData(){
     })
     .catch(error => console.log('error', error));
 }
+
 // Tạo báo cáo
-var report_type = ["Sai nội dung", "Đã cho thuê"];
+var report_type = ['<span class="badge badge-pill badge-danger">Sai nội dung</span>', '<span class="badge badge-pill badge-success">Đã cho thuê</span>'];
 let showReport = function (x, index) {
 	// Tạo <tr> và các <td> mới 
 	let r = document.createElement("tr");

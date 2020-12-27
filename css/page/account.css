@@ -68,6 +68,10 @@
     font-size: 1.2rem;
     font-weight: 700;
 }
+/* Phòng yêu thích */
+.list-favorite-post{
+    margin: 10px;
+}
 /* Nạp tiền */
 .recharge-panel .alert{
     border:2px solid #76c9a0;
