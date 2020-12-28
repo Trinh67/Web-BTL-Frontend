@@ -102,7 +102,7 @@
 .chatWithAdmin .card{
     height: 550px;
     border-radius: 15px !important;
-    background-color: rgba(12, 12, 12, 0.4) !important;
+    background-color: rgba(224, 224, 224, 0.4) !important;
 }
 .chatWithAdmin .contacts_body{
     padding:  0.75rem 0 !important;
@@ -135,7 +135,7 @@
 }
 .chatWithAdmin .send_btn{
     border-radius: 0 15px 15px 0 !important;
-    background-color: rgba(224, 224, 224, 0.3) !important;
+    background-color: rgba(187, 187, 187, 0.3) !important;
     border:0 !important;
     color: rgb(4, 109, 247) !important;
     font-size: 25px !important;
@@ -145,13 +145,13 @@
 .user_img{
     height: 50px;
     width: 50px;
-    border: 1px solid #f5f6fa;
+    border: 1px solid #777777;
 
 }
 .user_img_msg{
     height: 40px;
     width: 40px;
-    border:1px solid #f5f6fa;
+    border:1px solid #777777;
 
 }
 .img_cont{
@@ -181,7 +181,7 @@
     position: absolute;
     right: 15px;
     top: 0.8rem;
-    color: white;
+    color: #ffffff;
     cursor: pointer;
 }
 .video_cam span i{
@@ -214,14 +214,14 @@
     position: absolute;
     left: 6px;
     bottom: -20px;
-    color: #ffffff;
+    color: #1d58fc;
     font-size: 12px;
 }
 .msg_time_send{
     position: absolute;
     right:6px;
     bottom: -20px;
-    color: #ffffff;
+    color: #1d58fc;
     font-size: 12px;
 }
 .msg_head{

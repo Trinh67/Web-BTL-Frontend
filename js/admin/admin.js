@@ -4,6 +4,7 @@ $(document).ready(function () {
     $('#edit-infor').click(btnEditOnclick);
     $('#post-new').click(btnPostNewOnclick);
     $('#report').click(btnReportOnclick);
+    $('#comments').click(btnCommentsOnclick);
     $('#message').click(btnMessageOnclick);
     $('#log-out').click(btnLogoutOnclick);
     $('#home-Page').click(btnHomePageOnclick);
@@ -14,6 +15,7 @@ function btnStatisticOnClick() {
     $('.statistic-content').show();
     $('.main-content').hide();
     $('.edit-user').hide();
+    $('.comments-content').hide();
     $('.report-content').hide();
     $('.chatWithAdmin').hide();
     $('.notification-panel').hide();
@@ -26,6 +28,22 @@ function btnPostOnclick() {
         $('#post-table').DataTable();
     } );
     $('.main-content').show();
+    $('.comments-content').hide();
+    $('.statistic-content').hide();
+    $('.edit-user').hide();
+    $('.report-content').hide();
+    $('.chatWithAdmin').hide();
+    $('.notification-panel').hide();
+    $('#current-panel').html('Quản lí bài đăng');
+}
+// Quản lí bình luận
+function btnCommentsOnclick(){
+    loadCommentData();
+    $(document).ready(function() {
+        $('#comment-table').DataTable();
+    } );
+    $('.comments-content').show();
+    $('.main-content').hide();
     $('.statistic-content').hide();
     $('.edit-user').hide();
     $('.report-content').hide();
@@ -37,6 +55,7 @@ function btnPostOnclick() {
 function btnEditOnclick() {
     $('.edit-user').show();
     $('.statistic-content').hide();
+    $('.comments-content').hide();
     $('.main-content').hide();
     $('.report-content').hide();
     $('.chatWithAdmin').hide();
@@ -56,6 +75,7 @@ function btnReportOnclick() {
     $('.report-content').show();
     $('.statistic-content').hide();
     $('.edit-user').hide();
+    $('.comments-content').hide();
     $('.main-content').hide();
     $('.notification-panel').hide();
     $('.chatWithAdmin').hide();
@@ -66,6 +86,7 @@ function btnMessageOnclick() {
     $('.chatWithAdmin').show();
     $('.statistic-content').hide();
     $('.report-content').hide();
+    $('.comments-content').hide();
     $('.edit-user').hide();
     $('.main-content').hide();
     $('.notification-panel').hide();
@@ -75,6 +96,7 @@ function btnMessageOnclick() {
 function btnNotificationOnclick() {
     $('.notification-panel').show();
     $('.statistic-content').hide();
+    $('.comments-content').hide();
     $('.chatWithAdmin').hide();
     $('.report-content').hide();
     $('.edit-user').hide();
@@ -187,6 +209,10 @@ async function loadReportData(){
     .catch(error => console.log('error', error));
 }
 
+// Tải dữ liệu Reviews
+async function loadCommentData(){
+    
+}
 // Tạo báo cáo
 var report_type = ['<span class="badge badge-pill badge-danger">Sai nội dung</span>', '<span class="badge badge-pill badge-success">Đã cho thuê</span>'];
 let showReport = function (x, index) {
