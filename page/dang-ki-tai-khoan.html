@@ -96,59 +96,59 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-1"></div>
-                    <label class="control-label col-sm-2" for="email">Họ tên:</label>
+                    <label class="control-label col-sm-2" for="email">Tên tài khoản:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control"  name="txtuser" placeholder="Họ và tên">
+                        <input type="text" required class="form-control" minlength="5" name="txtuser" id="txtuser" placeholder="Tài khoản đăng nhập hệ thống">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-1"></div>
-                    <label class="control-label col-sm-2" for="email">Số căn cước công dân:</label>
+                    <label class="control-label col-sm-2" for="pwd">Email:</label>
                     <div class="col-sm-8">
-                        <input type="number" class="form-control"  name="txtuser" placeholder="Số căn cước công dân">
+                        <input type="email" id="email" required class="form-control" name="email" id="email" placeholder="Email của bạn">
+                    </div>
+                    <div class="col-sm-1"><p id="check-email"></p></div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-1"></div>
+                    <label class="control-label col-sm-2" for="pwd">Mật khẩu:</label>
+                    <div class="col-sm-8">
+                        <input type="password" required id="password" class="form-control" minlength="6" name="pass" placeholder="Nhập mật khẩu">
+                        <i class="fa fa-eye field-icon" id="togglePassword"></i>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-1"></div>
-                    <label class="control-label col-sm-2" for="email">Số điện thoại:</label>
+                    <label class="control-label col-sm-2" for="pwd">Nhập lại mật khẩu:</label>
                     <div class="col-sm-8">
-                        <input type="tel" pattern="[0-9]{10,12}"  class="form-control" name="txtuser" placeholder="Số điện thoại">
+                        <input type="password" required id="confirm_password" class="form-control" name="confirm_password" placeholder="Nhập lại mật khẩu">
+                        <i class="fa fa-eye field-icon" id="togglePassword2"></i>
+                    </div>
+                    <div class="col-sm-1"><p id="check-pass"></p></div>
+                </div>
+                <span id='message'></span>
+                <div class="form-group row">
+                    <div class="col-sm-1"></div>
+                    <label class="control-label col-sm-2" for="pwd">Tên hiển thị:</label>
+                    <div class="col-sm-8">
+                        <input type="text" required class="form-control" minlength="5" name="txtname" id="txtname" placeholder="Tên hiển thị">
                     </div>
                 </div>
-            </div>
-            <div class="register-user-form">
-                <div class="form-title">Đăng ký tài khoản người dùng</div>
-                <hr />
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-1"></div>
-                <label class="control-label col-sm-2" for="email">Tên tài khoản:</label>
-                <div class="col-sm-8">
-                    <input type="text" required class="form-control" minlength="5" name="txtuser" id="txtuser" placeholder="Tài khoản đăng nhập hệ thống">
+                <div class="form-group row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-success btn-block" id="btnSubmit"><i class="fa fa-user-plus"></i> Đăng ký tài khoản</button>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-1"></div>
-                <label class="control-label col-sm-2" for="pwd">Email:</label>
-                <div class="col-sm-8">
-                    <input type="email" id="email" required class="form-control" name="email" id="email" placeholder="Email của bạn">
-                </div>
-                <div class="col-sm-1"><p id="check-email"></p></div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-1"></div>
-                <label class="control-label col-sm-2" for="pwd">Mật khẩu:</label>
-                <div class="col-sm-8">
-                    <input type="password" required id="password" class="form-control" minlength="6" name="pass" placeholder="Nhập mật khẩu">
-                    <i class="fa fa-eye field-icon" id="togglePassword"></i>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-1"></div>
-                <label class="control-label col-sm-2" for="pwd">Nhập lại mật khẩu:</label>
-                <div class="col-sm-8">
-                    <input type="password" required id="confirm_password" class="form-control" name="confirm_password" placeholder="Nhập lại mật khẩu">
-                    <i class="fa fa-eye field-icon" id="togglePassword2"></i>
+                <div class="form-group row" >
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2" style="font-weight: bold; padding-top:4px">Hoặc:</div>
+                    <div class="col-sm-6" id="register-owner">
+                        <i class="far fa-hand-point-right"></i> Đăng kí tài khoản chủ trọ
+                    </div>
+                    <div class="col-sm-6 nodisplay" id="register-user">
+                        <i class="far fa-hand-point-right"></i> Đăng kí tài khoản người dùng
+                    </div>
                 </div>
           
         </div>

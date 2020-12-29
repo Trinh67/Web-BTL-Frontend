@@ -88,7 +88,6 @@ function btnRegisterUserOnclick() {
 var onSubmit = document.getElementById("btnSubmit");
 
 onSubmit.onclick = function () {
-  console.log("hiofhow");
   var formSignup = {
     username : document.getElementById("txtuser").value,
     email : document.getElementById("email").value,
@@ -106,7 +105,7 @@ onSubmit.onclick = function () {
     method: 'POST',
     headers: myHeaders,
     body: raw,
-  //  redirect: 'follow'
+    redirect: 'follow'
   };
 
   fetch("http://fcbtruong-001-site1.itempurl.com/api/Signup", requestOptions)
