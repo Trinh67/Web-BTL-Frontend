@@ -406,3 +406,14 @@ td.badge-danger:hover{
 span .fa-check{
     color: rgb(1, 155, 14);
 }
+
+/* Bảng */
+table{
+    width: 100%;
+}
+.search-table{
+    float: right;
+    width: 30%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}

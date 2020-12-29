@@ -9,7 +9,7 @@ submitBt.onclick = function () {
         .then(data => {
             window.localStorage.setItem("token", data.token);
             var token = window.localStorage.getItem("token");
-            this.loginSuccessful();
+            
             setTimeout(function() {RefreshToken(token)}, 4 * 60  * 1000);
         });
 }
@@ -53,9 +53,10 @@ async function Login(url = '') {
 
     if (response.status == 200) {
         console.log("Login successful");
+        loginSuccessful();
     }
     else {
-        console.log("Failed");
+        alert("Login Failed");
     };
     return response.json(); // parses JSON response into native JavaScript objects
 }

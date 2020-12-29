@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    //if(window.localStorage.getItem('role') < 2) window.location = '../trang-chu.html';
     $('#statistic').click(btnStatisticOnClick);
     $('#owner-manager').click(btnOwnerOnclick);
     $('#customer-manager').click(btnCustomerOnclick);
@@ -336,6 +337,7 @@ function formDate(date) {
     return day + '/' + month + '/' + year;
 }
 
+// Tìm kiếm trong bảng
 function PostFunction() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");

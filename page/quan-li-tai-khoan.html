@@ -47,9 +47,9 @@
                     <li class="dropdown nav-item nodisplay" id="userExists">
 						<a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" id="userName"></a>
 						<ul class="dropdown-menu">
-							<li><a href="quan-li-tai-khoan.html"><i class="fa fa-user icon"></i>Thông tin cá nhân</a></li>
-                            <li><a href="dang-tin-moi.html"><i class="fas fa-edit icon"></i>Đăng tin</a></li>
-                            <li><a href="quan-li-tai-khoan.html"><i class="fa fa-list-alt icon"></i>Quản lý tin</a></li>
+							<li><a href="quan-li-tai-khoan.html" id="account"><i class="fa fa-user icon"></i>Tài khoản</a></li>
+                            <li><a href="dang-tin-moi.html" id="postNew" class="nodisplay"><i class="fas fa-edit icon"></i>Đăng tin</a></li>
+                            <li><a href="quan-tri-websites/trang-quan-tri.html" id="manage" class="nodisplay"><i class="fa fa-list-alt icon"></i>Quản trị Web</a></li>
 							<li><a href="#" id="logout-button"><i class="fa fa-sign-out icon" aria-hidden="true"></i>Thoát</a></li>
 						</ul>
                     </li>
@@ -62,12 +62,12 @@
     <div class="panel">
         <div class="account">
             <div class="avatar">
-                <img src="content/images/avatar/no-avatar.jpg" class="user_avatar" alt="Cinque Terre" width="100"
+                <img src="content/images/avatar/no-avatar.jpg" class="user_avatar" alt="Avatar" width="100"
                     height="100">
             </div>
             <div class="account-text">
-                <strong>Xuân Trình</strong><br>
-                <p>0389252913</p>
+                <strong id="user-name">Xuân Trình</strong><br>
+                <p id="phoneNumber">0389252913</p>
             </div>
         </div>
         <p class="surplus">Số dư: <span class="money">10.000</span> đ</p>
@@ -153,8 +153,9 @@
         </div>
         <!-- Quản lí bài đăng -->
         <div class="main-content">
-            <div class="form-title">Quản lí bài đăng</div>
-            <table id="post-owner-table" class="table table-striped table-bordered" style="width:100%">
+            <div class="form-title">Quản lí bài đăng</div><br/>
+            <input type="text" class="search-table" id="PostInput" onkeyup="PostFunction()" placeholder="Lọc trạng thái.." title="Type in a name">
+            <table id="post-owner-table" class="table table-bordered table-responsive table-striped col-md-12" style="width:100%">
                 <thead>
                     <tr>
                         <th>Mã tin</th>
@@ -182,7 +183,7 @@
                             <div>
                                 <a href="#" class="btn btn-sm btn-add-day text-success"><i data-feather="plus"></i>+
                                     Thêm ngày</a>
-                                <a href="#" class="btn btn-sm btn-edit-post"><i class="fas fa-edit icon"></i> Sửa</a>
+                                <a href="sua-bai-dang.html" class="btn btn-sm btn-edit-post"><i class="fas fa-edit icon"></i> Sửa</a>
                                 <div class="onoffswitch">
                                     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
                                     <label class="onoffswitch-label" for="myonoffswitch">
@@ -286,50 +287,6 @@
                         <td>Gói ngày</td>
                         <td><span class="badge badge-pill badge-danger center" style="padding: 10px; font-size: 0.8rem">Hết hạn</span></td>
                     </tr>
-                    <tr>
-                        <td>#45656</td>
-                        <td>
-                            <a href="chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
-                                target="_blank"><img src="content/images/room/phongtro1.jpg" width="100px"
-                                    height="80px"></a>
-                        </td>
-                        <td><span class="badge badge-pill badge-warning">Phòng trọ</span>
-                            <a class="" target="_blank"
-                                href="chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
-                                style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
-                            <div><a href="#" class="btn btn-sm btn-add-day text-success"><i data-feather="plus"></i>+
-                                    Thêm ngày</a>
-                                <a href="#" class="btn btn-sm btn-edit-post"><i class="fas fa-edit icon"></i> Sửa</a>
-                            </div>
-                        </td>
-                        <td>3.000.000 đ/ tháng</td>
-                        <td>2020/12/25</td>
-                        <td>2020/12/28</td>
-                        <td>Gói tuần</td>
-                        <td><span class="badge badge-pill badge-primary" style="padding: 10px; font-size: 0.8rem">Chờ phê duyệt</span></td>
-                    </tr>
-                    <tr>
-                        <td>#45656</td>
-                        <td>
-                            <a href="chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
-                                target="_blank"><img src="content/images/room/phongtro1.jpg" width="100px"
-                                    height="80px"></a>
-                        </td>
-                        <td><span class="badge badge-pill badge-warning">Phòng trọ</span>
-                            <a class="" target="_blank"
-                                href="chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
-                                style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
-                            <div><a href="#" class="btn btn-sm btn-add-day text-success"><i data-feather="plus"></i>+
-                                    Thêm ngày</a>
-                                <a href="#" class="btn btn-sm btn-edit-post"><i class="fas fa-edit icon"></i> Sửa</a>
-                            </div>
-                        </td>
-                        <td>3.000.000 đ/ tháng</td>
-                        <td>2020/12/25</td>
-                        <td>2020/12/28</td>
-                        <td>Gói ngày</td>
-                        <td><span class="badge badge-pill badge-primary" style="padding: 10px; font-size: 0.8rem">Chờ phê duyệt</span></td>
-                    </tr>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -376,7 +333,7 @@
                                             style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
                                     <td>3.000.000 đ/ tháng</td>
                                     <td><span><i class="fas fa-check text-success"></i> Không chung chủ</span> <span><i class="fas fa-check text-success"></i> Điều hòa</span> <span><i class="fas fa-check text-success"></i> Ban công</span></td>
-                                    <td><span class="badge badge-pill badge-danger center" style="padding: 10px; font-size: 0.8rem">Bỏ thích</span></td>
+                                    <td><span class="badge badge-pill badge-danger center" onclick="RemoveFavorite()" style="padding: 10px; font-size: 0.8rem">Bỏ thích</span></td>
                                 </tr>
                                 <tr>
                                     <td>#16</td>
@@ -392,7 +349,7 @@
                                             style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
                                     <td>3.000.000 đ/ tháng</td>
                                     <td><span><i class="fas fa-check text-success"></i> Không chung chủ</span> <span><i class="fas fa-check text-success"></i> Điều hòa</span> <span><i class="fas fa-check text-success"></i> Khép kín</span></td>
-                                    <td><span class="badge badge-pill badge-danger center" style="padding: 10px; font-size: 0.8rem">Bỏ thích</span></td>
+                                    <td><span class="badge badge-pill badge-danger center" onclick="RemoveFavorite()" style="padding: 10px; font-size: 0.8rem">Bỏ thích</span></td>
                                 </tr>
                         </tbody>
                     </table>

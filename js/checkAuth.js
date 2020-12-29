@@ -1,6 +1,7 @@
 $(document).ready(function () {
     if(checkUser()) userExists();
     $('#logout-button').click(logout);
+    $('#log-out').click(logout);
 })
 // Kiểm tra user
 function checkUser(){
@@ -15,6 +16,7 @@ function userExists(){
     $('#loginButton').hide();
     $('#RegisterButton').hide();
     getInfo();
+    checkRole(window.localStorage.getItem("role"));
 }
 // Đăng xuất
 function logout(){
@@ -39,6 +41,9 @@ function getInfo() {
         .then(ret => {
                $('#userName').html(ret.name);
                window.localStorage.setItem('userName', ret.name);
+               window.localStorage.setItem('role', ret.idRole);
+               window.localStorage.setItem('phone', ret.phone);
+               window.localStorage.setItem('createdAt', ret.createdAt);
             }
         )
     }
@@ -48,4 +53,30 @@ function getInfo() {
     }
     })
   .catch(error => console.log('error', error));
+}
+
+// Cập nhập theo role
+function checkRole(id){
+  switch (id) {
+      case "0":
+        $('#customerAccount').show();
+        $('#userAccount').hide();
+        $('#postNew').hide();
+        $('#manage').hide();
+        break;
+      case "1":
+        $('#customerAccount').hide();
+        $('#userAccount').show();
+        $('#postNew').show();
+        $('#manage').hide();
+        break;
+      case "2":
+        $('#customerAccount').hide();
+        $('#userAccount').show();
+        $('#postNew').show();
+        $('#manage').show();
+        break;
+      default:
+          return false;
+  }
 }

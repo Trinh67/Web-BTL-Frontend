@@ -1,5 +1,9 @@
 $(document).ready(function () {
     if(!checkUser()) userNotExists();
+    else if(window.localStorage.getItem('role') < 1) userNotExists();
+    console.log(window.localStorage.getItem('role'));
+    document.getElementById('user-name').innerHTML = window.localStorage.getItem('userName');
+    document.getElementById('phoneNumber').innerHTML = window.localStorage.getItem('phone');
     $('#logout-button').click(logout);
 })
 // Kiểm tra user
@@ -10,7 +14,7 @@ function checkUser(){
 }
 // Cập nhập dữ liệu khi tồn tại user
 function userNotExists(){
-    alert("Bạn phải đăng nhập mới có thể đăng bài!")
+    alert("Bạn phải đăng nhập với tư cách chủ trọ mới có thể đăng bài!")
     window.location = "dang-nhap.html";
 }
 

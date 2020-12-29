@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 // Nhắn tin với Admin
 function toggleFacebookLiveChat(){
-    $('.message-box').toggle()();
+    $('.message-box').toggle();
 }
 function removeFacebookLiveChat() {
     $('.message-box').hide();

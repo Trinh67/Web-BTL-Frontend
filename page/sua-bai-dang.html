@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,22 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Add link -->
-    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="content/images/page/icon_page.png">
-    <link href="css/main.css" rel="stylesheet"/>
-    <link href="css/page/room_detail.css" rel="stylesheet"/>
-    <link href="css/page/post.css" rel="stylesheet"/>
+    <link rel="icon" href="../content/images/page/icon_page.png">
+    <link href="../css/main.css" rel="stylesheet"/>
+    <link href="../css/page/room_detail.css" rel="stylesheet"/>
+    <link href="../css/page/post.css" rel="stylesheet"/>
 </head>
 
 <body>
     <!-- Navigation         -->
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid">
-            <a class="navbar-branch" href="trang-chu.html">
-                <img src="content/images/page/logo.png" height="50">
+            <a class="navbar-branch" href="../trang-chu.html">
+                <img src="../content/images/page/logo.png" height="50">
             </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
@@ -30,27 +30,27 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="trang-chu.html"><i class="fas fa-home"></i> Trang chủ</a>
+                        <a class="nav-link active" href="../trang-chu.html"><i class="fas fa-home"></i> Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="gioi-thieu.html"><i class="fas fa-question"></i> Giới thiệu</a>
+                        <a class="nav-link" href="../gioi-thieu.html"><i class="fas fa-question"></i> Giới thiệu</a>
                     </li>
                     <li class="nav-item" id="RegisterButton">
-                        <a class="nav-link" href="dang-ki-tai-khoan.html"><i class="fas fa-user-plus"></i> Đăng ký</a>
+                        <a class="nav-link" href="../dang-ki-tai-khoan.html"><i class="fas fa-user-plus"></i> Đăng ký</a>
                     </li>
                     <li class="nav-item" id="loginButton">
-                        <a class="nav-link" href="dang-nhap.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a>
+                        <a class="nav-link" href="../dang-nhap.html"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a>
                     </li>
                     <li class="nav-item btn-dangtin">
-                        <a href="dang-tin-moi.html"><i class="fas fa-edit"></i> Đăng tin ngay</a>
+                        <a href="../dang-tin-moi.html"><i class="fas fa-edit"></i> Đăng tin ngay</a>
                     </li>
                     <li class="dropdown nav-item nodisplay" id="userExists">
-						<a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" id="userName"></a>
+						<a class="dropdown-toggle nav-link" data-toggle="dropdown" href="../#" id="userName"></a>
 						<ul class="dropdown-menu">
-							<li><a href="quan-li-tai-khoan.html" id="account"><i class="fa fa-user icon"></i>Tài khoản</a></li>
-                            <li><a href="dang-tin-moi.html" id="postNew" class="nodisplay"><i class="fas fa-edit icon"></i>Đăng tin</a></li>
-                            <li><a href="quan-tri-websites/trang-quan-tri.html" id="manage" class="nodisplay"><i class="fa fa-list-alt icon"></i>Quản trị Web</a></li>
-							<li><a href="#" id="logout-button"><i class="fa fa-sign-out icon" aria-hidden="true"></i>Thoát</a></li>
+							<li><a href="../quan-li-tai-khoan.html" id="account"><i class="fa fa-user icon"></i>Tài khoản</a></li>
+                            <li><a href="../dang-tin-moi.html" id="postNew" class="nodisplay"><i class="fas fa-edit icon"></i>Đăng tin</a></li>
+                            <li><a href="../quan-tri-websites/trang-quan-tri.html" id="manage" class="nodisplay"><i class="fa fa-list-alt icon"></i>Quản trị Web</a></li>
+							<li><a href="../#" id="logout-button"><i class="fa fa-sign-out icon" aria-hidden="true"></i>Thoát</a></li>
 						</ul>
                     </li>
                 </ul>
@@ -61,9 +61,9 @@
         <!-- pages-title-start -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="trang-chu.html">Trang chủ</a></li>
-                <li class="breadcrumb-item"><a href="quan-li-tai-khoan.html">Quản lí</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Đăng tin phòng trọ</li>
+                <li class="breadcrumb-item"><a href="../trang-chu.html">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="../quan-li-tai-khoan.html">Quản lí</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sửa tin phòng trọ</li>
             </ol>
         </nav>
     </div>
@@ -239,11 +239,11 @@
             <div class="col-md-4">
                 <div class="contactpanel">
                     <div class="row">
-                        <div class="col-md-4 text-center">
-                            <img src="content/images/avatar/no-avatar.jpg" class="user_avatar" alt="Avatar" style="width: 4rem;
+                        <div class="col-md-5 text-center">
+                            <img src="../content/images/avatar/no-avatar.jpg" class="user_avatar" alt="Avatar" style="width: 4rem;
                                 height: 4rem">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <strong id="user-name">Xuân Trình</strong><br>
                             <p id="phoneNumber">0389252913</p>
                         </div>
@@ -255,13 +255,13 @@
                 <table class="table table-bordered table-hover">
                     <tr><th>Danh mục tìm kiếm</th></tr>
                     <tbody>
-                        <tr><td><a href="danh-muc/phong-tro-cho-thue.html">Phòng trọ cho thuê</a></td></tr>
-                        <tr><td><a href="danh-muc/chung-cu-mini.html">Chung cư mini</a></td></tr>
-                        <tr><td><a href="danh-muc/nha-nguyen-can.html">Nhà nguyên căn</a></td></tr>
-                        <tr><td><a href="danh-muc/chung-cu-nguyen-can.html">Chung cư nguyên căn</a></td></tr>
+                        <tr><td><a href="../danh-muc/phong-tro-cho-thue.html">Phòng trọ cho thuê</a></td></tr>
+                        <tr><td><a href="../danh-muc/chung-cu-mini.html">Chung cư mini</a></td></tr>
+                        <tr><td><a href="../danh-muc/nha-nguyen-can.html">Nhà nguyên căn</a></td></tr>
+                        <tr><td><a href="../danh-muc/chung-cu-nguyen-can.html">Chung cư nguyên căn</a></td></tr>
                     </tbody>
                 </table>
-                <img src="content/images/page/poster.JPG" style="width:100%">
+                <img src="../content/images/page/poster.JPG" style="width:100%">
             </div>
         </div>
     </div>
@@ -299,7 +299,7 @@
         <div class="container-fluid padding">
             <div class="row text-center">
                 <div class="col-md-4">
-                    <img src="content/images/page/logo.png">
+                    <img src="../content/images/page/logo.png">
                     <hr class="light">
                     <p>Trinh Xuan Trinh</p>
                     <p>Nguyen Huy Truong</p>
@@ -330,12 +330,12 @@
 
     <!-- script -->
     
-    <script src="lib/js/jquery.min.js" type="text/javascript"></script>
-    <script src="lib/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../lib/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../lib/js/bootstrap.min.js" type="text/javascript"></script>
     
-    <script src="js/checkAuth.js" type="text/javascript"></script>
-    <script src="js/post.js" type="text/javascript"></script>
-    <script src="js/post_sender.js" type="text/javascript"></script>
+    <script src="../js/checkAuth.js" type="text/javascript"></script>
+    <script src="../js/post.js" type="text/javascript"></script>
+    <script src="../js/post_sender.js" type="text/javascript"></script>
     <!-- Script Map -->
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzlVX517mZWArHv4Dt3_JVG0aPmbSE5mE&callback=initialize&libraries=geometry,places"
