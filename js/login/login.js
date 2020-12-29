@@ -9,6 +9,7 @@ submitBt.onclick = function () {
         .then(data => {
             window.localStorage.setItem("token", data.token);
             var token = window.localStorage.getItem("token");
+            this.loginSuccessful();
             setTimeout(function() {RefreshToken(token)}, 4 * 60  * 1000);
         });
 }
@@ -52,7 +53,6 @@ async function Login(url = '') {
 
     if (response.status == 200) {
         console.log("Login successful");
-        this.loginSuccessful();
     }
     else {
         console.log("Failed");
