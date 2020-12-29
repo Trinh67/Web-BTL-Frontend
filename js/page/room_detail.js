@@ -1,6 +1,8 @@
 ﻿$(document).ready(function () {
 	loadNewsRoomDetails();
-	$('#review-send-button').click(checkReview);
+	$('#save-post').click(checkLoginToSave);
+	$('#review-send-button').click(checkLoginToReview);
+	$('#report-send-button').click(checkLoginToReport);
 })
 
 var myHeaders = new Headers();
@@ -44,7 +46,7 @@ let showComment = function (x, index) {
 // XỬ LÝ CÁC SỰ KIỆN
 //
 //
-// Tải trang: Lấy danh sách sinh viên
+// Tải trang: Lấy thông tin phòng trọ
 async function loadNewsRoomDetails() {
 	await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInforBySlug?slug=" + GetURLParameter(document.URL))
 	.then(resp => {
@@ -134,7 +136,7 @@ function formDate(date) {
     return day + '/' + month + '/' + year;
 }
 
-
+// Gửi review
 // Kiểm tra dữ liệu review
 var rate, requestOptions;
 function checkValue(){
@@ -156,7 +158,7 @@ function postReview(){
 		body: raw,
 		redirect: 'follow'
 	  };
-	  PostToServer();
+	PostToServer();
 }
 async function PostToServer(){
 	await fetch("http://fcbtruong-001-site1.itempurl.com/api/ReviewPost/PostReview", requestOptions)
@@ -165,8 +167,8 @@ async function PostToServer(){
 	  )
 	.catch(error => console.log('error', error));
 }
-function checkReview(){
-    if(!checkUser()) alert('Bạn phải đăng nhập mới có thể bình luận!')
+function checkLoginToReview(){
+    if(!checkUser()) alert('Bạn phải đăng nhập mới có thể bình luận bài đăng!')
     else {
         if(checkValue()){
 			postReview();
@@ -174,3 +176,22 @@ function checkReview(){
     }
 }
 
+// Gửi báo cáo
+function checkLoginToReport(){
+    if(!checkUser()) alert('Bạn phải đăng nhập mới có thể báo cáo bài đăng!')
+    else {
+        if(checkValue()){
+			postReview();
+        }
+    }
+}
+
+// Lưu tin yêu thích
+function checkLoginToSave(){
+    if(!checkUser()) alert('Bạn phải đăng nhập mới có thể lưu bài đăng!')
+    else {
+        if(checkValue()){
+			postReview();
+        }
+    }
+}
