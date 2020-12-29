@@ -44,7 +44,7 @@
                         <a href="../dang-tin-moi.html"><i class="fas fa-edit"></i> Đăng tin ngay</a>
                     </li>
                     <li class="dropdown nav-item nodisplay" id="userExists">
-						<a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" id="userName">Xuan Trinh</a>
+						<a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" id="userName">Owner</a>
 						<ul class="dropdown-menu">
 							<li><a href="../quan-li-tai-khoan.html"><i class="fa fa-user icon"></i>Thông tin cá nhân</a></li>
                             <li><a href="../dang-tin-moi.html"><i class="fas fa-edit icon"></i>Đăng tin</a></li>
@@ -191,9 +191,9 @@
 
                 <!-- Thông báo -->
                 <div class="alert bg-success nodisplay" id="alertSuccess">
-                        <button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
-                        <span class="text-semibold">Báo cáo đã được gửi!</span>
-                    </div>
+                    <button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
+                    <span class="text-semibold">Báo cáo đã được gửi!</span>
+                </div>
                 <!-- Báo cáo bài viết -->
                 <div class="report">
                     <h4 style="text-align: center">BÁO CÁO</h4>
@@ -204,7 +204,7 @@
                         </label>
                         <label class="radio report-type">
                             Sai thông tin
-                            <input type="radio" name="report-type" value="2">
+                            <input type="radio" name="report-type" value="0">
                         </label>
                         <textarea name="report-content" rows="2" class="report-content" placeholder="Chi tiết báo cáo"></textarea>
                         <button class="btn btn-danger" id="report-send-button">Gửi báo cáo</button>

@@ -76,8 +76,6 @@ function loadHotsRoomData(index) {
         contentType: 'application/json'
     }).done(function (response) {
         $('.room-hots').empty();
-        console.log(index);
-
         for (var i = 0; i < response.length; i++) {
             $.ajax({
                 url: 'http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInfor?idPost=' + response[i],

@@ -193,7 +193,7 @@ function checkValueReport(){
     if($(".report-content").val() == "") {alert('Bạn chưa nhập chi tiết báo cáo!'); return false;}
     // Kiểm tra dữ liệu đã được điền đủ chưa
     for(let i = 0; i < $('input[type=radio]').length; i++) {
-        if($('input[type=radio][name=report-type][value=' + (i+1) + ']').prop("checked")) {report_type = i+1;return true;}
+        if($('input[type=radio][name=report-type][value=' + i + ']').prop("checked")) {report_type = i;return true;}
     }
     alert('Bạn chưa đánh giá!'); 
     return false;

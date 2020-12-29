@@ -13,6 +13,7 @@ function userExists(){
     console.log("Tồn tại");
     $('#userExists').show();
     $('#loginButton').hide();
+    getInfo();
 }
 // Đăng xuất
 function logout(){
@@ -29,18 +30,22 @@ var requestOptions = {
   headers: myHeaders,
   redirect: 'follow'
 };
-
-async function getInfo() {
-   await fetch("http://fcbtruong-001-site1.itempurl.com/api/UserInfor/GetUserInfor", requestOptions)
-  .then(resp => {
+function getInfo() {
+    fetch("http://fcbtruong-001-site1.itempurl.com/api/UserInfor/GetUserInfor", requestOptions)
+   .then(resp => {
     if (resp.status == 200) {
         resp.json()
         .then(ret => {
                $('#userName').html(ret.name);
+               window.localStorage.setItem('userName', ret.name);
+               console.log();
             }
         )
     }
-    else {console.log(resp.status);}
+    else {
+             var n =  window.localStorage.getItem('userName');
+             $('#userName').html(n);
+    }
     })
   .catch(error => console.log('error', error));
 }
