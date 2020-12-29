@@ -39,7 +39,11 @@ let showComment = function (x, index) {
 	// Tạo component mới
 	let r = document.createElement("div");
 	let i = index;
-	r.innerHTML = '<div class="media"><div class="media-left"><img class="media-object" src="../content/images/avatar/' + x[i]['commenter']['avatar'] + '" alt=""></div><div class="media-body"><div class="media-heading"><h4>' + x[i]['commenter']['name'] + '</h4><span class="time">' + x[i]['comment']['createdAt'] + '</span><a href="#" class="reply">Reply</a><div><p>' + x[i]['comment']['content'] + '</p></div></div>';
+	r.innerHTML = '<div class="media"><div class="media-left"><img class="media-object" src="../content/images/avatar/' + x[i]['commenter']['avatar'] + '" alt=""></div><div class="media-body"><div class="media-heading"><h4>' + x[i]['commenter']['name'] + '</h4><span class="time">' + formDate(x[i]['comment']['createdAt']) + '</span><a href="#" class="reply">Reply     </a><span class="fa fa-star checked"></span>' +
+	'<span class="fa fa-star checked"></span>' +
+	'<span class="fa fa-star checked"></span>' + 
+	'<span class="fa fa-star checked"></span>' +
+	'<span class="fa fa-star"></span><div><p>' + x[i]['comment']['content'] + '</p></div></div>';
 	return r;
 };
 //
@@ -64,7 +68,7 @@ async function loadNewsRoomDetails() {
 						document.querySelector("a.category-name").innerHTML = ret.category['cateroryName'];
 						document.querySelector("li.title-page").innerHTML = ret.motelInfor['title'];
 						document.querySelector("p.entry-title").innerHTML = ret.motelInfor['title'];
-						document.querySelector("span#favorite").innerHTML = ret.motelInfor['likes'] + ' lượt thích';
+						document.querySelector("span#favorite").innerHTML = ret.likes + ' lượt thích';
 						document.querySelector("span.price-time").innerHTML = 'Lượt xem: ' + ret.motelInfor['views'] + ' - Ngày đăng: ' + formDate(ret.post['createdAt']);
 						document.querySelector("strong.address").innerHTML = 'Địa chỉ: ' + ret.motelInfor['address'];
 						document.querySelector("span#price-2").innerHTML = ret.motelInfor['price'].toLocaleString('it-IT') + ' VND';
@@ -138,7 +142,7 @@ function formDate(date) {
 
 // Gửi review
 // Kiểm tra dữ liệu review
-var rate, requestOptions;
+var rate, requestOptions, report_type;
 function checkValue(){
     if($("#review-content").val() == "") {alert('Bạn chưa nhập bình luận!'); return false;}
     // Kiểm tra dữ liệu đã được điền đủ chưa
@@ -180,18 +184,66 @@ function checkLoginToReview(){
 function checkLoginToReport(){
     if(!checkUser()) alert('Bạn phải đăng nhập mới có thể báo cáo bài đăng!')
     else {
-        if(checkValue()){
-			postReview();
+        if(checkValueReport()){
+			postReport();
         }
     }
+}
+function checkValueReport(){
+    if($(".report-content").val() == "") {alert('Bạn chưa nhập chi tiết báo cáo!'); return false;}
+    // Kiểm tra dữ liệu đã được điền đủ chưa
+    for(let i = 0; i < $('input[type=radio]').length; i++) {
+        if($('input[type=radio][name=report-type][value=' + (i+1) + ']').prop("checked")) {report_type = i+1;return true;}
+    }
+    alert('Bạn chưa đánh giá!'); 
+    return false;
+}
+function postReport(){
+	// Lấy dữ liệu
+	var raw = JSON.stringify({"idPost": idPost,"content":$(".report-content").val(),"reportType":report_type});
+	requestOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body: raw,
+		redirect: 'follow'
+	  };
+	PostReportToServer();
+}
+async function PostReportToServer(){
+	await fetch("http://fcbtruong-001-site1.itempurl.com/api/Report/SendReport", requestOptions)
+	.then(resp => {
+	  if (resp.status == 200) alert('Báo cáo đã được gửi thành công!')}
+	  )
+	.catch(error => console.log('error', error));
 }
 
 // Lưu tin yêu thích
 function checkLoginToSave(){
     if(!checkUser()) alert('Bạn phải đăng nhập mới có thể lưu bài đăng!')
     else {
-        if(checkValue()){
-			postReview();
+			SavePost();
         }
-    }
+}
+function SavePost(){
+	// Lấy dữ liệu
+	var raw = JSON.stringify({"idPost": idPost,"content":$("#review-content").val(),"rate":rate});
+	requestOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body: raw,
+		redirect: 'follow'
+	  };
+	SaveToServer();
+}
+async function SaveToServer(){
+	await fetch("http://fcbtruong-001-site1.itempurl.com/api/FavoritePost/FavorPost?idPost=" + idPost, requestOptions)
+	.then(resp => {
+	  	if (resp.status == 200) {
+		  	alert('Bài viết đã lưu thành công!');
+			window.location.reload();
+		}
+		else alert('Bài viết đã được lưu trước đó!');
+		}
+	  )
+	.catch(error => console.log('error', error));
 }

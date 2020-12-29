@@ -42,3 +42,8 @@
 .rate > label:hover ~ input:checked ~ label {
     color:#e9b90d;
 }
+
+/* Đánh giá */
+.media span.checked {
+    color: rgb(248, 212, 8);
+}
