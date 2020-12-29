@@ -89,16 +89,17 @@ var onSubmit = document.getElementById("btnSubmit");
 
 onSubmit.onclick = function () {
   var formSignup = {
-    username = document.getElementById("txtuser").value,
-    email = document.getElementById("email").value,
-    password = document.getElementById("password").value,
-    nameDisplay = document.getElementById("txtname").value,
+    username : document.getElementById("txtuser").value,
+    email : document.getElementById("email").value,
+    password : document.getElementById("password").value,
+    nameDisplay : document.getElementById("txtname").value,
   }
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
   var raw = JSON.stringify(formSignup);
+  console.log(raw);
 
   var requestOptions = {
     method: 'POST',
@@ -108,11 +109,16 @@ onSubmit.onclick = function () {
   };
 
   fetch("http://fcbtruong-001-site1.itempurl.com/api/Signup", requestOptions)
-    .then(response => {
-      if(response.status == 200){
-        console.log("success");
-      }
+    .then(response => 
+      response.json()
+    )
+    .then(result => {
+      console.log('123')
+      var token = result.value.token;
+     // console.log(result.value.token);
+      window.localStorage.setItem("token", token);
+      var token = window.localStorage.getItem("token");
+      window.location = "trang-chu.html";
     })
-    .then(result => console.log(result))
     .catch(error => console.log('error', error));
 }
