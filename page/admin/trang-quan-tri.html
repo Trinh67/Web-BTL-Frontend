@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="dropdown nav-item">
-                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Xuan Trinh</a>
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" id="userName">Xuan Trinh</a>
                         <ul class="dropdown-menu">
                             <li><a href="#" id="logout-button"><i class="fa fa-sign-out icon" aria-hidden="true"></i>Thoát</a></li>
                         </ul>
@@ -62,6 +62,22 @@
                 </div>
                 <div class="menu_item--text">
                     Thống kê
+                </div>
+            </div>
+            <div class="menu_item" id="owner-manager">
+                <div class="menu_item--icon">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <div class="menu_item--text">
+                    Quản lí chủ trọ
+                </div>
+            </div>
+            <div class="menu_item" id="customer-manager">
+                <div class="menu_item--icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="menu_item--text">
+                    Quản lí khách thăm
                 </div>
             </div>
             <div class="menu_item" id="post-manager">
@@ -249,11 +265,128 @@
                 </tbody>
               </table>
         </div>
+        <!-- Màn hình quản lí chủ trọ -->
+        <div class="ownerManage nodisplay">
+            <div class="form-title">Quản lí tài khoản chủ trọ</div><br/>
+            <div class="row">
+                <div class="col-md-12">   
+                    <input type="text" class="search-table" id="OwnerInput" onkeyup="OwnerFunction()" placeholder="Lọc trạng thái.." title="Type in a name">
+                    <table id="owner-table" class="table table-bordered table-responsive table-striped col-md-12" style="width:100%">
+                        <thead>
+                            <tr class="bg-blue">
+                                <th>ID</th>
+                                <th>Tên</th>
+                                <th>Số điện thoại</th>
+                                <th>Trạng thái</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="list-owner">
+                                <tr>
+                                    <td>#15</td>
+                                    <td>Trinh</td>
+                                    <td>0389252913</td>
+                                    <td><span class="badge badge-pill badge-success" style="padding: 10px; font-size: 0.8rem">Đang hoạt động</span></td>
+                                    <td>
+                                        <div class="dropdown dropleft float-right">
+                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                              Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
+                                                <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
+                                                <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#15</td>
+                                    <td>Trinh</td>
+                                    <td>0389252913</td>
+                                    <td><span class="badge badge-pill badge-success" style="padding: 10px; font-size: 0.8rem">Đang hoạt động</span></td>
+                                    <td>
+                                        <div class="dropdown dropleft float-right">
+                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                              Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
+                                                <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
+                                                <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Màn hình quản lí khách thăm -->
+        <div class="customerManage nodisplay">
+            <div class="form-title">Quản lí tài khoản khách</div><br/>
+            <div class="row">
+                <div class="col-md-12">   
+                    <input type="text" class="search-table" id="customerInput" onkeyup="CustomerFunction()" placeholder="Lọc trạng thái.." title="Type in a name">
+                    <table id="customer-table" class="table table-bordered table-responsive table-striped col-md-12" style="width:100%">
+                        <thead>
+                            <tr class="bg-blue">
+                                <th>ID</th>
+                                <th>Tên</th>
+                                <th>Số bài viết yêu thích</th>
+                                <th>Trạng thái</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="list-customer">
+                                <tr>
+                                    <td>#15</td>
+                                    <td>Trinh</td>
+                                    <td>8</td>
+                                    <td><span class="badge badge-pill badge-success" style="padding: 10px; font-size: 0.8rem">Đang hoạt động</span></td>
+                                    <td>
+                                        <div class="dropdown dropleft float-right">
+                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                              Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
+                                                <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
+                                                <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#15</td>
+                                    <td>Trinh</td>
+                                    <td>6</td>
+                                    <td><span class="badge badge-pill badge-success" style="padding: 10px; font-size: 0.8rem">Đang hoạt động</span></td>
+                                    <td>
+                                        <div class="dropdown dropleft float-right">
+                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                              Action
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
+                                                <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
+                                                <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
         <!-- Quản lí bài đăng -->
         <div class="main-content nodisplay">
             <div class="form-title">Quản lí bài đăng</div>
-            <table id="post-table" class="table table-bordered table-responsive table-striped" style="width:100%">
-                <thead>
+            <input type="text" class="search-table" id="myInput" onkeyup="PostFunction()" placeholder="Lọc trạng thái.." title="Type in a name">
+            <table id="post-table" class="table table-bordered table-hover table-striped" style="width:100%">
+                <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
                         <th>Tiêu đề</th>
@@ -457,9 +590,10 @@
         </div>
         <!-- Màn hình báo cáo bài đăng -->
         <div class="report-content nodisplay">
-            <div class="form-title">Báo cáo bài đăng</div><br />
+            <div class="form-title">Báo cáo bài đăng</div><br/>
             <div class="row">
                 <div class="col-md-12">   
+                    <input type="text" class="search-table" id="ReportInput" onkeyup="ReportFunction()" placeholder="Lọc trạng thái.." title="Type in a name">
                     <table id="report-table" class="table table-bordered table-responsive table-striped" style="width:100%">
                         <thead>
                             <tr class="bg-blue">
@@ -513,7 +647,8 @@
         <div class="comments-content nodisplay">
             <div class="form-title">Quản lí Reviews</div><br />
             <div class="row">
-                <div class="col-md-12">   
+                <div class="col-md-12">  
+                    <input type="text" class="search-table" id="ReviewsInput" onkeyup="ReviewFunction()" placeholder="Lọc bình luận.." title="Type in a name">
                     <table id="comment-table" class="table table-bordered table-responsive table-striped" style="width:100%">
                         <thead>
                             <tr class="bg-blue text-center" >
@@ -526,73 +661,73 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody id="list-report">
-                                <tr>
-                                    <td>#15</td>
-                                    <td>
-                                        <span class="badge badge-pill badge-warning">Phòng trọ cho thuê</span>
-                                        <a class="" target="_blank"
-                                            href="../chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
-                                            style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
-                                    </td>
-                                    <td>
-                                        Phòng oke giá tốt
-                                    </td>
-                                    <td>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                    </td>
-                                    <td>#35</td>
-                                    <td class="text-center">12/12/2000</td>
-                                    <td>
-                                        <div class="dropdown dropleft float-right">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                              Action
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
-                                                <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
-                                                <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
-                                            </div>
+                        <tbody id="list-review">
+                            <tr>
+                                <td>#15</td>
+                                <td>
+                                    <span class="badge badge-pill badge-warning">Phòng trọ cho thuê</span>
+                                    <a class="" target="_blank"
+                                        href="../chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
+                                        style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
+                                </td>
+                                <td>
+                                    Phòng oke giá tốt
+                                </td>
+                                <td>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </td>
+                                <td>#35</td>
+                                <td class="text-center">12/12/2000</td>
+                                <td>
+                                    <div class="dropdown dropleft float-right">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                          Action
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
+                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
+                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#16</td>
-                                    <td>
-                                        <span class="badge badge-pill badge-warning">Chung cư mini</span>
-                                        <a class="" target="_blank"
-                                            href="../chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
-                                            style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
-                                    </td>
-                                    <td>
-                                        Phòng oke giá tốt
-                                    </td>
-                                    <td>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                    </td>
-                                    <td>#29</td>
-                                    <td class="text-center">12/12/2000</td>
-                                    <td>
-                                        <div class="dropdown dropleft float-right">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                              Action
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
-                                                <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
-                                                <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
-                                            </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#16</td>
+                                <td>
+                                    <span class="badge badge-pill badge-warning">Chung cư mini</span>
+                                    <a class="" target="_blank"
+                                        href="../chi-tiet-phong-tro/cho-thue-chung-cu-mini-40m2-239-xuan-thuy-dich-vong-hau.html"
+                                        style="color: #055699;">Cho thuê phòng trọ tầng 2, có tủ quần áo, ban công</a>
+                                </td>
+                                <td>
+                                    Phòng oke giá tốt
+                                </td>
+                                <td>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                </td>
+                                <td>#29</td>
+                                <td class="text-center">12/12/2000</td>
+                                <td>
+                                    <div class="dropdown dropleft float-right">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                          Action
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>
+                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>
+                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>
                                         </div>
-                                    </td>
-                                </tr>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

@@ -67,16 +67,17 @@ function loadNewsRoomData() {
 // Tải dữ liệu phòng có nhiều lượt xem nhất
 function loadHotsRoomData(index) {
     // thực hiện load dữ liệu
-    console.log(index);
     // 1.Lấy dữ liệu
     $.ajax({
-        url: 'http://fcbtruong-001-site1.itempurl.com/api/Post/GetPosts?startPoin=' + 6*(index-1) + 1 + '&number=6',
+        url: 'http://fcbtruong-001-site1.itempurl.com/api/Post/GetPosts?startPoint=' + 4*(index-1) + 1 + '&number=4',
         method: 'GET',
         data: null,
         dataType: 'json',
         contentType: 'application/json'
     }).done(function (response) {
         $('.room-hots').empty();
+        console.log(index);
+
         for (var i = 0; i < response.length; i++) {
             $.ajax({
                 url: 'http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInfor?idPost=' + response[i],

@@ -13,10 +13,36 @@ function userExists(){
     console.log("Tồn tại");
     $('#userExists').show();
     $('#loginButton').hide();
-    
+    getInfo();
 }
 // Đăng xuất
 function logout(){
     window.localStorage.removeItem('token');
     window.location = 'trang-chu.html';
+}
+
+// Lấy infor User
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer " + window.localStorage.getItem("token"));
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+async function getInfo() {
+   await fetch("http://fcbtruong-001-site1.itempurl.com/api/UserInfor/GetUserInfor", requestOptions)
+  .then(resp => {
+    if (resp.status == 200) {
+        resp.json()
+        .then(ret => {
+               $('#userName').html(ret.name);
+               console.log(ret.name);
+            }
+        )
+    }
+    else {console.log(resp.status);}
+    })
+  .catch(error => console.log('error', error));
 }

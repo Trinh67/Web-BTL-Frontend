@@ -401,3 +401,8 @@ td.badge-danger:hover{
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
 }
+
+/* Tiện ích */
+span .fa-check{
+    color: rgb(1, 155, 14);
+}
