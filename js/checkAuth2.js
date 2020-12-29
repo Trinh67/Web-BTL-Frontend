@@ -13,6 +13,7 @@ function userExists(){
     console.log("Tồn tại");
     $('#userExists').show();
     $('#loginButton').hide();
+    $('#RegisterButton').hide();
     getInfo();
 }
 // Đăng xuất
@@ -38,7 +39,6 @@ function getInfo() {
         .then(ret => {
                $('#userName').html(ret.name);
                window.localStorage.setItem('userName', ret.name);
-               console.log();
             }
         )
     }

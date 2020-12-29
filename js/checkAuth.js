@@ -13,6 +13,7 @@ function userExists(){
     console.log("Tồn tại");
     $('#userExists').show();
     $('#loginButton').hide();
+    $('#RegisterButton').hide();
     getInfo();
 }
 // Đăng xuất
@@ -38,13 +39,12 @@ function getInfo() {
         .then(ret => {
                $('#userName').html(ret.name);
                window.localStorage.setItem('userName', ret.name);
-               console.log();
             }
         )
     }
     else {
-             var n =  window.localStorage.getItem('userName');
-             $('#userName').html(n);
+      //  var n =  window.localStorage.getItem('userName');
+      //  $('#userName').html(n);
     }
     })
   .catch(error => console.log('error', error));
