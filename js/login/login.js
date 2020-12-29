@@ -9,7 +9,7 @@ submitBt.onclick = function () {
         .then(data => {
             window.localStorage.setItem("token", data.token);
             var token = window.localStorage.getItem("token");
-            this.loginSuccessful();
+            loginSuccessful();
             setTimeout(function() {RefreshToken(token)}, 4 * 60  * 1000);
         });
 }
