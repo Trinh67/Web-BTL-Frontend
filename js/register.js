@@ -88,29 +88,32 @@ function btnRegisterUserOnclick() {
 var onSubmit = document.getElementById("btnSubmit");
 
 onSubmit.onclick = function () {
+  console.log("hiofhow");
   var formSignup = {
-    username = document.getElementById("txtuser").value,
-    email = document.getElementById("email").value,
-    password = document.getElementById("password").value,
-    nameDisplay = document.getElementById("txtname").value,
+    username : document.getElementById("txtuser").value,
+    email : document.getElementById("email").value,
+    password : document.getElementById("password").value,
+    nameDisplay : document.getElementById("txtname").value,
   }
 
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
   var raw = JSON.stringify(formSignup);
+  console.log(raw)
 
   var requestOptions = {
     method: 'POST',
     headers: myHeaders,
     body: raw,
-    redirect: 'follow'
+  //  redirect: 'follow'
   };
 
   fetch("http://fcbtruong-001-site1.itempurl.com/api/Signup", requestOptions)
     .then(response => {
       if(response.status == 200){
-        console.log("success");
+        alert("Đăng kí thành công!");
+        window.location = 'dang-nhap.html';
       }
     })
     .then(result => console.log(result))
