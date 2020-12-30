@@ -501,7 +501,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body msg_card_body">
+                    <div class="card-body msg_card_body" id="message-card">
                         <div class="d-flex justify-content-start mb-4">
                             <div class="img_cont_msg">
                                 <img src="content/images/avatar/tsubasa.jpg" class="rounded-circle user_img_msg">
@@ -568,9 +568,9 @@
                     </div>
                     <div class="card-footer">
                         <div class="input-group">
-                            <textarea name="txtmessage" class="form-control type_msg" placeholder="Nhập tin nhắn của bạn..."></textarea>
+                            <textarea name="txtmessage" class="form-control type_msg" id="OwnerMessage" placeholder="Nhập tin nhắn của bạn..."></textarea>
                             <div class="input-group-append">
-                                <span class="input-group-text send_btn"><i class="fas fa-paper-plane"></i></span>
+                                <span class="input-group-text send_btn" onclick="SentMessage()"><i class="fas fa-paper-plane"></i></span>
                             </div>
                         </div>
                     </div>

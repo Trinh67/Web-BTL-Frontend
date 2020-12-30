@@ -342,3 +342,19 @@ let showNotification = function (x, index) {
                 '</div>';
 	return r;
 };
+
+//Gửi thông báo 
+function SentMessage(){
+    var currentdate = new Date(); 
+    var message = document.getElementById('OwnerMessage').value;
+    console.log(message);
+    let trHTML = document.createElement("div");
+    trHTML.innerHTML = '<div class="d-flex justify-content-end mb-4">' +
+                    '<div class="msg_cotainer_send">' + message + '<span class="msg_time_send">'+ formDate(currentdate) +'</span>' +
+                    '</div>' +
+                    '<div class="img_cont_msg">' +
+                        '<img src="content/images/avatar/johndoe.png" class="rounded-circle user_img_msg">' +
+                    '</div>' +
+                '</div>';
+    document.querySelector("div#message-card").appendChild(trHTML);
+}
