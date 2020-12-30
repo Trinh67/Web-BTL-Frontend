@@ -12,3 +12,4 @@ function GetURLParameter(url) {
 	var idPost = url.split('/').pop();
 	return idPost.substr(0, idPost.length - 5);
 }
+

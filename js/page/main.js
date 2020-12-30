@@ -69,7 +69,7 @@ function loadHotsRoomData(index) {
     // thực hiện load dữ liệu
     // 1.Lấy dữ liệu
     $.ajax({
-        url: 'http://fcbtruong-001-site1.itempurl.com/api/Post/GetPosts?startPoint=' + 4*(index-1) + 1 + '&number=4',
+        url: 'http://fcbtruong-001-site1.itempurl.com/api/Post/GetPosts?startPoint=' + 4*(index-1) + '&number=4',
         method: 'GET',
         data: null,
         dataType: 'json',

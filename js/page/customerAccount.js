@@ -1,7 +1,6 @@
 $(document).ready(function () {
     //if(window.localStorage.getItem('role') < 1) window.location = 'trang-chu.html';
     document.getElementById('user-name').innerHTML = window.localStorage.getItem('userName');
-    document.getElementById('phoneNumber').innerHTML = window.localStorage.getItem('phone');
     loadFavoriteRoomData();
     $('#list-favorite-post').click(btnListFavoriteOnclick);
     $('#edit-infor').click(btnEditOnclick);

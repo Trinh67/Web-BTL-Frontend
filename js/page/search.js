@@ -93,7 +93,7 @@ async function loadRoomData(index) {
                             '<span class="textMessage">Không còn bài đăng!</span></div>' ;
                             $('.search-list-room').append(notification);
                         }
-                        for (var i = 6*(index-1)+1; i <= 6*index; i++) {
+                        for (var i = 6*(index-1); i <= 6*index - 1; i++) {
                             fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/GetPostInfor?idPost=" + response[i])
                             .then(res => {
                                 if (res.status == 200) {

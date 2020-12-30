@@ -208,9 +208,8 @@ let showPost = function (x, index) {
                                 'Action' +
                             '</button>' +
                             '<div class="dropdown-menu">' +
-                                '<a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>' +
-                                '<a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>' +
-                                '<a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>' +
+                                '<a class="dropdown-item text-success" href="#" onclick="AcceptPost('+ x[index]['idPost'] +')"><i class="fas fa-check-square"></i> Kiểm duyệt</a>' +
+                                '<a class="dropdown-item text-warning" href="#" onclick="RejectPost('+ x[index]['idPost'] +')"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>' +
                             '</div>' +
                             '</div>' +
                     '</td>';
@@ -218,13 +217,85 @@ let showPost = function (x, index) {
 };
 // Tải danh sách chủ Trọ
 async function loadOwnerData(){
-
+    await fetch("http://fcbtruong-001-site1.itempurl.com/api/UserInfor/GetListOwner", requestOptions)
+    .then(resp => {
+        if (resp.status == 200) {
+            resp.json()
+                .then(ret => {
+                    if (ret != null) {
+                      $('#list-owner').empty();
+                      var post = ret;
+                      for (let i = 0; i < post.length; i++) {
+                          let r = showOwner(post, i);
+                          document.querySelector("tbody#list-owner").appendChild(r);
+                      };
+                    } else {
+                        // Có lỗi xử lý nghiệp vụ
+                        alert('Error! Lỗi xử lí nghiệp vụ');
+                    }
+                });
+        } else {
+            // Có lỗi HTTP
+            alert('Error! Lỗi HTTP');
+        }
+    })
+    .catch(error => console.log('error', error));
 }
+// Tạo chủ Trọ
+var status = ['<span class="badge badge-pill badge-danger">Bị khóa</span>', '<span class="badge badge-pill badge-success">Đang hoạt động</span>'];
+let showOwner = function (x, index) {
+	// Tạo <tr> và các <td> mới 
+	let r = document.createElement("tr");
+	r.innerHTML = '<td> #' + x[index]['idUser'] + '</td>' +
+                    '<td>' + x[index]['name'] + '</td>' +
+                    '<td>' + x[index]['phone'] + '</td>' +
+                    '<td>' + x[index]['postNumber'] + '</td>' +
+                    '<td>' + formDate(x[index]['createdAt']) + '</td>';
+	return r;
+};
 
-// Tải danh sách chủ Trọ
+// Tải danh sách khách thăm
 async function loadCustomerData(){
-
+    await fetch("http://fcbtruong-001-site1.itempurl.com/api/UserInfor/GetListOwner", requestOptions)
+    .then(resp => {
+        if (resp.status == 200) {
+            resp.json()
+                .then(ret => {
+                    if (ret != null) {
+                      $('#list-customer').empty();
+                      var post = ret;
+                      for (let i = 0; i < post.length; i++) {
+                          let r = showCustomer(post, i);
+                          document.querySelector("tbody#list-owner").appendChild(r);
+                      };
+                    } else {
+                        // Có lỗi xử lý nghiệp vụ
+                        alert('Error! Lỗi xử lí nghiệp vụ');
+                    }
+                });
+        } else {
+            // Có lỗi HTTP
+            alert('Error! Lỗi HTTP');
+        }
+    })
+    .catch(error => console.log('error', error));
 }
+// Tạo khách thăm
+let showCustomer = function (x, index) {
+	// Tạo <tr> và các <td> mới 
+	let r = document.createElement("tr");
+	r.innerHTML = '<td> #' + x[index]['idUser'] + '</td>' +
+                    '<td><span class="badge badge-pill badge-warning"> ' + category[x[index]['idCategory']] + '</span>' +
+                    '<a class="" target="_blank"' +
+                    'href="../chi-tiet-phong-tro/'+ x[index]['slug'] + '.html"' +
+                    'style="color: #055699;">' + x[index]['title'] + '</a>' +
+                    '</td>' +
+                    '<td>' + report_type[x[index]['reportType']] + '</td>' +
+                    '<td>' + x[index]['content'] + '</td>' +
+                    '<td> #' + x[index]['idUser'] + '</td>' +
+                    '<td>' + formDate(x[index]['createdAt']) + '</td>';
+	return r;
+};
 
 // Tải dữ liệu báo cáo của người dùng
 async function loadReportData(){
@@ -240,7 +311,6 @@ async function loadReportData(){
                           let r = showReport(post, i);
                           document.querySelector("tbody#list-report").appendChild(r);
                       };
-                      //document.querySelector(img.user_avatar).src = '../content/images/avatar/' + ret.owner['avatar'];
                     } else {
                         // Có lỗi xử lý nghiệp vụ
                         alert('Error! Lỗi xử lí nghiệp vụ');
@@ -320,9 +390,8 @@ let showReview = function (x, index) {
                                 'Action' +
                             '</button>' +
                             '<div class="dropdown-menu">' +
-                                '<a class="dropdown-item text-success" href="#"><i class="fas fa-check-square"></i> Kiểm duyệt</a>' +
-                                '<a class="dropdown-item text-warning" href="#"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>' +
-                                '<a class="dropdown-item text-danger" href="#"><i class="fas fa-times"></i> Xóa</a>' +
+                                '<a class="dropdown-item text-success" href="#" onclick="AcceptReview('+ x[index]['idPost'] +')><i class="fas fa-check-square"></i> Kiểm duyệt</a>' +
+                                '<a class="dropdown-item text-warning" href="#" onclick="RejectReview('+ x[index]['idPost'] +')><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>' +
                             '</div>' +
                         '</div>' +
                     '</td>';
@@ -356,39 +425,105 @@ function PostFunction() {
       }       
     }
   }
-  function ReportFunction() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("ReportInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("report-table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[2];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }       
+function ReportFunction() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("ReportInput");
+filter = input.value.toUpperCase();
+table = document.getElementById("report-table");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+    } else {
+        tr[i].style.display = "none";
     }
-  }
-  function ReviewFunction() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("ReviewsInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("comment-table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[2];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }       
+    }       
+}
+}
+function ReviewFunction() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("ReviewsInput");
+filter = input.value.toUpperCase();
+table = document.getElementById("comment-table");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+    txtValue = td.textContent || td.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+    } else {
+        tr[i].style.display = "none";
     }
-  }
+    }       
+}
+}
+
+// Duyệt bài đăng
+function AcceptPost(id) {
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+      
+    fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/AcceptPost?idPost=" + id, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        alert('Duyệt bài đăng thành công!')
+        location.reload();
+    })
+    .catch(error => console.log('error', error));
+}
+// Từ chối duyệt bài đăng
+function RejectPost(id) {
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+      
+    fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/RejectPost?idPost=" + id, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        alert('Bỏ kiểm duyệt bài đăng thành công!');
+        location.reload();
+    })
+    .catch(error => console.log('error', error));
+}
+
+// Duyệt review
+function AcceptReview(id) {
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+      
+    fetch("http://fcbtruong-001-site1.itempurl.com/api/ReviewPost/AcceptReview?idReview=" + id, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        alert('Duyệt review đăng thành công!')
+        location.reload();
+    })
+    .catch(error => console.log('error', error));
+}
+// Từ chối duyệt bài đăng
+function RejectReview(id) {
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+      
+    fetch("http://fcbtruong-001-site1.itempurl.com/api/ReviewPost/RemoveReview?idReview=" + id, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+        alert('Từ chối duyệt review thành công!');
+        location.reload();
+    })
+    .catch(error => console.log('error', error));
+}
