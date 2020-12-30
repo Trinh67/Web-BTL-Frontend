@@ -2,6 +2,7 @@ $(document).ready(function () {
     if(window.localStorage.getItem('role') < 1) window.location = 'trang-chu.html';
     document.getElementById('user-name').innerHTML = window.localStorage.getItem('userName');
     document.getElementById('phoneNumber').innerHTML = window.localStorage.getItem('phone');
+    document.getElementById('numberNotifi').innerHTML = window.localStorage.getItem('newNotificationNumber');
     loadOwnerRoomData();
     $('#post-manager').click(btnPostOnclick);
     $('#list-favorite-post').click(btnListFavoriteOnclick);
@@ -70,6 +71,7 @@ function btnMessageOnclick() {
 }
 // Thông báo
 function btnNotificationOnclick() {
+    notify();
     $('.notification-panel').show();
     $('.chatWithAdmin').hide();
     $('.list-favorite-post').hide();
@@ -293,3 +295,50 @@ function AddDays(id) {
         .then(result => alert('Gia hạn thành công!'))
         .catch(error => console.log('error', error));
   }
+
+
+// Thông báo 
+async function notify(){
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+  
+  fetch("http://fcbtruong-001-site1.itempurl.com/api/UserInfor/GetListNotification", requestOptions)
+    .then(response => {
+        if (response.status == 200) {
+            response.json()
+                .then(ret => {
+                    if (ret != null) {
+                      $('.notification-box').empty();
+                      var post = ret;
+                      for (let i = 0; i < post.length; i++) {
+                          let r = showNotification(post, i);
+                          document.querySelector("div.notification-box").appendChild(r);
+                      };
+                    } else {
+                        // Có lỗi xử lý nghiệp vụ
+                        alert('Error! Lỗi xử lí nghiệp vụ');
+                    }
+                });
+        } else {
+            // Có lỗi HTTP
+            alert('Error! Lỗi HTTP');
+        }
+    })
+    .catch(error => console.log('error', error));
+}
+// Tạo thông báo
+let showNotification = function (x, index) {
+	// Tạo <tr> và các <td> mới 
+    let r = document.createElement("div");
+	r.innerHTML = '<div class="message-content message-success">' +
+                    '<img class="circle-avatar" src="content/images/avatar/tsubasa.jpg" alt="Avatar">' +
+                    '<div class="text-message">' +
+                        '<div class="content">Hi '+ window.localStorage.getItem('userName') +'! '+ x[index]['content'] +'</div>' +
+                        '<div class="small admin-time">Admin · '+  formDate(x[index]['createdAt']) +'</div>' +
+                    '</div>' +
+                '</div>';
+	return r;
+};

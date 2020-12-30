@@ -43,6 +43,7 @@ function getInfo() {
                window.localStorage.setItem('role', ret.idRole);
                window.localStorage.setItem('phone', ret.phone);
                window.localStorage.setItem('createdAt', ret.createdAt);
+               window.localStorage.setItem('newNotificationNumber', ret.newNotificationNumber);
             }
         )
     }
