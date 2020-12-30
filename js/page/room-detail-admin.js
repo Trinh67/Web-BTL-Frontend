@@ -6,9 +6,18 @@ $(document).ready(function () {
 })
 
 var myHeaders = new Headers();
+
+console.log(window.localStorage.getItem("token") + "kkk");
 myHeaders.append("Authorization", "Bearer " + window.localStorage.getItem("token"));
 myHeaders.append("Content-Type", "application/json");
 
+var requestOptions = {
+	method: 'GET',
+	headers: myHeaders,
+	redirect: 'follow'
+  };
+
+  
 var idPost;
 // Lấy tham số trên url
 function GetURLParameter(url) {
@@ -52,7 +61,7 @@ let showComment = function (x, index) {
 //
 // Tải trang: Lấy thông tin phòng trọ
 async function loadNewsRoomDetails() {
-	await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/AdminGetPostWithId?idPost=" + GetURLParameter(document.URL))
+	await fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/AdminGetPostWithId?idPost=" + GetURLParameter(document.URL), requestOptions)
 	.then(resp => {
 		if (resp.status == 200) {
 			resp.json()
