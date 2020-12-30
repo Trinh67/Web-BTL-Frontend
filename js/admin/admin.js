@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    //if(window.localStorage.getItem('role') < 2) window.location = '../trang-chu.html';
+    if(window.localStorage.getItem('role') < 2) window.location = '../trang-chu.html';
+    document.getElementById('user-name').innerHTML = window.localStorage.getItem('userName');
+    document.getElementById('phoneNumber').innerHTML = window.localStorage.getItem('phone');
     $('#statistic').click(btnStatisticOnClick);
     $('#owner-manager').click(btnOwnerOnclick);
     $('#customer-manager').click(btnCustomerOnclick);
@@ -390,8 +392,8 @@ let showReview = function (x, index) {
                                 'Action' +
                             '</button>' +
                             '<div class="dropdown-menu">' +
-                                '<a class="dropdown-item text-success" href="#" onclick="AcceptReview('+ x[index]['idPost'] +')><i class="fas fa-check-square"></i> Kiểm duyệt</a>' +
-                                '<a class="dropdown-item text-warning" href="#" onclick="RejectReview('+ x[index]['idPost'] +')><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>' +
+                                '<a class="dropdown-item text-success" href="#" onclick="AcceptReview('+ x[index].rv['idComment'] +')"><i class="fas fa-check-square"></i> Kiểm duyệt</a>' +
+                                '<a class="dropdown-item text-warning" href="#" onclick="RejectReview('+ x[index].rv['idComment'] +')"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>' +
                             '</div>' +
                         '</div>' +
                     '</td>';

@@ -141,7 +141,7 @@ let showPost = function (x, index) {
                     'href="chi-tiet-phong-tro/'+ x[index].motelInfor['slug'] + '.html"' +
                     'style="color: #055699;">' + x[index].motelInfor['title'] + '</a>' +
                     '<div>' +
-                    '<a href="#" class="btn btn-sm btn-add-day text-success"><i data-feather="plus"></i>+ Thêm ngày</a> ' +
+                    '<a href="#" class="btn btn-sm btn-add-day text-success" onclick="AddDays(' + x[index].post['idPost'] + ')"><i data-feather="plus"></i>+ Thêm ngày</a> ' +
                     '<a href="sua-bai-dang/' + x[index].post['idPost'] +'.html" class="btn btn-sm btn-edit-post"><i class="fas fa-edit icon"></i> Sửa</a>' +
                     '<div class="onoffswitch">' +
                         '<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>' +
@@ -269,3 +269,27 @@ function RemoveFavorite(id) {
     })
     .catch(error => console.log('error', error));
 }
+
+// Gia hạn bài đăng
+function AddDays(id) {
+    var packetType, packetValue;
+    var type = prompt("Chọn gói muốn gia hạn:", "Gói tuần");
+    var value = prompt("Số lượng tuần/tháng/quý/năm tương ứng:", "1");
+
+    if (type == null || type == "" || value == null || value == "") {
+      alert('Bạn phải điền đầy đủ dữ liệu');
+    } else {
+        packetType = 1;
+        packetValue = value;
+    }
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+      
+      fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/ExtendDatePost?idPost=" + id + "&packetType=" + packetType + "&packetValue=" + packetValue, requestOptions)
+        .then(response => response.text())
+        .then(result => alert('Gia hạn thành công!'))
+        .catch(error => console.log('error', error));
+  }
