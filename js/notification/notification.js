@@ -1,13 +1,38 @@
-var source = new EventSource('https://localhost:44394/api/Notification/');  
-  
-source.onmessage = function (e) {  
-    var data = e.data.split('|');  
-    var username = $("<strong></strong>").text(data[0] + " : ");  
-    var text = $("<i></i>").text(data[1]);  
-    var dt = $("<div></div>").text(data[2]);  
-    var chatTemp = document.createElement("p");  
-    chatTemp.append(dt[0], username[0], text[0], document.createElement("br"));  
-    $('#chatTemplate').append(chatTemp);  
+loginToken = window.localStorage.getItem("token");
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("https://localhost:44394/api/pushNotification",
+    {accessTokenFactory: () => loginToken}) //http://fcbtruong-001-site1.itempurl.com/api/pushNotification
+    .build();
 
-    console.log('okkk');
-}; 
+
+connection.qs = { 'access_token': loginToken}
+async function start() {
+    try {
+        await connection.start();
+        console.log("SignalR Connected.");
+        console.log(connection.connectionId);
+    } catch (err) {
+        console.log(err);
+        setTimeout(start, 5000);
+    }
+};
+
+connection.on("publicMessageMethodName", (message) =>
+{
+   console.log(message );
+});
+
+connection.on("privateAdminNotify", (message) => 
+{
+    console.log(message);
+});
+
+connection.onclose(start);
+
+// Start the connection.
+start();
+
+/*
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
+    <script src="notification.js" ></script>
+    */
