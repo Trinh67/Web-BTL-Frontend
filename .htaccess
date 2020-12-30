@@ -13,4 +13,5 @@
         RewriteRule ^tim-kiem-phong-tro?([a-zA-Z0-9_-]+)$ page/search.html
         RewriteRule ^quan-tri-websites/([a-zA-Z0-9_-]+).html$ page/admin/$1.html
         RewriteRule ^sua-bai-dang/([a-zA-Z0-9_-]+).html$ sua-bai-dang.html
+        RewriteRule ^xem-bai-viet/([a-zA-Z0-9_-]+).html$ room-detail-admin.html?idPost=$1
 </IfModule>

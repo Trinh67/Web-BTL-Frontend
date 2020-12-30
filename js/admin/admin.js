@@ -196,7 +196,7 @@ let showPost = function (x, index) {
 	r.innerHTML = '<td>#' + x[index]['idPost'] + '</td>' +
                     '<td><span class="badge badge-pill badge-warning"> ' + category[x[index]['idCategory'] - 1] + '</span>' +
                     '<a class="" target="_blank"' +
-                    'href="../chi-tiet-phong-tro/'+ x[index]['slug'] + '.html"' +
+                    'href="../xem-bai-viet/'+ x[index]['idPost'] + '.html"' +
                     'style="color: #055699;">' + x[index]['title'] + '</a>' +
                     '</td>' +
                     '<td>' + x[index]['price'].toLocaleString('it-IT') + ' đ/ tháng</td>' +
