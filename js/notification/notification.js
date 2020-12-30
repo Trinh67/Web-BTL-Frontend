@@ -1,6 +1,6 @@
 loginToken = window.localStorage.getItem("token");
 const connection = new signalR.HubConnectionBuilder()
-    .withUrl("https://localhost:44394/api/pushNotification",
+    .withUrl("http://fcbtruong-001-site1.itempurl.com/api/pushNotification",
     {accessTokenFactory: () => loginToken}) //http://fcbtruong-001-site1.itempurl.com/api/pushNotification
     .build();
 
@@ -24,6 +24,7 @@ connection.on("publicMessageMethodName", (message) =>
 
 connection.on("privateAdminNotify", (message) => 
 {
+    alert(message);
     console.log(message);
 });
 

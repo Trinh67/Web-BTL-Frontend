@@ -194,7 +194,7 @@ let showPost = function (x, index) {
 	// Tạo <tr> và các <td> mới 
 	let r = document.createElement("tr");
 	r.innerHTML = '<td>#' + x[index]['idPost'] + '</td>' +
-                    '<td><span class="badge badge-pill badge-warning"> ' + category[x[index]['idCategory']] + '</span>' +
+                    '<td><span class="badge badge-pill badge-warning"> ' + category[x[index]['idCategory'] - 1] + '</span>' +
                     '<a class="" target="_blank"' +
                     'href="../chi-tiet-phong-tro/'+ x[index]['slug'] + '.html"' +
                     'style="color: #055699;">' + x[index]['title'] + '</a>' +
@@ -210,8 +210,8 @@ let showPost = function (x, index) {
                                 'Action' +
                             '</button>' +
                             '<div class="dropdown-menu">' +
-                                '<a class="dropdown-item text-success" href="#" onclick="AcceptPost('+ x[index]['idPost'] +')"><i class="fas fa-check-square"></i> Kiểm duyệt</a>' +
-                                '<a class="dropdown-item text-warning" href="#" onclick="RejectPost('+ x[index]['idPost'] +')"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>' +
+                                '<a class="dropdown-item text-success" href="#" onclick="AcceptPost('+ x[index]['idPost'] +', 34)"><i class="fas fa-check-square"></i> Kiểm duyệt</a>' +
+                                '<a class="dropdown-item text-warning" href="#" onclick="RejectPost('+ x[index]['idPost'] +', 34)"><i class="fas fa-times-circle"></i> Từ chối kiểm duyệt</a>' +
                             '</div>' +
                             '</div>' +
                     '</td>';
@@ -331,12 +331,12 @@ let showReport = function (x, index) {
 	// Tạo <tr> và các <td> mới 
 	let r = document.createElement("tr");
 	r.innerHTML = '<td> #' + x[index]['idPost'] + '</td>' +
-                    '<td><span class="badge badge-pill badge-warning"> ' + category[x[index]['idCategory']] + '</span>' +
+                    '<td><span class="badge badge-pill badge-warning"> ' + category[x[index]['idCategory'] - 1] + '</span>' +
                     '<a class="" target="_blank"' +
                     'href="../chi-tiet-phong-tro/'+ x[index]['slug'] + '.html"' +
                     'style="color: #055699;">' + x[index]['title'] + '</a>' +
                     '</td>' +
-                    '<td>' + report_type[x[index]['reportType']] + '</td>' +
+                    '<td>' + report_type[x[index]['reportType'] - 1] + '</td>' +
                     '<td>' + x[index]['content'] + '</td>' +
                     '<td> #' + x[index]['idUser'] + '</td>' +
                     '<td>' + formDate(x[index]['createdAt']) + '</td>';
@@ -464,8 +464,9 @@ for (i = 0; i < tr.length; i++) {
 }
 }
 
+var idUser = 34;
 // Duyệt bài đăng
-function AcceptPost(id) {
+function AcceptPost(id, idUser) {
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
@@ -475,13 +476,19 @@ function AcceptPost(id) {
     fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/AcceptPost?idPost=" + id, requestOptions)
     .then(response => response.text())
     .then(result => {
-        alert('Duyệt bài đăng thành công!')
-        location.reload();
+        let message = "1 Bài viết của bạn đã được phê duyệt!";
+        fetch("http://fcbtruong-001-site1.itempurl.com/api/Notification/AdminNotify/" + idUser + "/" + message, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            alert('Gửi thông báo thành công!');
+            location.reload();
+        })
+        .catch(error => console.log('error', error));
     })
     .catch(error => console.log('error', error));
 }
 // Từ chối duyệt bài đăng
-function RejectPost(id) {
+function RejectPost(id, idUser) {
     var requestOptions = {
         method: 'POST',
         headers: myHeaders,
@@ -491,8 +498,14 @@ function RejectPost(id) {
     fetch("http://fcbtruong-001-site1.itempurl.com/api/Post/RejectPost?idPost=" + id, requestOptions)
     .then(response => response.text())
     .then(result => {
-        alert('Bỏ kiểm duyệt bài đăng thành công!');
-        location.reload();
+        let message = "1 Bài viết của bạn đã bị từ chối phê duyệt!";
+        fetch("http://fcbtruong-001-site1.itempurl.com/api/Notification/AdminNotify/" + idUser + "/" + message, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            alert('Bỏ kiểm duyệt bài đăng thành công!');
+            location.reload();
+        })
+        .catch(error => console.log('error', error));
     })
     .catch(error => console.log('error', error));
 }
@@ -508,10 +521,12 @@ function AcceptReview(id) {
     fetch("http://fcbtruong-001-site1.itempurl.com/api/ReviewPost/AcceptReview?idReview=" + id, requestOptions)
     .then(response => response.text())
     .then(result => {
-        alert('Duyệt review đăng thành công!')
+        alert('Duyệt thành công!');
         location.reload();
-    })
+     })
     .catch(error => console.log('error', error));
+
+    
 }
 // Từ chối duyệt bài đăng
 function RejectReview(id) {
